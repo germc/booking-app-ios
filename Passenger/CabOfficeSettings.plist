@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>caboffice_settings_dropoff_location_is_mandatory</key>
+	<false/>
+	<key>caboffice_settings_max_active_bookings</key>
+	<integer>5</integer>
+	<key>caboffice_settings_new_bookings_max_days_ahead</key>
+	<integer>7</integer>
+	<key>caboffice_start_location_latitude</key>
+	<real>51.5171</real>
+	<key>caboffice_start_location_longitude</key>
+	<real>0.1062</real>
+</dict>
+</plist>

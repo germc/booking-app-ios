@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ ******************************************************************************
+ *
+ * Copyright (C) 2013 T Dispatch Ltd
+ *
+ * Licensed under the GPL License, Version 3.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.gnu.org/licenses/gpl-3.0.html
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ ******************************************************************************
+ *
+ * @author Marcin Orlowski <marcin.orlowski@webnet.pl>
+ *
+ ****
+-->
+
+<resources>
+
+    <string name="register_form_first_name_hint">First name</string>
+    <string name="register_form_last_name_hint">Last name</string>
+    <string name="register_form_phone_hint">Phone number</string>
+    <string name="register_form_email_hint">Email address</string>
+    <string name="register_form_password_1_hint">Password</string>
+    <string name="register_form_password_2_hint">Confirm password</string>
+    <string name="register_form_button_register">Create Account</string>
+
+    <string name="register_form_dialog_error_first_name">Entered first name is not valid. Please correct and try again.</string>
+    <string name="register_form_dialog_error_last_name">Entered last name is not valid. Please correct and try again.</string>
+    <string name="register_form_dialog_error_email">Entered email address is not valid. Please correct and try again.</string>
+    <string name="register_form_dialog_error_phone">Entered phone number is not valid. Please correct and try again.</string>
+    <string name="register_form_dialog_error_password">Entered password is not valid. Please correct and try again.</string>
+    <string name="register_form_dialog_error_password_verification">Verification password is different. Please correct and try again.</string>
+
+	<!-- iOS -->
+	<string name="register_form_button_cancel">Cancel</string>
+</resources>

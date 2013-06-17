@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ ******************************************************************************
+ *
+ * Copyright (C) 2013 T Dispatch Ltd
+ *
+ * Licensed under the GPL License, Version 3.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.gnu.org/licenses/gpl-3.0.html
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ ******************************************************************************
+ *
+ * @author Marcin Orlowski <marcin.orlowski@webnet.pl>
+ *
+ ****
+-->
+
+<resources>
+
+	<string name="new_booking_dialog_title">New Booking</string>
+
+	<string name="new_booking_dialog_pickup_time_now">NOW</string>
+
+	<string name="new_booking_dialog_button_ok">Book</string>
+	<string name="new_booking_dialog_button_cancel">Cancel</string>
+
+
+	<!-- iOS -->
+	<string name="new_booking_dialog_picker_button_select">Select</string>
+    <string name="new_booking_dialog_picker_button_cancel">Cancel</string>
+
+</resources>

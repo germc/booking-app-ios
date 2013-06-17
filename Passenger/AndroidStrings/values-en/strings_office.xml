@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ ******************************************************************************
+ *
+ * Copyright (C) 2013 T Dispatch Ltd
+ *
+ * Licensed under the GPL License, Version 3.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.gnu.org/licenses/gpl-3.0.html
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ ******************************************************************************
+ *
+ * @author Marcin Orlowski <marcin.orlowski@webnet.pl>
+ *
+ ****
+-->
+
+<resources>
+
+    <string name="office_mail_title">Mail from Passenger application</string>
+
+	<string name="office_name">Cab Office</string>
+	<string name="office_email">Email Address</string>
+	<string name="office_phone">Phone Number</string>
+
+    <string name="office_chooser_select_mua">Select Mailer</string>
+    <string name="office_failed_to_launch_mua">Failed to launch mail application to complete this task. Please ensure at least one mailer is installed.</string>
+
+    <!-- iOS -->
+    <string name="office_button_ok">OK</string>
+</resources>
