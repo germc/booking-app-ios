@@ -44,14 +44,55 @@
         _cancellationBlock(_index);
 }
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+#define PICKUP_BUTTON_LONGTAP_IDENTIFIER 1
+#define DROPOFF_BUTTON_LONGTAP_IDENTIFIER 2
+#define PICKUP_DROPOFF_BUTTON_LONGTAP_IDENTIFIER 3
+
+- (void)awakeFromNib
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    [super awakeFromNib];
+
+    UILongPressGestureRecognizer *longPressA = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+    _pickupButton.tag = PICKUP_BUTTON_LONGTAP_IDENTIFIER;
+    [_pickupButton addGestureRecognizer:longPressA];
+    UILongPressGestureRecognizer *longPressB = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+    _dropoffButton.tag = DROPOFF_BUTTON_LONGTAP_IDENTIFIER;
+    [_dropoffButton addGestureRecognizer:longPressB];
+    UILongPressGestureRecognizer *longPressAB = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+    _pickupAndDropoffButton.tag = PICKUP_DROPOFF_BUTTON_LONGTAP_IDENTIFIER;
+    [_pickupAndDropoffButton addGestureRecognizer:longPressAB];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Initialization code
     }
     return self;
 }
+
+
+- (void)longPress:(UILongPressGestureRecognizer*)gesture {
+    if ( gesture.state == UIGestureRecognizerStateBegan) {
+        NSInteger tag = gesture.view.tag;
+        if (tag == PICKUP_BUTTON_LONGTAP_IDENTIFIER)
+        {
+            if (_selectionBlock)
+                _selectionBlock(_index, BookingSelectionTypePickupOnlyShow);
+        }
+        else if (tag == DROPOFF_BUTTON_LONGTAP_IDENTIFIER)
+        {
+            if (_selectionBlock)
+                _selectionBlock(_index, BookingSelectionTypeDropoffOnlyShow);
+        }
+        else if (tag == PICKUP_DROPOFF_BUTTON_LONGTAP_IDENTIFIER)
+        {
+            if (_selectionBlock)
+                _selectionBlock(_index, BookingSelectionTypePickupOnlyShow);
+        }
+    }
+}
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

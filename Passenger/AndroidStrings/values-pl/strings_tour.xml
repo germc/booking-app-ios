@@ -3,9 +3,9 @@
 <resources>
   <string name="tour_01_text_01">Przesuń mapę na wybraną pozycję i wciśnij przycisk \"A\" aby ustawić ją jako adres początkowy.</string>
   <string name="tour_01_text_02">Wciśnij \"Zamów\" aby wezwać taksówkę.</string>
-  <string name="tour_02_text_01">Aby ustawić adres docelowy oraz uzyskać cenę za kurs, wskaż na mapię  wybraną pozycję i wciśnij przycisk \"B\".</string>
+  <string name="tour_02_text_01">Aby ustawić adres docelowy oraz uzyskać cenę za kurs, wskaż na mapie  wybraną pozycję i wciśnij przycisk \"B\".</string>
   <string name="tour_02_text_02">Wciśnij \"Zamów\" aby wezwać taksówkę.</string>
   <string name="tour_03_text_01">Aby wpisać, zmienić lub wyszukać adres po prostu wciśnij wyświetlony element.</string>
-  <string name="tour_04_text_01">Aby zmienić wybrane już adresy dotknij ekranu lub przesnuń mapę aby ponownie wyświetlic przyciski.</string>
+  <string name="tour_04_text_01">Aby zmienić wybrane już adresy dotknij ekranu lub przesuń mapę aby ponownie wyświetlić przyciski.</string>
   <string name="tour_button_ok">OK</string>
 </resources>

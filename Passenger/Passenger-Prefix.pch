@@ -45,6 +45,7 @@
     #import "WaitDialog.h"
 
     #import "NSBundle+AndroidStrings.h"
+    #import "NSLocale+MetricSystem.h"
 
     #import "CabOfficeSettings.h"
 #endif

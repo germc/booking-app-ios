@@ -77,6 +77,14 @@
 
 @implementation MapViewController
 
+- (NSString*)dropoffLine
+{
+    if ([CabOfficeSettings useAlternativeDropoffLabel])
+        return NSLocalizedString(@"dropoff_line_alternative", @"");
+    else
+        return NSLocalizedString(@"dropoff_line_default", @"");
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -118,7 +126,7 @@
     [_dropoffButton setTitleFont:[UIFont semiboldOpenSansOfSize:16]];
     _dropoffButton.buttonBackgroundColor = [UIColor clearColor];
     [_dropoffButton setTitleColor:[UIColor dropoffTextColor] forState:UIControlStateNormal];
-    [_dropoffButton setTitle:NSLocalizedString(@"dropoff_line_default", @"") forState:UIControlStateNormal];
+    [_dropoffButton setTitle:[self dropoffLine] forState:UIControlStateNormal];
     [_dropoffButton setTextAlignment:NSTextAlignmentLeft];
         
     UILongPressGestureRecognizer *longPressA = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
@@ -154,13 +162,15 @@
     {
         [[NetworkEngine getInstance] getAccessTokenForRefreshToken:[UserSettings refreshToken]
                                                    completionBlock:^(NSObject *o) {
-                                                       [self downloadNearbyCabs];
-                                                       _nearbyCabsTimer = [NSTimer scheduledTimerWithTimeInterval:30
-                                                                                                           target:self
-                                                                                                         selector:@selector(nearbyCabsTimerFired:)
-                                                                                                         userInfo:nil
-                                                                                                          repeats:YES];
-
+                                                       if( [CabOfficeSettings trackNearbyCabs])
+                                                       {
+                                                           [self downloadNearbyCabs];
+                                                           _nearbyCabsTimer = [NSTimer scheduledTimerWithTimeInterval:30
+                                                                                                               target:self
+                                                                                                             selector:@selector(nearbyCabsTimerFired:)
+                                                                                                             userInfo:nil
+                                                                                                              repeats:YES];
+                                                       }
                                                    }
                                                       failureBlock:^(NSError *e){
                                                           [UserSettings setRefreshToken:nil];
@@ -270,7 +280,7 @@
                 [_mapView removeAnnotation:_endAnnotation];
                 self.endAnnotation = nil;
             }
-            [_dropoffButton setTitle:NSLocalizedString(@"dropoff_line_default", @"") forState:UIControlStateNormal];
+            [_dropoffButton setTitle:[self dropoffLine] forState:UIControlStateNormal];
 
             if ([CabOfficeSettings dropoffLocationIsMandatory] || !_startAnnotation)
                 _bookButton.enabled = NO;
@@ -427,7 +437,7 @@
                                         _priceLabel.text = d[@"fare"][@"formatted_total_cost"];
                                         
                                         NSString *text;
-                                        BOOL isMetric = [[[NSLocale currentLocale] objectForKey:NSLocaleUsesMetricSystem] boolValue];
+                                        BOOL isMetric = [[NSLocale currentLocale] isMetricSystem];
                                         if (!isMetric)
                                         {
                                             NSString *m = d[@"fare"][@"distance"][@"miles"];
@@ -508,12 +518,31 @@
     _bButton.enabled = NO;
     _activityIndicatorView.hidden = NO;
     [_activityIndicatorView startAnimating];
+    _bookingActivityIndicator.hidden = NO;
+    [_bookingActivityIndicator startAnimating];
+    _bookButton.enabled = NO;
     [self findAddressForLocation:_mapView.centerCoordinate completionBlock:^(NSString *address, NSString *zipCode) {
 
         _aButton.enabled = YES;
         _bButton.enabled = YES;
         _activityIndicatorView.hidden = YES;
+        _bookingActivityIndicator.hidden = YES;
 
+        if (_startAnnotation)
+        {
+            if ([CabOfficeSettings dropoffLocationIsMandatory])
+            {
+                if (_endAnnotation)
+                    _bookButton.enabled = YES;
+                else
+                    _bookButton.enabled = NO;
+            }
+            else
+            {
+                _bookButton.enabled = YES;
+            }
+        }
+        
         self.locationName = address;
         self.zipCode = zipCode;
     }];
@@ -555,12 +584,22 @@
                             CLPlacemark *placemark = placemarks[0];
                             
                             NSDictionary *addressDictionary = placemark.addressDictionary;
-                            
                             NSString* address = ABCreateStringWithAddressDictionary(addressDictionary, NO);
-                            
-                            completionBlock([address stringByReplacingOccurrencesOfString:@"\n" withString:@" "], placemark.postalCode);
+                            address = [address stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
+                            NSString* zipCode = placemark.postalCode;
                             
                             NSLog(@"%@ \n%@", addressDictionary, address);
+
+                            if (address == nil || zipCode == nil)
+                            {
+                                completionBlock(nil, nil);
+                                [MessageDialog showError:NSLocalizedString(@"map_aim_location_unknown_body", @"")
+                                               withTitle:NSLocalizedString(@"dialog_error_title", @"")];
+                            }
+                            else
+                            {
+                                completionBlock(address, zipCode);
+                            }
                         }
                         else
                         {
@@ -643,7 +682,7 @@
                                                       }
                                                       
                                                       [_pickupButton setTitle:NSLocalizedString(@"pickup_line_default", @"") forState:UIControlStateNormal];
-                                                      [_dropoffButton setTitle:NSLocalizedString(@"dropoff_line_default", @"") forState:UIControlStateNormal];
+                                                      [_dropoffButton setTitle:[self dropoffLine] forState:UIControlStateNormal];
 
                                                   }
                                                      failureBlock:^(NSError *error) {
@@ -697,9 +736,6 @@
     {
         _bookButton.enabled = YES;
     }
-    
-//    [self zoomToFitMapAnnotations];
-    
 }
 
 - (void)setDropoffLocation:(CLLocationCoordinate2D)location
@@ -717,8 +753,9 @@
     [_mapView addAnnotation:_endAnnotation];
  
     if ([CabOfficeSettings dropoffLocationIsMandatory] && _startAnnotation)
+    {
         _bookButton.enabled = YES;
-//    [self zoomToFitMapAnnotations];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -799,21 +836,32 @@
                    andDropoffName:(NSString *)dropoffName
                 andDropoffZipCode:(NSString *)dropoffZipCode
                andDropoffLocation:(CLLocationCoordinate2D)dropoffLocation
+                         onlyShow:(BOOL)onlyShow
 {
     PKRevealController *rc = self.revealController;
     [rc showViewController:rc.frontViewController];
 
-    if (pickupName) {
-        [self setPickupLocation:pickupLocation title:pickupName zipCode:pickupZipCode];
-        [_mapView setCenterCoordinate:pickupLocation animated:YES];
-    } else {
-        [_mapView setCenterCoordinate:dropoffLocation animated:YES];
+    if (onlyShow)
+    {
+        if (pickupName)
+            [_mapView setCenterCoordinate:pickupLocation animated:YES];
+        else
+            [_mapView setCenterCoordinate:dropoffLocation animated:YES];
     }
+    else
+    {
+        if (pickupName) {
+            [self setPickupLocation:pickupLocation title:pickupName zipCode:pickupZipCode];
+            [_mapView setCenterCoordinate:pickupLocation animated:YES];
+        } else {
+            [_mapView setCenterCoordinate:dropoffLocation animated:YES];
+        }
+        
+        if (dropoffName)
+            [self setDropoffLocation:dropoffLocation title:dropoffName zipCode:dropoffZipCode];
 
-    if (dropoffName)
-        [self setDropoffLocation:dropoffLocation title:dropoffName zipCode:dropoffZipCode];
-
-    [self calculateFare];
+        [self calculateFare];
+    }
 }
 
 @end

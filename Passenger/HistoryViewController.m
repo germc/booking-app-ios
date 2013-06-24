@@ -261,14 +261,10 @@
     if (indexPath.row == _selectedRow)
     {
         NSString *status = booking[@"status"];
-        if ([status isEqualToString:@"quoting"] ||
-            [status isEqualToString:@"incoming"] ||
+        if ([status isEqualToString:@"incoming"] ||
             [status isEqualToString:@"from_partner"] ||
             [status isEqualToString:@"dispatched"] ||
-            [status isEqualToString:@"confirmed"] ||
-            [status isEqualToString:@"active"] ||
-            [status isEqualToString:@"completed"] ||
-            [status isEqualToString:@"draft"])
+            [status isEqualToString:@"confirmed"])
         {
             cell.cancelButton.hidden = NO;
         }
@@ -365,8 +361,12 @@
             dropoffCoordinate = CLLocationCoordinate2DMake([lat doubleValue], [lng doubleValue]);
         }
 
+        BOOL onlyShow = NO;
+        
         switch (type)
         {
+            case BookingSelectionTypePickupOnlyShow:
+                onlyShow = YES;
             case BookingSelectionTypePickup:
             {
                 pickupName = pickup[@"address"];
@@ -374,6 +374,8 @@
             }
             break;
 
+            case BookingSelectionTypeDropoffOnlyShow:
+                onlyShow = YES;
             case BookingSelectionTypeDropoff:
             {
                 dropoffName = dropoff[@"address"];
@@ -396,7 +398,8 @@
                                     andPickupLocation:pickupCoordinate
                                        andDropoffName:dropoffName
                                      andDropoffZipCode:dropoffZipCode
-                                   andDropoffLocation:dropoffCoordinate];
+                                   andDropoffLocation:dropoffCoordinate
+                                             onlyShow:onlyShow];
     };
     
     return cell;

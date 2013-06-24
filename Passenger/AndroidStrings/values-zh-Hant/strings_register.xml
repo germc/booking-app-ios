@@ -10,7 +10,7 @@
   <string name="register_form_button_register">建立帳戶</string>
   <string name="register_form_dialog_error_first_name">輸入的名字是無效。請更正，然後再試一次。</string>
   <string name="register_form_dialog_error_last_name">輸入的姓氏是無效。請更正，然後再試一次。</string>
-  <string name="register_form_dialog_error_email">輸入的電郵是無效。請更正，然後再試一次。</string>
+  <string name="register_form_dialog_error_email">輸入的電郵地址是無效。請更正，然後再試一次。</string>
   <string name="register_form_dialog_error_phone">輸入的電話號碼是無效。請更正，然後再試一次。</string>
   <string name="register_form_dialog_error_password">輸入的密碼是無效。請更正，然後再試一次。</string>
   <string name="register_form_dialog_error_password_verification">驗證密碼是不同的。請更正，然後再試。</string>

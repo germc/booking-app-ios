@@ -4,5 +4,5 @@
   <string name="profile_name">全稱</string>
   <string name="profile_email">電郵地址</string>
   <string name="profile_phone">電話號碼</string>
-  <string name="profile_button_ok">OK</string>
+  <string name="profile_button_ok">確定</string>
 </resources>

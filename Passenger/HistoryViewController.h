@@ -29,7 +29,8 @@
                 andPickupLocation:(CLLocationCoordinate2D)pickupLocation
                    andDropoffName:(NSString *)dropoffName
                 andDropoffZipCode:(NSString *)dropoffZipCode
-               andDropoffLocation:(CLLocationCoordinate2D)dropoffLocation;
+               andDropoffLocation:(CLLocationCoordinate2D)dropoffLocation
+                         onlyShow:(BOOL)onlyShow;
 
 @end
 

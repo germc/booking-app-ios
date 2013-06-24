@@ -25,7 +25,9 @@
 typedef enum BookingSelectionType
 {
     BookingSelectionTypePickup = 0,
+    BookingSelectionTypePickupOnlyShow,
     BookingSelectionTypeDropoff,
+    BookingSelectionTypeDropoffOnlyShow,
     BookingSelectionTypePickupDropoff
 }BookingSelectionType;
 

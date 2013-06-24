@@ -4,4 +4,6 @@
   <string name="msg_unknown_error_body">Wystąpił nieznany błąd. Sprawdź proszę czy masz połączenie z Internetem i spróbuj ponownie.</string>
   <string name="msg_failed_to_parse_api_response">Nie mogę przetworzyć odpowiedzi z API. Spróbuj ponownie. Jeśli problem będzie się powtarzał, skontaktuj się z nami.</string>
   <string name="msg_no_api_response">Brak odpowiedzi z API. Spróbuj ponownie. Skontaktuj się z nami, jeśli problem będzie sie powtarzał.</string>
+  <string name="journey_distance_imperial_fmt">%s mil</string>
+  <string name="journey_distance_metrics_fmt">%s km</string>
 </resources>

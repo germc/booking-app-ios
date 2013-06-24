@@ -28,10 +28,11 @@
 
 	<string name="pickup_line_default">Set pickup location&#8230;</string>
 	<string name="dropoff_line_default">&#8230;</string>
+	<string name="dropoff_line_alternative">Set destination&#8230;</string>
 
 	<string name="map_aim_location_unknown_body">Unable to determine address of location map currently points to. Please try scrolling the map to nearby location to resolve your location again.</string>
 
-	<string name="new_booking_both_locations_required_to_place_booking">Both pickup and dropoff locations have to be set to place the booking.</string>
+	<string name="new_booking_both_locations_required_to_place_booking">Both pickup and destination have to be set to place the booking.</string>
 
 	<string name="new_booking_no_pickup_location_body">Please specify pickup location first.</string>
 	<string name="new_booking_pickup_date_already_passed">Specified pickup date has already passed.</string>
@@ -41,6 +42,9 @@
 	<string name="new_booking_body_fmt">Your booking has been placed. Your pickup location is at &quot;%s&quot;. Please wait for the cab.</string>
 
 	<string name="new_booking_failed_body_fmt">Failed to place your booking.\n\nReason: %s</string>
+	
+	<string name="unable_to_get_current_location_body">Unable to get your current location. Please check system settings and ensure at least one location provider is enabled.</string>
+	<string name="unable_to_get_current_location_button_show_settings">System Settings</string>
 
 	<!-- iOS -->
 	<string name="address_search_button_cancel">Cancel</string>

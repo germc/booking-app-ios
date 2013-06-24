@@ -4,4 +4,6 @@
   <string name="msg_unknown_error_body">Une erreur inconnue s\'est produite. Merci de vérifier votre connexion réseau et de réessayer.</string>
   <string name="msg_failed_to_parse_api_response">Impossible d\'analyser la réponse de l\'API. Merci d\'essayer à nouveau. Si le problème persiste, veuillez nous contacter pour bénéficier d\'une assistance.</string>
   <string name="msg_no_api_response">L\'API n\'a pas renvoyé de réponse. Merci d\'essayer à nouveau. Si le problème persiste, veuillez nous contacter pour bénéficier d\'une assistance.</string>
+  <string name="journey_distance_imperial_fmt">%s miles</string>
+  <string name="journey_distance_metrics_fmt">%s km</string>
 </resources>

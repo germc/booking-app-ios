@@ -4,4 +4,6 @@
   <string name="msg_unknown_error_body">發生未知錯誤。請檢查你的網路連接才再試一次。</string>
   <string name="msg_failed_to_parse_api_response">無法分析處理API回應。請再試一次。如果問題持續，請聯繫我們的援助。</string>
   <string name="msg_no_api_response">API沒有回應。請再試一次。如果問題持續，請聯繫我們的援助。</string>
+  <string name="journey_distance_imperial_fmt">%s miles</string>
+  <string name="journey_distance_metrics_fmt">%s km</string>
 </resources>

@@ -66,4 +66,32 @@
     return [r integerValue];
 }
 
++ (BOOL)useAlternativeDropoffLabel
+{
+    NSDictionary *s = [CabOfficeSettings cabOfficeDefaults];
+    NSNumber* r = s[@"caboffice_settings_use_alternative_dropoff_label"];
+    return [r boolValue];
+}
+
++ (BOOL)trackBookings
+{
+    NSDictionary *s = [CabOfficeSettings cabOfficeDefaults];
+    NSNumber* r = s[@"caboffice_settings_track_bookings"];
+    return [r boolValue];
+}
+
++ (BOOL)hideDemoWarning
+{
+    NSDictionary *s = [CabOfficeSettings cabOfficeDefaults];
+    NSNumber* r = s[@"caboffice_settings_hide_demo_warning"];
+    return [r boolValue];
+}
+
++ (BOOL)trackNearbyCabs
+{
+    NSDictionary *s = [CabOfficeSettings cabOfficeDefaults];
+    NSNumber* r = s[@"caboffice_settings_track_nearby_cabs"];
+    return [r boolValue];
+}
+
 @end

@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		234FACF8176E47130085AAFC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2397EBE5176135F8003435EC /* MessageUI.framework */; };
 		234FACF9176E471D0085AAFC /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AB20C71753F37D0085C492 /* AddressBookUI.framework */; };
+		23526A3717750B57006257CC /* values-uk in Resources */ = {isa = PBXBuildFile; fileRef = 23526A3617750B57006257CC /* values-uk */; };
+		23526A3817750B57006257CC /* values-uk in Resources */ = {isa = PBXBuildFile; fileRef = 23526A3617750B57006257CC /* values-uk */; };
+		23526A4C1778DDB8006257CC /* NSLocale+MetricSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 23526A4B1778DDB8006257CC /* NSLocale+MetricSystem.m */; };
+		23526A4D1778DDB8006257CC /* NSLocale+MetricSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 23526A4B1778DDB8006257CC /* NSLocale+MetricSystem.m */; };
+		23526A501778EFB7006257CC /* values-zh-Hans in Resources */ = {isa = PBXBuildFile; fileRef = 23526A4E1778EFB6006257CC /* values-zh-Hans */; };
+		23526A511778EFB7006257CC /* values-zh-Hans in Resources */ = {isa = PBXBuildFile; fileRef = 23526A4E1778EFB6006257CC /* values-zh-Hans */; };
+		23526A521778EFB7006257CC /* values-zh-Hant in Resources */ = {isa = PBXBuildFile; fileRef = 23526A4F1778EFB6006257CC /* values-zh-Hant */; };
+		23526A531778EFB7006257CC /* values-zh-Hant in Resources */ = {isa = PBXBuildFile; fileRef = 23526A4F1778EFB6006257CC /* values-zh-Hant */; };
 		235901891754A49300B17112 /* ConfirmBookingDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 235901871754A49300B17112 /* ConfirmBookingDialog.m */; };
 		2359018A1754A49300B17112 /* ConfirmBookingDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 235901871754A49300B17112 /* ConfirmBookingDialog.m */; };
 		2359018B1754A49300B17112 /* ConfirmBookingDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 235901881754A49300B17112 /* ConfirmBookingDialog.xib */; };
@@ -111,8 +119,6 @@
 		23CFE1B6176B64910048EF67 /* values-pt in Resources */ = {isa = PBXBuildFile; fileRef = 23CFE1A3176B64910048EF67 /* values-pt */; };
 		23CFE1B7176B64910048EF67 /* values-ru in Resources */ = {isa = PBXBuildFile; fileRef = 23CFE1A4176B64910048EF67 /* values-ru */; };
 		23CFE1B8176B64910048EF67 /* values-ru in Resources */ = {isa = PBXBuildFile; fileRef = 23CFE1A4176B64910048EF67 /* values-ru */; };
-		23CFE1BB176B64910048EF67 /* values-zh in Resources */ = {isa = PBXBuildFile; fileRef = 23CFE1A6176B64910048EF67 /* values-zh */; };
-		23CFE1BC176B64910048EF67 /* values-zh in Resources */ = {isa = PBXBuildFile; fileRef = 23CFE1A6176B64910048EF67 /* values-zh */; };
 		23CFE1C7176C82020048EF67 /* button_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 23CFE1C5176C82020048EF67 /* button_cancel.png */; };
 		23CFE1C8176C82020048EF67 /* button_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 23CFE1C5176C82020048EF67 /* button_cancel.png */; };
 		23CFE1C9176C82020048EF67 /* button_cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23CFE1C6176C82020048EF67 /* button_cancel@2x.png */; };
@@ -300,6 +306,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23526A3617750B57006257CC /* values-uk */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "values-uk"; sourceTree = "<group>"; };
+		23526A4A1778DDB8006257CC /* NSLocale+MetricSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLocale+MetricSystem.h"; sourceTree = "<group>"; };
+		23526A4B1778DDB8006257CC /* NSLocale+MetricSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLocale+MetricSystem.m"; sourceTree = "<group>"; };
+		23526A4E1778EFB6006257CC /* values-zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "values-zh-Hans"; sourceTree = "<group>"; };
+		23526A4F1778EFB6006257CC /* values-zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "values-zh-Hant"; sourceTree = "<group>"; };
 		235901861754A49300B17112 /* ConfirmBookingDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmBookingDialog.h; sourceTree = "<group>"; };
 		235901871754A49300B17112 /* ConfirmBookingDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmBookingDialog.m; sourceTree = "<group>"; };
 		235901881754A49300B17112 /* ConfirmBookingDialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmBookingDialog.xib; sourceTree = "<group>"; };
@@ -381,7 +392,6 @@
 		23CFE1A2176B64910048EF67 /* values-pl */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "values-pl"; sourceTree = "<group>"; };
 		23CFE1A3176B64910048EF67 /* values-pt */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "values-pt"; sourceTree = "<group>"; };
 		23CFE1A4176B64910048EF67 /* values-ru */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "values-ru"; sourceTree = "<group>"; };
-		23CFE1A6176B64910048EF67 /* values-zh */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "values-zh"; sourceTree = "<group>"; };
 		23CFE1C5176C82020048EF67 /* button_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_cancel.png; sourceTree = "<group>"; };
 		23CFE1C6176C82020048EF67 /* button_cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_cancel@2x.png"; sourceTree = "<group>"; };
 		23D681121757E9F000CE6FDB /* map_marker_pickup_and_dropoff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_marker_pickup_and_dropoff.png; sourceTree = "<group>"; };
@@ -565,6 +575,8 @@
 				239B114A174EB5C200C0DC63 /* UIFont+CustomFonts.m */,
 				23E8D29D17528A7100C6AB14 /* NSString+RFC3339.h */,
 				23E8D29E17528A7100C6AB14 /* NSString+RFC3339.m */,
+				23526A4A1778DDB8006257CC /* NSLocale+MetricSystem.h */,
+				23526A4B1778DDB8006257CC /* NSLocale+MetricSystem.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -671,6 +683,8 @@
 				23D6814F175BE19500CE6FDB /* AndroidXMLReader.m */,
 				23D68150175BE19500CE6FDB /* NSBundle+AndroidStrings.h */,
 				23D68151175BE19500CE6FDB /* NSBundle+AndroidStrings.m */,
+				23526A4E1778EFB6006257CC /* values-zh-Hans */,
+				23526A4F1778EFB6006257CC /* values-zh-Hant */,
 				23CFE19C176B64910048EF67 /* values-de */,
 				23CFE19D176B64910048EF67 /* values-en */,
 				23CFE19E176B64910048EF67 /* values-es */,
@@ -680,7 +694,7 @@
 				23CFE1A2176B64910048EF67 /* values-pl */,
 				23CFE1A3176B64910048EF67 /* values-pt */,
 				23CFE1A4176B64910048EF67 /* values-ru */,
-				23CFE1A6176B64910048EF67 /* values-zh */,
+				23526A3617750B57006257CC /* values-uk */,
 			);
 			path = AndroidStrings;
 			sourceTree = "<group>";
@@ -1026,9 +1040,11 @@
 				23CFE1B3176B64910048EF67 /* values-pl in Resources */,
 				23CFE1B5176B64910048EF67 /* values-pt in Resources */,
 				23CFE1B7176B64910048EF67 /* values-ru in Resources */,
-				23CFE1BB176B64910048EF67 /* values-zh in Resources */,
 				23CFE1C7176C82020048EF67 /* button_cancel.png in Resources */,
 				23CFE1C9176C82020048EF67 /* button_cancel@2x.png in Resources */,
+				23526A3717750B57006257CC /* values-uk in Resources */,
+				23526A501778EFB7006257CC /* values-zh-Hans in Resources */,
+				23526A521778EFB7006257CC /* values-zh-Hant in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1119,9 +1135,11 @@
 				23CFE1B4176B64910048EF67 /* values-pl in Resources */,
 				23CFE1B6176B64910048EF67 /* values-pt in Resources */,
 				23CFE1B8176B64910048EF67 /* values-ru in Resources */,
-				23CFE1BC176B64910048EF67 /* values-zh in Resources */,
 				23CFE1C8176C82020048EF67 /* button_cancel.png in Resources */,
 				23CFE1CA176C82020048EF67 /* button_cancel@2x.png in Resources */,
+				23526A3817750B57006257CC /* values-uk in Resources */,
+				23526A511778EFB7006257CC /* values-zh-Hans in Resources */,
+				23526A531778EFB7006257CC /* values-zh-Hant in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1178,6 +1196,7 @@
 				23BA75E8176275FB003291D3 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				23BA75EA176275FB003291D3 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				23BA75F717633F2D003291D3 /* CabOfficeSettings.m in Sources */,
+				23526A4C1778DDB8006257CC /* NSLocale+MetricSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1231,6 +1250,7 @@
 				23BA75E9176275FB003291D3 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				23BA75EB176275FB003291D3 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				23BA75F817633F2D003291D3 /* CabOfficeSettings.m in Sources */,
+				23526A4D1778DDB8006257CC /* NSLocale+MetricSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

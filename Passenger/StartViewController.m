@@ -59,6 +59,15 @@
     _demoLabel.font = [UIFont lightOpenSansOfSize:14];
     _demoLabel.text = NSLocalizedString(@"demo_warning", @"");
     
+    if ([CabOfficeSettings hideDemoWarning])
+    {
+        _demoView.hidden = YES;
+    }
+    else
+    {
+        _demoView.hidden = NO;
+    }
+    
     // Do any additional setup after loading the view.
 }
 

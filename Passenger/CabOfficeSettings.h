@@ -29,5 +29,9 @@
 + (CGFloat)startLocationLongitude;
 + (NSInteger)maxActiveBookings;
 + (NSInteger)newBookingsMaxDaysAhead;
++ (BOOL)useAlternativeDropoffLabel;
++ (BOOL)trackBookings;
++ (BOOL)hideDemoWarning;
++ (BOOL)trackNearbyCabs;
 
 @end

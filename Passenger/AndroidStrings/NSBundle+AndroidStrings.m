@@ -116,7 +116,7 @@ static char* kNSBundleAndroidStringsTableAssociationKey = "NSBundle.stringsTable
     
     @synchronized(self) {
         
-        NSString* language = [[NSLocale preferredLanguages] objectAtIndex:0];        
+        NSString* language = [[NSLocale preferredLanguages] objectAtIndex:0];
         NSMutableDictionary *lStrings = [self.stringsTable objectForKey:language];
         if (lStrings == nil)
         {

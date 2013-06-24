@@ -12,5 +12,13 @@
 	<real>51.5171</real>
 	<key>caboffice_start_location_longitude</key>
 	<real>0.1062</real>
+	<key>caboffice_settings_use_alternative_dropoff_label</key>
+	<false/>
+	<key>caboffice_settings_track_bookings</key>
+	<true/>
+	<key>caboffice_settings_hide_demo_warning</key>
+	<false/>
+	<key>caboffice_settings_track_nearby_cabs</key>
+	<true/>
 </dict>
 </plist>

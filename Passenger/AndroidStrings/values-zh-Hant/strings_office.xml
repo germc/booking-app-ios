@@ -7,5 +7,5 @@
   <string name="office_phone">電話號碼</string>
   <string name="office_chooser_select_mua">請選擇郵件應用</string>
   <string name="office_failed_to_launch_mua">未能啟動郵件應用完成這項任務。請確保至少一個郵件應用已是安裝。</string>
-  <string name="office_button_ok">OK</string>
+  <string name="office_button_ok">確定</string>
 </resources>
