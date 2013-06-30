@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="49P-O4-GVL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="49P-O4-GVL">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -1003,13 +1003,13 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" id="VDL-Qz-aqd">
+                            <view contentMode="scaleToFill" id="KLl-Nu-G2t" customClass="SMPageControl">
                                 <rect key="frame" x="0.0" y="420" width="320" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="currentPageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </pageControl>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1022,7 +1022,7 @@
                         <outlet property="label3_1" destination="aXy-Oi-tkc" id="HfD-e3-hxq"/>
                         <outlet property="label4_1" destination="s3a-dr-blj" id="mGe-13-gAu"/>
                         <outlet property="okButton" destination="qb1-pt-EBs" id="IXj-5R-FOP"/>
-                        <outlet property="pageControl" destination="VDL-Qz-aqd" id="c87-Vg-0fG"/>
+                        <outlet property="pageControl" destination="KLl-Nu-G2t" id="M2P-3G-WcC"/>
                         <outlet property="scrollView" destination="bba-Q7-yWO" id="0rw-t3-Rh9"/>
                     </connections>
                 </viewController>
@@ -1264,172 +1264,6 @@
         <image name="tour_03_01.png" width="520" height="325"/>
         <image name="tour_04_01.png" width="361" height="146"/>
     </resources>
-    <classes>
-        <class className="BookingsHistoryViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BookingsHistoryViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="dropoffButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="dropoffLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pickupAndDropoffButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="pickupButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="pickupLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CabOfficeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CabOfficeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="emailButtonPressed:"/>
-                <relationship kind="action" name="okButtonPressed:"/>
-                <relationship kind="action" name="phoneButtonPressed:"/>
-                <relationship kind="outlet" name="emailAddressTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="emailButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="officeNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="officeNameTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="okButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="phoneButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="phoneNumberTitle" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CreateAccountViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CreateAccountViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButtonPressed:"/>
-                <relationship kind="action" name="createAccountButtonPressed:"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="confirmPasswordTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="confirmPasswordView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="createAccountButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="emailView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="firstNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="firstNameView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="lastNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lastNameView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="passwordView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="phoneNumberTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="phoneNumberView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="FlatButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlatButton.h"/>
-        </class>
-        <class className="HistoryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HistoryViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tryAgainButtonPressed:"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="errorView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="messageView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="noBookingsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pleaseWaitLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pleaseWaitView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="tryAgainButton" candidateClass="FlatButton"/>
-            </relationships>
-        </class>
-        <class className="LocationSelectorViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationSelectorViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="locationTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="locationView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="logoImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButtonPressed:"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="MainViewController" superclassName="PKRevealController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-        </class>
-        <class className="MapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="bookButtonPressed:"/>
-                <relationship kind="action" name="buttonAPressed:"/>
-                <relationship kind="action" name="buttonBPressed:"/>
-                <relationship kind="action" name="createNewBookingButtonPressed:"/>
-                <relationship kind="action" name="leftButtonPressed:"/>
-                <relationship kind="action" name="myLocationButtonPressed:"/>
-                <relationship kind="action" name="rightButtonPressed:"/>
-                <relationship kind="outlet" name="aButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="abView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="activityIndicatorView" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="bButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="bookButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="bookingActivityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="createNewBookingButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dropoffButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="myLocationButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="pickupButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="pickupDropoffView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="priceView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="MenuViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logoutButtonPressed:"/>
-                <relationship kind="outlet" name="cabOfficeButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="logoutButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="myAccountButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="tourButton" candidateClass="FlatButton"/>
-            </relationships>
-        </class>
-        <class className="MyAccountViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyAccountViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="okButtonPressed:"/>
-                <relationship kind="outlet" name="emailAddressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="emailAddressTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fullNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fullNameTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="okButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="phoneNumberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="phoneNumberTitle" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PKRevealController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PKRevealController.h"/>
-        </class>
-        <class className="StartViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="demoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="demoView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="registerButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="signInButton" candidateClass="FlatButton"/>
-            </relationships>
-        </class>
-        <class className="TourViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TourViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="buttonOkPressed:"/>
-                <relationship kind="outlet" name="label1_1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="label1_2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="label2_1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="label2_2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="label3_1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="label4_1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="okButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

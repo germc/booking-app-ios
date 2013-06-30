@@ -21,11 +21,11 @@
  ****/
 
 #import "TourViewController.h"
+#import "SMPageControl.h"
 
 @interface TourViewController () <UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet FlatButton *okButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *label1_1;
@@ -34,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *label2_2;
 @property (weak, nonatomic) IBOutlet UILabel *label3_1;
 @property (weak, nonatomic) IBOutlet UILabel *label4_1;
+@property (weak, nonatomic) IBOutlet SMPageControl *pageControl;
 
 - (IBAction)buttonOkPressed:(id)sender;
 @end
@@ -77,6 +78,10 @@
     [_okButton setTitle:NSLocalizedString(@"tour_button_ok", @"") forState:UIControlStateNormal];
     [_okButton setTitleColor:[UIColor buttonTextColor] forState:UIControlStateNormal];
 
+    _pageControl.numberOfPages = 4;
+    _pageControl.pageIndicatorTintColor = [UIColor blackColor];
+    _pageControl.currentPageIndicatorTintColor = [UIColor lightGrayColor];
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -105,6 +110,7 @@
     [self setLabel3_1:nil];
     [self setLabel4_1:nil];
     [self setOkButton:nil];
+    [self setPageControl:nil];
     [super viewDidUnload];
 }
 

@@ -54,6 +54,7 @@
 {
     DatePickerDialog* d = [[DatePickerDialog alloc] init];
     d.picker.datePickerMode = UIDatePickerModeTime;
+    d.picker.minimumDate = [NSDate date];
     d.completionBlock = completionBlock;
     [d show];
 }

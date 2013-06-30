@@ -26,13 +26,13 @@
 #import "MKNetworkKit.h"
 #import "UserSettings.h"
 
-#error "add your api key/secret/id and urls here"
-#define PASSENGER_SERVER_URL @""
-#define PASSENGER_API_KEY @""
-#define PASSENGER_CLIENT_ID @""
-#define PASSENGER_CLIENT_SECRET @""
-#define PASSENGER_AUTH_URL @""
-#define PASSENGER_TOKEN_URL @""
+#error "add your api key/secret/id here"
+#define PASSENGER_API_KEY @"YOUR API KEY"
+#define PASSENGER_CLIENT_ID @"YOUR CLIENT ID@tdispatch.com"
+#define PASSENGER_CLIENT_SECRET @"YOUR SECRET"
+#define PASSENGER_SERVER_URL @"api.t-dispatch.com"
+#define PASSENGER_AUTH_URL @"http://api.t-dispatch.com/passenger/oauth2/auth"
+#define PASSENGER_TOKEN_URL @"http://api.t-dispatch.com/passenger/oauth2/token"
 
 // API
 #define PASSENGER_API_PATH @"passenger/v1"
@@ -91,7 +91,7 @@
 
 - (NSString*)authUrl
 {
-    NSString* url = [NSString stringWithFormat:@"%@?response_type=code&client_id=%@&redirect_uri=%@&scope=&key=%@", PASSENGER_AUTH_URL, PASSENGER_CLIENT_ID, [self redirectUrl], PASSENGER_API_KEY];
+    NSString* url = [NSString stringWithFormat:@"%@?response_type=code&client_id=%@&redirect_uri=%@&scope=&key=%@", PASSENGER_AUTH_URL, PASSENGER_CLIENT_ID, [self redirectUrl], FLEET_API_KEY];
     return [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
@@ -166,7 +166,7 @@
                                         @"client_id" : PASSENGER_CLIENT_ID
                                    }];
     
-    MKNetworkOperation *op = [self operationWithPath:[NSString stringWithFormat:@"accounts?key=%@", PASSENGER_API_KEY]
+    MKNetworkOperation *op = [self operationWithPath:[NSString stringWithFormat:@"accounts?key=%@", FLEET_API_KEY]
                                               params:params
                                           httpMethod:@"POST"
                                                  ssl:NO];
@@ -414,8 +414,10 @@
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZZZ"];
         NSString* str = [dateFormatter stringFromDate:pickupDate];
-        params[@"pickup_time"] = str;
+        params[@"pickup_time"] = [str stringByReplacingOccurrencesOfString:@"GMT" withString:@""];;
     }
+    
+    params[@"status"] = @"incoming";
     
     MKNetworkOperation *op = [self operationWithPath:[NSString stringWithFormat:@"%@?access_token=%@", @"bookings", _accessToken]
                                               params:params

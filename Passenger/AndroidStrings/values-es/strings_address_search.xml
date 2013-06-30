@@ -4,4 +4,12 @@
   <string name="address_search_generic_hint">Introducir dirección</string>
   <string name="address_search_pickup_hint">Introducir dirección de recogida</string>
   <string name="address_search_dropoff_hint">Introducir la dirección de destino</string>
+  <string name="address_search_page_search">Buscar</string>
+  <string name="address_search_page_history">Historial</string>
+  <string name="address_search_page_favourites">Favoritos</string>
+  <string name="address_search_page_stations">Estaciones de tren</string>
+  <string name="address_search_page_locations">Ubicaciones</string>
+  <string name="address_search_page_airport">Aeropuertos</string>
+  <string name="address_search_page_buses">Estaciones de Bus</string>
+  <string name="address_search_page_ports">Puertos</string>
 </resources>

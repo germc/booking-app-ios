@@ -46,7 +46,7 @@
 
     #import "NSBundle+AndroidStrings.h"
     #import "NSLocale+MetricSystem.h"
-
+    #import "NSString+FontSizeWithFont.h"
     #import "CabOfficeSettings.h"
 #endif
 

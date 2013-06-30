@@ -56,8 +56,12 @@
 
     _demoView.backgroundColor = [UIColor demoWarningBackgroundColor];
     _demoLabel.textColor = [UIColor demoWarningTextColor];
-    _demoLabel.font = [UIFont lightOpenSansOfSize:14];
+    _demoLabel.numberOfLines = 0;
     _demoLabel.text = NSLocalizedString(@"demo_warning", @"");
+    
+    CGFloat fontSize = [_demoLabel.text fontSizeWithFont:[UIFont lightOpenSansOfSize:14] constrainedToSize:_demoLabel.bounds.size];
+    _demoLabel.font = [UIFont lightOpenSansOfSize:fontSize];
+    
     
     if ([CabOfficeSettings hideDemoWarning])
     {

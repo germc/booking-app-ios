@@ -4,5 +4,5 @@
   <string name="menu_button_account">我的帳戶</string>
   <string name="menu_button_cab_office">計程車辦公室</string>
   <string name="menu_button_tour">訓令</string>
-  <string name="menu_button_logout">登出</string>
+  <string name="menu_button_logout">退出</string>
 </resources>

@@ -22,7 +22,7 @@
 
 #import "CreateAccountViewController.h"
 
-@interface CreateAccountViewController () <UITextFieldDelegate>
+@interface CreateAccountViewController () <UITextFieldDelegate, UIGestureRecognizerDelegate>
 {
     UITextField* _activeField;
 }
@@ -98,6 +98,7 @@
 
     UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] init];
     [tap addTarget:self action:@selector(tapGesture:)];
+    tap.delegate = self;
     tap.numberOfTapsRequired = 1;
     [self.view addGestureRecognizer:tap];
     
@@ -170,7 +171,15 @@
     _activeField = nil;
 }
 
-- (void)tapGesture:(id)sender
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+    
+    if ([touch.view isKindOfClass:[UIButton class]]) {
+        return NO;
+    }
+    return YES;
+}
+
+- (void)tapGesture:(UITapGestureRecognizer*)gesture
 {
     [_firstNameTextField resignFirstResponder];
     [_lastNameTextField resignFirstResponder];

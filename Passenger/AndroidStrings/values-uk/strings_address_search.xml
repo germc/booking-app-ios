@@ -4,4 +4,12 @@
   <string name="address_search_generic_hint">Введіть адресу</string>
   <string name="address_search_pickup_hint">Вкажіть початкову адресу</string>
   <string name="address_search_dropoff_hint">Введіть адресу призначення</string>
+  <string name="address_search_page_search">Пошук</string>
+  <string name="address_search_page_history">Історія</string>
+  <string name="address_search_page_favourites">Вибране</string>
+  <string name="address_search_page_stations">Залізничні вокзали</string>
+  <string name="address_search_page_locations">Місця</string>
+  <string name="address_search_page_airport">Аеропорти</string>
+  <string name="address_search_page_buses">Автовокзали</string>
+  <string name="address_search_page_ports">Порти</string>
 </resources>

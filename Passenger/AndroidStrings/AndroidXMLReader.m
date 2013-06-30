@@ -103,6 +103,14 @@ didStartElement:(NSString *)elementName
                                             withString:@"\%@"
                                                options:0
                                                  range:NSMakeRange(0, _currentString.length)];
+            [_currentString replaceOccurrencesOfString:@"\\'"
+                                            withString:@"'"
+                                               options:0
+                                                 range:NSMakeRange(0, _currentString.length)];
+            [_currentString replaceOccurrencesOfString:@"\\\""
+                                            withString:@"\""
+                                               options:0
+                                                 range:NSMakeRange(0, _currentString.length)];
         }
         _strings[_currentKey] = [_currentString stringByReplacingOccurrencesOfString:@"\\n" withString:@" "];
         _currentString = nil;

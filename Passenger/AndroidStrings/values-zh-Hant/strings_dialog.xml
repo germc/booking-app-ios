@@ -3,8 +3,8 @@
 <resources>
   <string name="dialog_button_ok">確定</string>
   <string name="dialog_button_cancel">取消</string>
-  <string name="dialog_button_yes">Yes</string>
-  <string name="dialog_button_no">No</string>
+  <string name="dialog_button_yes">是</string>
+  <string name="dialog_button_no">無</string>
   <string name="dialog_error_title">發生錯誤</string>
   <string name="dialog_confirmation_title">確認</string>
 </resources>
