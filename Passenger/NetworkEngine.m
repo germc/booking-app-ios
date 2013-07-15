@@ -26,13 +26,14 @@
 #import "MKNetworkKit.h"
 #import "UserSettings.h"
 
+#define PASSENGER_SERVER_URL @"api.tdispatch.com"
 #error "add your api key/secret/id here"
-#define PASSENGER_API_KEY @"YOUR API KEY"
+#define FLEET_API_KEY @"YOUR API KEY"
 #define PASSENGER_CLIENT_ID @"YOUR CLIENT ID@tdispatch.com"
 #define PASSENGER_CLIENT_SECRET @"YOUR SECRET"
-#define PASSENGER_SERVER_URL @"api.t-dispatch.com"
-#define PASSENGER_AUTH_URL @"http://api.t-dispatch.com/passenger/oauth2/auth"
-#define PASSENGER_TOKEN_URL @"http://api.t-dispatch.com/passenger/oauth2/token"
+
+#define PASSENGER_AUTH_URL @"http://api.tdispatch.com/passenger/oauth2/auth"
+#define PASSENGER_TOKEN_URL @"http://api.tdispatch.com/passenger/oauth2/token"
 
 // API
 #define PASSENGER_API_PATH @"passenger/v1"
@@ -371,6 +372,33 @@
 
 }
 
+- (void)getReverseForLocation:(CLLocationCoordinate2D)location
+              completionBlock:(NetworkEngineCompletionBlock)completionBlock
+                 failureBlock:(NetworkEngineFailureBlock)failureBlock
+{
+    NSMutableString* urlString = [[NSMutableString alloc] init];
+    [urlString appendString:@"http://maps.googleapis.com/maps/api/geocode/json?latlng="];
+    [urlString appendFormat:@"%f,%f", location.latitude, location.longitude];
+    [urlString appendFormat:@"&sensor=true"];
+    
+    MKNetworkOperation *op = [self operationWithURLString:urlString
+                                                   params:nil
+                                               httpMethod:@"GET"];
+    
+    [op addCompletionHandler:^(MKNetworkOperation *operation) {
+        NSDictionary* response = operation.responseJSON;
+        
+        NSString *status = response[@"status"];
+        if ([status isEqualToString:@"OK"])
+            completionBlock(response[@"results"]);
+        else
+            failureBlock([NSError errorWithDescription:[NSString stringWithFormat:@"status: %@", status]]);
+    } errorHandler:^(MKNetworkOperation *errorOp, NSError* error) {
+        failureBlock(error);
+    }];
+    
+    [self enqueueOperation:op];
+}
 
 - (void)createBooking:(NSString *)pickupName
         pickupZipCode:(NSString *)pickupZipCode

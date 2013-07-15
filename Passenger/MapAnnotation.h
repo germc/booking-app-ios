@@ -36,6 +36,10 @@
 @property (nonatomic, strong) NSString *zipCode;
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D) coordinate withTitle:(NSString *)markTitle withImageName:(NSString* )imageName;
+- (id)initWithCoordinate:(CLLocationCoordinate2D)c
+               withTitle:(NSString *)markTitle
+           withImageName:(NSString* )imageName
+             withZipCode:(NSString *)zipCode;
 - (NSString *)subtitle;
 - (NSString *)title;
 

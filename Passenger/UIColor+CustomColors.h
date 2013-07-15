@@ -68,4 +68,10 @@
 + (UIColor *)pullToRefreshArrowColor;
 + (UIColor *)pullToRefreshTextColor;
 
++ (UIColor *)searchDialogBackgroundColor;
++ (UIColor *)searchDialogSelectedTitleColor;
++ (UIColor *)searchDialogNotSelectedTitleColor;
++ (UIColor *)searchDialogTextColor;
++ (UIColor *)searchDialogSeparatorColor;
+
 @end

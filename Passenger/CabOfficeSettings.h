@@ -34,4 +34,6 @@
 + (BOOL)hideDemoWarning;
 + (BOOL)trackNearbyCabs;
 
++ (BOOL)useGoogleGeolocator;
+
 @end

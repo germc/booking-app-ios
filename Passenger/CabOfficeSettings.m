@@ -94,4 +94,11 @@
     return [r boolValue];
 }
 
++ (BOOL)useGoogleGeolocator
+{
+    NSDictionary *s = [CabOfficeSettings cabOfficeDefaults];
+    NSNumber* r = s[@"caboffice_settings_use_google_geolocator"];
+    return [r boolValue];
+}
+
 @end

@@ -22,15 +22,12 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^LocationSelectorCompletionBlock)(NSDictionary* location);
+#import "LocationSelectionBaseViewController.h"
 
-@interface LocationSelectorViewController : UIViewController
+@interface LocationSelectorViewController : LocationSelectionBaseViewController
 
 @property (nonatomic, strong) UIImage* logoImage;
 @property (nonatomic, strong) NSString* locationName;
 @property (nonatomic, strong) NSString* placeholder;
-@property (nonatomic, assign) LocationType type;
-
-@property (nonatomic, copy) LocationSelectorCompletionBlock completionBlock;
 
 @end

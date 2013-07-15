@@ -12,7 +12,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="caboffice_logo.png" id="Q1D-eH-bHc">
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="caboffice_logo.png" id="Q1D-eH-bHc">
                                 <rect key="frame" x="35" y="20" width="250" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -39,7 +39,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Jdc-MP-dRf" customClass="FlatButton">
                                 <rect key="frame" x="20" y="247" width="280" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -61,7 +61,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="26k-YI-vhz" customClass="FlatButton">
                                 <rect key="frame" x="20" y="320" width="280" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -364,7 +364,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="eac-Qg-IAo" kind="modal" identifier="showLocationViewControllerForPickup" id="I4m-40-LuR"/>
+                                            <action selector="pickupLocationButtonPressed:" destination="2" eventType="touchUpInside" id="3v9-Tp-hDy"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2tZ-He-9Qe" customClass="FlatButton">
@@ -379,7 +379,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="eac-Qg-IAo" kind="modal" identifier="showLocationViewControllerForDropoff" id="qca-8g-Xu1"/>
+                                            <action selector="dropoffLocationButtonPressed:" destination="2" eventType="touchUpInside" id="QYp-OB-R9k"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -439,27 +439,30 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="YXY-VV-DtU">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="ARm-oY-SaQ">
-                                        <rect key="frame" x="56" y="4" width="260" height="52"/>
+                                    <view contentMode="scaleToFill" id="KgG-7z-0JZ">
+                                        <rect key="frame" x="0.0" y="46" width="320" height="2"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="azk-a0-bIb">
+                                        <rect key="frame" x="5" y="5" width="38" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" id="ARm-oY-SaQ">
+                                        <rect key="frame" x="56" y="2" width="258" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="azk-a0-bIb">
-                                        <rect key="frame" x="8" y="8" width="44" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jtt-Kq-XH2">
-                                <rect key="frame" x="0.0" y="60" width="320" height="176"/>
+                                <rect key="frame" x="0.0" y="48" width="320" height="176"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="locationTableViewCell" textLabel="xwK-XE-sBc" style="IBUITableViewCellStyleDefault" id="XMe-aC-NdH">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -486,18 +489,55 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="locationTextField" destination="ARm-oY-SaQ" id="V4r-AC-3gj"/>
                         <outlet property="locationView" destination="YXY-VV-DtU" id="Sxi-hG-OFR"/>
                         <outlet property="logoImageView" destination="azk-a0-bIb" id="lc3-L4-P5c"/>
+                        <outlet property="separatorView" destination="KgG-7z-0JZ" id="zDE-6u-V7K"/>
                         <outlet property="tableView" destination="jtt-Kq-XH2" id="cIG-Yp-QIn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zf6-8i-IoJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="810" y="568"/>
+            <point key="canvasLocation" x="358" y="732"/>
+        </scene>
+        <!--Location Selection List View Controller-->
+        <scene sceneID="DPh-Z9-njk">
+            <objects>
+                <viewController storyboardIdentifier="locationSelectionListViewController" id="6o9-cz-0gc" customClass="LocationSelectionListViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PcO-5k-Tgq">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yMv-ee-jJv">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="locationSelectionListCell" id="aXA-JW-5aR">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="6o9-cz-0gc" id="N0w-qf-cO2"/>
+                                    <outlet property="delegate" destination="6o9-cz-0gc" id="Slx-Gv-pvj"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a07-5v-hCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="707"/>
         </scene>
         <!--myAccountViewController-->
         <scene sceneID="e4K-h7-Hl3">
@@ -634,7 +674,7 @@
                                     <segue destination="Qsh-jB-2LF" kind="modal" identifier="showCreateAccountViewController" id="o61-YI-dt3"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="caboffice_logo.png" id="9Ee-kd-kTW">
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="caboffice_logo.png" id="9Ee-kd-kTW">
                                 <rect key="frame" x="35" y="83" width="250" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -899,7 +939,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tour_01_02.png" id="jvs-yd-Nz1">
-                                                <rect key="frame" x="30" y="307" width="260" height="92"/>
+                                                <rect key="frame" x="30" y="320" width="260" height="92"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             </imageView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Scroll to your location on the map and tap A button to set the pickup point." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uoU-2q-t4i">
@@ -909,8 +949,8 @@
                                                 <color key="textColor" white="0.57014142335766427" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tap Book to call a cab." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gFM-XU-sVt">
-                                                <rect key="frame" x="30" y="278" width="260" height="21"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tap Book to call a cab." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gFM-XU-sVt">
+                                                <rect key="frame" x="30" y="270" width="260" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -929,7 +969,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tour_02_02.png" id="kqm-WW-U8m">
-                                                <rect key="frame" x="30" y="307" width="260" height="92"/>
+                                                <rect key="frame" x="30" y="320" width="260" height="92"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             </imageView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B89-Kg-99z">
@@ -940,8 +980,8 @@
                                                 <color key="textColor" white="0.57014142339999996" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tap Book to call a cab." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PSI-A1-cNc">
-                                                <rect key="frame" x="30" y="278" width="260" height="21"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tap Book to call a cab." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PSI-A1-cNc">
+                                                <rect key="frame" x="30" y="270" width="260" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1264,6 +1304,183 @@
         <image name="tour_03_01.png" width="520" height="325"/>
         <image name="tour_04_01.png" width="361" height="146"/>
     </resources>
+    <classes>
+        <class className="BookingsHistoryViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BookingsHistoryViewCell.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dropoffButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dropoffLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pickupAndDropoffButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="pickupButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="pickupLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CabOfficeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CabOfficeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="emailButtonPressed:"/>
+                <relationship kind="action" name="okButtonPressed:"/>
+                <relationship kind="action" name="phoneButtonPressed:"/>
+                <relationship kind="outlet" name="emailAddressTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emailButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="officeNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="officeNameTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="okButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="phoneButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="phoneNumberTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CreateAccountViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CreateAccountViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:"/>
+                <relationship kind="action" name="createAccountButtonPressed:"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="confirmPasswordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="confirmPasswordView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="createAccountButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="emailView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="firstNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="firstNameView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="lastNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lastNameView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="phoneNumberTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="phoneNumberView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="FlatButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlatButton.h"/>
+        </class>
+        <class className="HistoryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HistoryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="tryAgainButtonPressed:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="errorView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="messageView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="noBookingsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pleaseWaitLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pleaseWaitView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="tryAgainButton" candidateClass="FlatButton"/>
+            </relationships>
+        </class>
+        <class className="LocationSelectionBaseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationSelectionBaseViewController.h"/>
+        </class>
+        <class className="LocationSelectionListViewController" superclassName="LocationSelectionBaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationSelectionListViewController.h"/>
+        </class>
+        <class className="LocationSelectorViewController" superclassName="LocationSelectionBaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationSelectorViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="locationTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="locationView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="logoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="separatorView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="MainViewController" superclassName="PKRevealController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+        </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="bookButtonPressed:"/>
+                <relationship kind="action" name="buttonAPressed:"/>
+                <relationship kind="action" name="buttonBPressed:"/>
+                <relationship kind="action" name="createNewBookingButtonPressed:"/>
+                <relationship kind="action" name="leftButtonPressed:"/>
+                <relationship kind="action" name="myLocationButtonPressed:"/>
+                <relationship kind="action" name="rightButtonPressed:"/>
+                <relationship kind="outlet" name="aButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="abView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="activityIndicatorView" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="bButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="bookButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="bookingActivityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="createNewBookingButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dropoffButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="myLocationButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="pickupButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="pickupDropoffView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="priceView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="MenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logoutButtonPressed:"/>
+                <relationship kind="outlet" name="cabOfficeButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="logoutButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="myAccountButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="tourButton" candidateClass="FlatButton"/>
+            </relationships>
+        </class>
+        <class className="MyAccountViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyAccountViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="okButtonPressed:"/>
+                <relationship kind="outlet" name="emailAddressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emailAddressTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fullNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fullNameTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="okButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="phoneNumberLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="phoneNumberTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PKRevealController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PKRevealController.h"/>
+        </class>
+        <class className="SMPageControl" superclassName="UIControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMPageControl.h"/>
+        </class>
+        <class className="StartViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="demoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="demoView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="registerButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="signInButton" candidateClass="FlatButton"/>
+            </relationships>
+        </class>
+        <class className="TourViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TourViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="buttonOkPressed:"/>
+                <relationship kind="outlet" name="label1_1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="label1_2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="label2_1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="label2_2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="label3_1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="label4_1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="okButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="SMPageControl"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -1271,6 +1488,5 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="hGQ-Hr-FDu"/>
-        <segue reference="qca-8g-Xu1"/>
     </inferredMetricsTieBreakers>
 </document>

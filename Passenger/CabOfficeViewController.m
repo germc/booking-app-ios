@@ -77,10 +77,10 @@
     [_officeNameLabel setText:_officeData[@"name"]];
     
     NSString* phone = _officeData[@"phone"];
-    if (IS_NULL(phone))
+    if (IS_NULL(phone) || phone.length == 0)
     {
-        [_phoneButton setTitle:NSLocalizedString(@"office_phone_not_available", @"") forState:UIControlStateNormal];
-        _phoneButton.enabled = NO;
+        _phoneButton.hidden = YES;
+        _phoneNumberTitle.hidden = YES;
     }
     else
     {
@@ -88,10 +88,10 @@
     }
 
     NSString* email = _officeData[@"email"];
-    if (IS_NULL(email))
+    if (IS_NULL(email) || email.length == 0)
     {
-        [_emailButton setTitle:NSLocalizedString(@"office_email_not_available", @"") forState:UIControlStateNormal];
-        _emailButton.enabled = NO;
+        _emailButton.hidden = YES;
+        _emailAddressTitle.hidden = YES;
     }
     else
     {

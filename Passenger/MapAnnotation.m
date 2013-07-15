@@ -44,4 +44,17 @@
 	return self;
 }
 
+- (id)initWithCoordinate:(CLLocationCoordinate2D)c
+               withTitle:(NSString *)markTitle
+           withImageName:(NSString* )imageName
+             withZipCode:(NSString *)zipCode
+{
+	title = markTitle;
+	subtitle = @"";
+	coordinate = c;
+    self.imageName = imageName;
+    self.zipCode = zipCode;
+	return self;
+}
+
 @end

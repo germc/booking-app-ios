@@ -20,5 +20,7 @@
 	<false/>
 	<key>caboffice_settings_track_nearby_cabs</key>
 	<true/>
+	<key>caboffice_settings_use_google_geolocator</key>
+	<true/>
 </dict>
 </plist>

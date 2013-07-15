@@ -43,7 +43,7 @@
                        @"strings_slide_menu",
                        @"strings_tdfragment",
                        @"strings_tour"];
-    NSArray* languages = @[@"de", @"en", @"es", @"fr", @"it", @"pl", @"uk", @"th", @"ru", @"ja", @"ms", @"zh-Hans", @"zh-Hant" ];
+    NSArray* languages = @[@"de", @"en", @"es", @"fr", @"it", @"ja", @"ms", @"pl", @"ru", @"th", @"uk", @"zh-Hans", @"zh-Hant" ];
     
     for (NSString *language in languages)
     {

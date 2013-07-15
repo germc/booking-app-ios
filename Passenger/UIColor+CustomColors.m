@@ -179,6 +179,32 @@
     return [UIColor colorWithHexString:@"#888888"];   
 }
 
++ (UIColor *)searchDialogBackgroundColor
+{
+    return [UIColor colorWithHexString:@"#FFFFFF"];
+}
+
++ (UIColor *)searchDialogSelectedTitleColor
+{
+    return [UIColor colorWithHexString:@"#070707"];
+}
+
++ (UIColor *)searchDialogNotSelectedTitleColor
+{
+    return [UIColor colorWithHexString:@"#6E6E6E"];
+}
+
++ (UIColor *)searchDialogTextColor
+{
+    return [UIColor colorWithHexString:@"#6E6E6E"];
+}
+
++ (UIColor *)searchDialogSeparatorColor
+{
+    return [UIColor colorWithHexString:@"#33B5E5"];
+}
+
+
 //helper function
 
 + (UIColor *) colorWithHexString: (NSString *) stringToConvert

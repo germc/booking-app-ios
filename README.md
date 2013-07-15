@@ -9,9 +9,10 @@ Copyright (C) 2013 T Dispatch Ltd
 
 For more details visit www.tdispatch.com
 
+
 #### Trademarks
 
-T Dispatch logo, T Dispatch, the T Dispatch T shaped logo are all trademarks of T Dispatch Ltd. 
+T Dispatch logo, T Dispatch, the T Dispatch T shaped logo are all trademarks of T Dispatch Ltd.
 
 
 #### Translators
@@ -29,7 +30,7 @@ T Dispatch logo, T Dispatch, the T Dispatch T shaped logo are all trademarks of 
  - 繁體字 (Traditional Chinese): Julie Ko
  - 簡體字 (Simplified Chinese): Julie Ko
  - 日本語 (Japansese): JC Way Translation Inc.
- 
+
 Thank you for your contribution!
 
 
@@ -49,15 +50,31 @@ Thank you for your contribution!
 
 
 #### Build requirements
- 
+
  - XCode
+
+ You need your T Dispatch Passenger API and Fleet API keys to build and run the app. Please see Passenger/CabOfficeSettings.plist for configuration parameters.
 
 
 #### Open Source licenses
 
 This application uses the following third party components:
+
  - CBAutoScrollLabel by Brian Stormont
  - SVPullToRefresh by Sam Vermette
  - MKNetworkEngine by Mugunth Kumar
  - PKRevealController by Philip Kluz
  - libCocolize by Tall Developments
+
+
+#### Screenshots
+
+ ![Screenshot](./screenshots/th/01.png)
+ ![Screenshot](./screenshots/th/02.png)
+ ![Screenshot](./screenshots/th/03.png)
+ ![Screenshot](./screenshots/th/04.png)
+ ![Screenshot](./screenshots/th/05.png)
+ ![Screenshot](./screenshots/th/06.png)
+ ![Screenshot](./screenshots/th/07.png)
+ ![Screenshot](./screenshots/th/08.png)
+ ![Screenshot](./screenshots/th/09.png)

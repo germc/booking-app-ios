@@ -136,6 +136,9 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
     [_waitDialog dismiss];
+    
+    NSLog(@"%s, %@", __PRETTY_FUNCTION__, error);
+    
     if (error.code != 102) //102 == Load frame interrupted, we can ignore this error.
     {
         NSString* path = [[NSBundle mainBundle] pathForResource:@"connect_error" ofType:@"html"];

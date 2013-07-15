@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 @property (weak, nonatomic) IBOutlet UITextField *locationTextField;
+@property (weak, nonatomic) IBOutlet UIView *separatorView;
 
 @property (nonatomic, strong) NSArray* locations;
 
@@ -47,6 +48,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _tableView.backgroundColor = [UIColor searchDialogBackgroundColor];
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -54,17 +58,30 @@
 {
     [super viewWillAppear:animated];
     
+    if (self.locationType == LocationTypePickup)
+    {
+        self.logoImage = [UIImage imageNamed:@"map_marker_pickup"];
+        self.placeholder = NSLocalizedString(@"address_search_pickup_hint", @"");
+    }
+    else
+    {
+        self.logoImage = [UIImage imageNamed:@"map_marker_dropoff"];
+        self.placeholder = NSLocalizedString(@"address_search_dropoff_hint", @"");
+    }
+
     _locationTextField.placeholder = _placeholder;
     _locationTextField.text = _locationName;
     _logoImageView.image = _logoImage;
     
     _logoImageView.backgroundColor = [UIColor clearColor];
-    _locationView.backgroundColor = [UIColor locationBackgroundColor];
+    _locationView.backgroundColor = [UIColor searchDialogBackgroundColor];
+
+    [_separatorView setBackgroundColor:[UIColor searchDialogSeparatorColor]];
     
-    _locationTextField.backgroundColor = [UIColor locationTextBackgroundColor];
-    _locationTextField.textColor = [UIColor locationTextColor];
+    _locationTextField.backgroundColor = [UIColor searchDialogBackgroundColor];
+    _locationTextField.textColor = [UIColor searchDialogTextColor];
     
-    _locationTextField.font = [UIFont lightOpenSansOfSize:21];
+    _locationTextField.font = [UIFont lightOpenSansOfSize:17];
     _locationTextField.delegate = self;
     [_locationTextField becomeFirstResponder];
     
@@ -76,7 +93,7 @@
     if (_locationName)
         [self searchForLocation:_locationName];
     
-    UIView* accessoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+/*    UIView* accessoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
     accessoryView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
     UIButton* b = [UIButton buttonWithType:UIButtonTypeCustom];
     [b setTitle:NSLocalizedString(@"address_search_button_cancel", @"")forState:UIControlStateNormal];
@@ -87,7 +104,19 @@
     b.frame = CGRectMake(12, 4, 64, 32);
     [accessoryView addSubview:b];
     _locationTextField.inputAccessoryView = accessoryView;
+*/
+}
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [_locationTextField becomeFirstResponder];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [_locationTextField resignFirstResponder];
 }
 
 - (void)cancelSelection
@@ -102,6 +131,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UITextFieldTextDidChangeNotification
                                                   object:_locationTextField];
+    [_locationTextField resignFirstResponder];
 
 }
 
@@ -116,6 +146,7 @@
     [self setLocationTextField:nil];
     [self setLocationView:nil];
     [self setTableView:nil];
+    [self setSeparatorView:nil];
     [super viewDidUnload];
 }
 
@@ -145,6 +176,7 @@
     
     cell.textLabel.text = location[@"address"];
     cell.textLabel.font = [UIFont lightOpenSansOfSize:13];
+    cell.textLabel.textColor = [UIColor searchDialogTextColor];
     
     return cell;
 }
@@ -152,10 +184,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (_completionBlock)
+    if (self.completionBlock)
     {
         NSDictionary *d = [_locations objectAtIndex:indexPath.row];
-        _completionBlock(d);
+        NSNumber* lat = d[@"location"][@"lat"];
+        NSNumber* lng = d[@"location"][@"lng"];
+        CLLocationCoordinate2D c = CLLocationCoordinate2DMake([lat floatValue], [lng floatValue]);
+        
+        MapAnnotation* a = [[MapAnnotation alloc] initWithCoordinate:c withTitle:d[@"address"] withImageName:nil];
+        a.zipCode = d[@"postcode"];
+        self.completionBlock(self.locationType, a);
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -172,7 +210,7 @@
         
         [[NetworkEngine getInstance] cancelAllOperations];
         [[NetworkEngine getInstance] searchForLocation:location
-                                                  type:_type
+                                                  type:self.locationType
                                        completionBlock:^(NSObject *o){
                                            self.locations = (NSArray *)o;
                                            [self.tableView reloadData];

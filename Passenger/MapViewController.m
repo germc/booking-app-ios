@@ -26,9 +26,11 @@
 #import "MapViewController.h"
 #import "PKRevealController.h"
 #import "LocationSelectorViewController.h"
+#import "LocationSelectionListViewController.h"
 #import "MapAnnotation.h"
 #import "UserSettings.h"
 #import "ConfirmBookingDialog.h"
+#import "SGAnnotatedPagerController.h"
 
 @interface MapViewController () <MKMapViewDelegate>
 {
@@ -565,50 +567,136 @@
 - (void)findAddressForLocation:(CLLocationCoordinate2D)coordinate
                completionBlock:(void (^)(NSString* address, NSString *zipCode))completionBlock
 {
-    CLLocation *newLocation = [[CLLocation alloc] initWithLatitude:coordinate.latitude
-                                                         longitude:coordinate.longitude];
-    
-    [_geocoder cancelGeocode];
-    
-    [_geocoder reverseGeocodeLocation:newLocation
-                    completionHandler:^(NSArray *placemarks, NSError *error) {
-                        
-                        if (error) {
-                            completionBlock(nil, nil);
-                            NSLog(@"Geocode failed with error: %@", error);
-                            return;
-                        }
-                        
-                        if (placemarks.count > 0)
-                        {
-                            CLPlacemark *placemark = placemarks[0];
+    if (![CabOfficeSettings useGoogleGeolocator])
+    {
+        CLLocation *newLocation = [[CLLocation alloc] initWithLatitude:coordinate.latitude
+                                                             longitude:coordinate.longitude];
+        
+        [_geocoder cancelGeocode];
+        
+        [_geocoder reverseGeocodeLocation:newLocation
+                        completionHandler:^(NSArray *placemarks, NSError *error) {
                             
-                            NSDictionary *addressDictionary = placemark.addressDictionary;
-                            NSString* address = ABCreateStringWithAddressDictionary(addressDictionary, NO);
-                            address = [address stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
-                            NSString* zipCode = placemark.postalCode;
+                            if (error) {
+                                completionBlock(nil, nil);
+                                NSLog(@"Geocode failed with error: %@", error);
+                                return;
+                            }
                             
-                            NSLog(@"%@ \n%@", addressDictionary, address);
-
-                            if (address == nil || zipCode == nil)
+                            if (placemarks.count > 0)
+                            {
+                                CLPlacemark *placemark = placemarks[0];
+                                
+                                NSDictionary *addressDictionary = placemark.addressDictionary;
+                                NSString* address = ABCreateStringWithAddressDictionary(addressDictionary, NO);
+                                address = [address stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
+                                NSString* zipCode = placemark.postalCode;
+                                
+                                NSLog(@"%@ \n%@", addressDictionary, address);
+                                
+                                if (address == nil || zipCode == nil)
+                                {
+                                    completionBlock(nil, nil);
+                                    [MessageDialog showError:NSLocalizedString(@"map_aim_location_unknown_body", @"")
+                                                   withTitle:NSLocalizedString(@"dialog_error_title", @"")];
+                                }
+                                else
+                                {
+                                    completionBlock(address, zipCode);
+                                }
+                            }
+                            else
                             {
                                 completionBlock(nil, nil);
                                 [MessageDialog showError:NSLocalizedString(@"map_aim_location_unknown_body", @"")
                                                withTitle:NSLocalizedString(@"dialog_error_title", @"")];
                             }
-                            else
-                            {
-                                completionBlock(address, zipCode);
-                            }
-                        }
-                        else
-                        {
-                            completionBlock(nil, nil);
-                            [MessageDialog showError:NSLocalizedString(@"map_aim_location_unknown_body", @"")
-                                           withTitle:NSLocalizedString(@"dialog_error_title", @"")];
-                        }
-                        
-                    }];
+                            
+                        }];
+    }
+    else
+    {
+        [[NetworkEngine getInstance] getReverseForLocation:coordinate
+                                           completionBlock:^(NSObject *response){
+                                               NSArray *results = (NSArray *)response;
+                                               if (results.count)
+                                               {
+                                                   NSString* route = nil;
+                                                   NSString* streetNumber = nil;
+                                                   NSString* address2 = nil;
+                                                   NSString* county = nil;
+                                                   NSString* city = nil;
+                                                   NSString* state = nil;
+                                                   NSString* country = nil;
+                                                   NSString* postCode = nil;
+
+                                                   NSDictionary* result = results[0];
+                                                   NSArray* adressComponents = result[@"address_components"];
+                                                   for (NSDictionary *d in adressComponents)
+                                                   {
+                                                       NSString *longName = d[@"long_name"];
+                                                       NSArray *types = d[@"types"];
+                                                       if( longName.length != 0 ) {
+                                                           for (NSString* type in types)
+                                                           {
+                                                               if([type isEqualToString:@"street_number"]) {
+                                                                   streetNumber = longName;
+                                                               }
+                                                               else if([type isEqualToString:@"route"]) {
+                                                                   route = longName;
+                                                               }
+                                                               else if([type isEqualToString:@"sublocality"]) {
+                                                                   address2 = longName;
+                                                               }
+                                                               else if([type isEqualToString:@"locality"]) {
+                                                                   city = longName;
+                                                               }
+                                                               else if([type isEqualToString:@"postal_town"]) {
+                                                                   city = longName;
+                                                               }
+                                                               else if([type isEqualToString:@"administrative_area_level_2"]) {
+                                                                   county = longName;
+                                                               }
+                                                               else if([type isEqualToString:@"administrative_area_level_1"]) {
+                                                                   state = longName;
+                                                               }
+                                                               else if([type isEqualToString:@"country"]) {
+                                                                   country = longName;
+                                                               }
+                                                               else if([type isEqualToString:@"postal_code"]) {
+                                                                   postCode = longName;
+                                                               }
+                                                           }
+                                                       }
+                                                   }
+                                                   NSMutableString* address = [[NSMutableString alloc] initWithString:route];
+                                                   if (streetNumber)
+                                                       [address appendFormat:@" %@", streetNumber];
+                                                   if (address2)
+                                                       [address appendFormat:@", %@", address2];
+                                                   if (city)
+                                                       [address appendFormat:@", %@", city];
+                                                   if (county)
+                                                       [address appendFormat:@", %@", county];
+                                                   if (state)
+                                                       [address appendFormat:@", %@", state];
+                                                   if (country)
+                                                       [address appendFormat:@", %@", country];
+ 
+                                                   completionBlock(address, postCode);
+                                               }
+                                               else
+                                               {
+                                                   completionBlock(nil, nil);
+                                                   [MessageDialog showError:NSLocalizedString(@"map_aim_location_unknown_body", @"")
+                                                                  withTitle:NSLocalizedString(@"dialog_error_title", @"")];
+                                               }
+                                           }
+                                              failureBlock:^(NSError *error) {
+                                                  completionBlock(nil, nil);
+                                                  NSLog(@"Geocode failed with error: %@", error);
+                                              }];
+    }
     
     
 }
@@ -758,43 +846,79 @@
     }
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (IBAction)pickupLocationButtonPressed:(id)sender {
+    [self showLocatioSelectionViewController:LocationTypePickup];
+}
+
+- (IBAction)dropoffLocationButtonPressed:(id)sender {
+    [self showLocatioSelectionViewController:LocationTypeDropoff];
+}
+
+- (void)showLocatioSelectionViewController:(LocationType)type
 {
-    if ([segue.identifier isEqualToString:@"showLocationViewControllerForPickup"])
-    {
-        LocationSelectorViewController* vc = segue.destinationViewController;
-        vc.logoImage = [UIImage imageNamed:@"map_marker_pickup"];
-        if (_startAnnotation)
-            vc.locationName = [_pickupButton titleForState:UIControlStateNormal];
-        vc.placeholder = NSLocalizedString(@"address_search_pickup_hint", @"");
-        vc.type = LocationTypePickup;
-        vc.completionBlock = ^(NSDictionary *d) {
-            NSNumber* lat = d[@"location"][@"lat"];
-            NSNumber* lng = d[@"location"][@"lng"];
-            CLLocationCoordinate2D c = CLLocationCoordinate2DMake([lat floatValue], [lng floatValue]);
-            [self setPickupLocation:c title:d[@"address"] zipCode:d[@"postcode"]];
-            
-            [self calculateFare];
-        };
-    }
-    else if ([segue.identifier isEqualToString:@"showLocationViewControllerForDropoff"])
-    {
-        LocationSelectorViewController* vc = segue.destinationViewController;
-        vc.logoImage = [UIImage imageNamed:@"map_marker_dropoff"];
-        if (_endAnnotation)
-            vc.locationName = [_dropoffButton titleForState:UIControlStateNormal];
-        vc.placeholder = NSLocalizedString(@"address_search_dropoff_hint", @"");
-        vc.type = LocationTypeDropoff;
-        vc.completionBlock = ^(NSDictionary *d) {
-            NSNumber* lat = d[@"location"][@"lat"];
-            NSNumber* lng = d[@"location"][@"lng"];
-            CLLocationCoordinate2D c = CLLocationCoordinate2DMake([lat floatValue], [lng floatValue]);
-            [self setDropoffLocation:c title:d[@"address"] zipCode:d[@"postcode"]];
-            
-            [self calculateFare];
-        };
-    }
+    LocationSelectorCompletionBlock completionBlock = ^(LocationType type, MapAnnotation *a) {
+        
+        if (type == LocationTypePickup)
+            [self setPickupLocation:a.coordinate title:a.title zipCode:a.zipCode];
+        else
+            [self setDropoffLocation:a.coordinate title:a.title zipCode:a.zipCode];
+        
+        [_mapView setCenterCoordinate:a.coordinate animated:YES];
+
+        [self calculateFare];
+    };
     
+    LocationSelectorViewController* loc;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iphone"
+                                                         bundle:nil];
+    loc = [storyboard instantiateViewControllerWithIdentifier:@"locationSelectorViewController"];
+    loc.locationType = type;
+    loc.title = NSLocalizedString(@"address_search_page_search", @"");
+    if (type == LocationTypeDropoff && _endAnnotation)
+        loc.locationName = _endAnnotation.title;
+    else if (type == LocationTypePickup && _startAnnotation)
+        loc.locationName = _startAnnotation.title;
+    loc.completionBlock = completionBlock;
+    
+    
+    
+    LocationSelectionListViewController* loc1;
+    loc1 = [storyboard instantiateViewControllerWithIdentifier:@"locationSelectionListViewController"];
+    loc1.title = NSLocalizedString(@"address_search_page_stations", @"");
+    loc1.locationType = type;
+    loc1.stationType = StationTypeTrain;
+    loc1.completionBlock = completionBlock;
+    
+    MapAnnotation *a1 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(52.253708, 0.712454)
+                                                        withTitle:@"Bury St Edmonds Station"
+                                                    withImageName:nil
+                                                      withZipCode:@"IP32 6AQ"];
+    MapAnnotation *a2 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(51.736465, 0.468708)
+                                                        withTitle:@"Chelmsford Station"
+                                                    withImageName:nil
+                                                      withZipCode:@"CM1 1HT"];
+    MapAnnotation *a3 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(51.901230, 0.893736)
+                                                        withTitle:@"Colchester Station"
+                                                    withImageName:nil
+                                                      withZipCode:@"CO4 5EY"];
+    MapAnnotation *a4 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(52.391209, 0.265048)
+                                                        withTitle:@"Ely Station"
+                                                    withImageName:nil
+                                                      withZipCode:@"CB7 4DJ"];
+    MapAnnotation *a5 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(52.050720, 1.144216)
+                                                        withTitle:@"Ipswich Station"
+                                                    withImageName:nil
+                                                      withZipCode:@"IP2 8AL"];
+    MapAnnotation *a6 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(52.627151, 1.306835)
+                                                        withTitle:@"Norwich Station"
+                                                    withImageName:nil
+                                                      withZipCode:@"NR1 1EH"];
+    loc1.places = @[a1, a2, a3, a4, a5, a6];
+    
+
+    SGAnnotatedPagerController *sg = [[SGAnnotatedPagerController alloc] init];
+    [sg setViewControllers:@[loc, loc1] animated:NO];
+    [self presentViewController:sg animated:YES completion:nil];
 }
 
 - (void)zoomToFitMapAnnotations {
