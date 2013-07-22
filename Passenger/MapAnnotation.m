@@ -24,36 +24,30 @@
 
 @implementation MapAnnotation
 
-@synthesize coordinate, title, subtitle;
-
-- (NSString *)subtitle{
-	return subtitle;
-}
-- (NSString *)title{
-	return title;
-}
-
 - (id)initWithCoordinate:(CLLocationCoordinate2D)c
-               withTitle:(NSString *)markTitle
+               withTitle:(NSString *)title
            withImageName:(NSString* )imageName
 {
-	title = markTitle;
-	subtitle = @"";
-	coordinate = c;
-    self.imageName = imageName;
+    self = [super init];
+    if (self)
+    {
+        self.position = c;
+        self.title = title;
+        self.icon = [UIImage imageNamed:imageName];
+    }
 	return self;
 }
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D)c
-               withTitle:(NSString *)markTitle
+               withTitle:(NSString *)title
            withImageName:(NSString* )imageName
              withZipCode:(NSString *)zipCode
 {
-	title = markTitle;
-	subtitle = @"";
-	coordinate = c;
-    self.imageName = imageName;
-    self.zipCode = zipCode;
+    self = [self initWithCoordinate:c withTitle:title withImageName:imageName];
+    if (self)
+    {
+        self.zipCode = zipCode;
+    }
 	return self;
 }
 

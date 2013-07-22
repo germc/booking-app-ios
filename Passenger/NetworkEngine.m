@@ -275,6 +275,7 @@
 
 - (void)searchForLocation:(NSString *)location
                      type:(LocationType)type
+                    limit:(NSInteger)limit
           completionBlock:(NetworkEngineCompletionBlock)completionBlock
              failureBlock:(NetworkEngineFailureBlock)failureBlock
 {
@@ -282,11 +283,13 @@
     
     location = [location stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    [path appendFormat:@"%@?q=%@&limit=6&access_token=%@", @"/locations/search", location, _accessToken];
+    [path appendFormat:@"%@?q=%@&limit=%d&access_token=%@", @"/locations/search", location, limit, _accessToken];
     
     if (type == LocationTypePickup)
+    {
         [path appendString:@"&type=pickup"];
-        
+    }
+    
     MKNetworkOperation *op = [self operationWithPath:path
                                               params:nil
                                           httpMethod:@"GET"
@@ -390,9 +393,13 @@
         
         NSString *status = response[@"status"];
         if ([status isEqualToString:@"OK"])
+        {
             completionBlock(response[@"results"]);
+        }
         else
+        {
             failureBlock([NSError errorWithDescription:[NSString stringWithFormat:@"status: %@", status]]);
+        }
     } errorHandler:^(MKNetworkOperation *errorOp, NSError* error) {
         failureBlock(error);
     }];

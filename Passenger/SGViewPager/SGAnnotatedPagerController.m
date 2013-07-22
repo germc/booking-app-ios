@@ -36,6 +36,13 @@
     [super loadView];
     self.view.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
     
+    if (IS_IPAD)
+    {
+        self.view.frame = CGRectMake(0,0, self.contentSizeForViewInPopover.width, self.contentSizeForViewInPopover.height);
+    }
+    
+    NSLog(@"rect: %@", NSStringFromCGRect(self.view.frame));
+    
     CGRect frame = CGRectMake(-2, -2, self.view.bounds.size.width+4, TITLE_CONTROL_HEIGHT+2);
     titleScrollView = [[UIScrollView alloc] initWithFrame:frame];
     titleScrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
@@ -93,6 +100,11 @@
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     _lockPageChange = NO;
     [self setPageIndex:self.pageIndex animated:NO];
+}
+
+- (CGSize)contentSizeForViewInPopover
+{
+    return CGSizeMake(320, 480);
 }
 
 #pragma mark Add and remove

@@ -244,7 +244,7 @@
                                          phone:_phoneNumberTextField.text
                                       password:_passwordTextField.text
                                completionBlock:^(NSObject *o) {
-                                   [_delegate loginFinished];
+                                   [_delegate loginFinished:YES];
                                    [_waitDialog dismiss];
                                }
                                   failureBlock:^(NSError *e) {

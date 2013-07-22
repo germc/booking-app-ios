@@ -22,5 +22,7 @@
 	<true/>
 	<key>caboffice_settings_use_google_geolocator</key>
 	<true/>
+	<key>caboffice_settings_enable_location_search_modules</key>
+	<true/>
 </dict>
 </plist>

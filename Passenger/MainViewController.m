@@ -45,7 +45,7 @@
     UIViewController* left;
     HistoryViewController *right;
     MapViewController *front;
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iphone"
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:DEVICE_STORYBOARD
                                                          bundle:nil];
     left = [storyboard instantiateViewControllerWithIdentifier:@"menuViewController"];
     right = [storyboard instantiateViewControllerWithIdentifier:@"historyViewController"];
@@ -60,6 +60,14 @@
     [self setMinimumWidth:270.0 maximumWidth:300.0 forViewController:self.rightViewController];
 
     // Do any additional setup after loading the view.
+}
+
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIDeviceOrientation)orientation{
+    if(orientation == UIDeviceOrientationPortrait || orientation == UIDeviceOrientationPortraitUpsideDown)
+    {
+        return YES;
+    }
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning

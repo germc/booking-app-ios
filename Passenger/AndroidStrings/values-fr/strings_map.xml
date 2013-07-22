@@ -3,9 +3,9 @@
 <resources>
   <string name="pickup_line_default">Définir une adresse de départ</string>
   <string name="dropoff_line_default">...</string>
-  <string name="dropoff_line_alternative">Set destination…</string>
+  <string name="dropoff_line_alternative">Définir une adresse d\'arrivée…</string>
   <string name="map_aim_location_unknown_body">Impossible de déterminer l\'adresse indiquée. Merci de déplacer le curseur vers l\'adresse la plus proche afin de pouvoir vous localiser à nouveau.</string>
-  <string name="new_booking_both_locations_required_to_place_booking">Both pickup and destination have to be set to place the booking.</string>
+  <string name="new_booking_both_locations_required_to_place_booking">L\'adresse de départ et d\'arrivée doivent toutes deux être renseignées pour pouvoir envoyer votre réservation.</string>
   <string name="new_booking_no_pickup_location_body">Merci de rentrer l\'adresse de départ en premier.</string>
   <string name="new_booking_pickup_date_already_passed">La date de départ indiquée se trouve dans le passé!</string>
   <string name="new_booking_pickup_date_too_ahead_body_fmt">La réservation ne peut se faire que %d jours à l\'avance.</string>

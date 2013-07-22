@@ -21,26 +21,16 @@
  ****/
 
 #import <MapKit/MapKit.h>
+#import <GoogleMaps/GoogleMaps.h>
 
-@interface MapAnnotation : NSObject<MKAnnotation>
-{
-	CLLocationCoordinate2D coordinate;
-	NSString *title;
-	NSString *subtitle;
-}
+@interface MapAnnotation : GMSMarker
 
-@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
-@property (nonatomic, readonly, copy) NSString *title;
-@property (nonatomic, readonly, copy) NSString *subtitle;
-@property (nonatomic, strong) NSString* imageName;
+@property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *zipCode;
 
-- (id)initWithCoordinate:(CLLocationCoordinate2D) coordinate withTitle:(NSString *)markTitle withImageName:(NSString* )imageName;
 - (id)initWithCoordinate:(CLLocationCoordinate2D)c
-               withTitle:(NSString *)markTitle
+               withTitle:(NSString *)title
            withImageName:(NSString* )imageName
              withZipCode:(NSString *)zipCode;
-- (NSString *)subtitle;
-- (NSString *)title;
 
 @end

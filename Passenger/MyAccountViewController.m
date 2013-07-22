@@ -75,18 +75,12 @@
     [_phoneNumberLabel setFont:[UIFont lightOpenSansOfSize:24]];
     [_phoneNumberLabel setTextColor:[UIColor accountLabelColor]];
     NSString* phone = _accountPreferences[@"phone"];
-    if (IS_NULL(phone))
-        [_phoneNumberLabel setText:NSLocalizedString(@"profile_phone_not_available", @"")];
-    else
-        [_phoneNumberLabel setText:phone];
+    [_phoneNumberLabel setText:phone];
     
     [_emailAddressLabel setFont:[UIFont lightOpenSansOfSize:24]];
     [_emailAddressLabel setTextColor:[UIColor accountLabelColor]];
     NSString* email = _accountPreferences[@"email"];
-    if (IS_NULL(email))
-        [_emailAddressLabel setText:NSLocalizedString(@"office_email_not_available", @"")];
-    else
-        [_emailAddressLabel setText:email];
+    [_emailAddressLabel setText:email];
 
     [_okButton setTitle:NSLocalizedString(@"profile_button_ok", @"") forState:UIControlStateNormal];
     [_okButton setTitleColor:[UIColor buttonTextColor] forState:UIControlStateNormal];

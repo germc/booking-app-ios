@@ -94,6 +94,7 @@ typedef enum LocationType
 
 - (void)searchForLocation:(NSString *)location
                      type:(LocationType)type
+                    limit:(NSInteger)limit
           completionBlock:(NetworkEngineCompletionBlock)completionBlock
              failureBlock:(NetworkEngineFailureBlock)failureBlock;
 

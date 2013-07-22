@@ -7,5 +7,5 @@
   <string name="booking_cancel_confirmation_message">Adakah anda benar-benar ingin membatalkan tempahan ini?</string>
   <string name="booking_list_pull_to_refresh_loading">Memuatkan…</string>
   <string name="booking_list_pull_to_refresh_pull">Tarik untuk segarkan semula</string>
-  <string name="booking_list_pull_to_refresh_release">Lepas untuk segarkan semula</string>
+  <string name="booking_list_pull_to_refresh_release">Melepaskan untuk segarkan semula</string>
 </resources>

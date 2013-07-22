@@ -25,7 +25,11 @@
 #import "CreateAccountViewController.h"
 #import "UserSettings.h"
 
-@interface StartViewController () <LoginProtocolDelegate>
+@interface StartViewController () <LoginProtocolDelegate, UIPopoverControllerDelegate>
+{
+    UIPopoverController* _popover;
+    BOOL _getAccessToken;
+}
 
 @property (weak, nonatomic) IBOutlet FlatButton *signInButton;
 @property (weak, nonatomic) IBOutlet FlatButton *registerButton;
@@ -71,17 +75,41 @@
         _demoView.hidden = NO;
     }
     
+    _getAccessToken = YES;
+    
     // Do any additional setup after loading the view.
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    if (![UserSettings tourHasBeenShown])
+    if (![UserSettings tourHasBeenShown] && !IS_IPAD)
     {
         [self performSegueWithIdentifier:@"showTourViewController" sender:self];
         [UserSettings setTourHasBeenShown:YES];
     }
+    
+    if ([UserSettings refreshToken] && _getAccessToken)
+    {
+        [self getAccessTokenAndShowMainScreen];
+    }
+}
+
+
+- (void) getAccessTokenAndShowMainScreen
+{
+    __block WaitDialog* wait = [[WaitDialog alloc] init];
+    [wait show];
+    [[NetworkEngine getInstance] getAccessTokenForRefreshToken:[UserSettings refreshToken]
+                                               completionBlock:^(NSObject *o) {
+                                                   [wait dismiss];
+                                                   [self performSegueWithIdentifier:@"showMainViewController" sender:self];
+                                               }
+                                                  failureBlock:^(NSError *e){
+                                                      [wait dismiss];
+                                                      [UserSettings setRefreshToken:nil];
+                                                  }];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -103,25 +131,66 @@
     if ([[segue identifier] isEqualToString:@"showLoginViewController"])
     {
         LoginViewController* lvc = segue.destinationViewController;
+        if (IS_IPAD)
+        {
+            _popover = [(UIStoryboardPopoverSegue *)segue popoverController];
+            _popover.delegate = self;
+        }
         lvc.delegate = self;
     }
     else if ([[segue identifier] isEqualToString:@"showCreateAccountViewController"])
     {
         CreateAccountViewController* cavc = segue.destinationViewController;
+        if (IS_IPAD)
+        {
+            _popover = [(UIStoryboardPopoverSegue *)segue popoverController];
+            _popover.delegate = self;
+        }
         cavc.delegate = self;
     }
 }
+
+#pragma mark LoginProtocolDelegate
 
 - (void)loginFailed:(NSError *)error
 {
     [MessageDialog showError:error.localizedDescription withTitle:NSLocalizedString(@"dialog_error_title", @"")];
 }
 
-- (void)loginFinished
+- (void)loginFinished:(BOOL)withAccessToken
 {
-    [self.navigationController dismissViewControllerAnimated:YES completion:^{
-        [self performSegueWithIdentifier:@"showMainViewController" sender:self];
-    }];
+    _getAccessToken = NO;
+    if (IS_IPAD)
+    {
+        [_popover dismissPopoverAnimated:YES];
+        if (withAccessToken)
+        {
+            [self performSegueWithIdentifier:@"showMainViewController" sender:self];
+        }
+        else
+        {
+            [self getAccessTokenAndShowMainScreen];
+        }
+    }
+    else
+    {
+        [self.navigationController dismissViewControllerAnimated:YES completion:^{
+            if (withAccessToken)
+            {
+                [self performSegueWithIdentifier:@"showMainViewController" sender:self];
+            }
+            else
+            {
+                [self getAccessTokenAndShowMainScreen];
+            }
+        }];
+    }
+}
+
+#pragma mark UIPopoverControllerDelegate
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    _popover = nil;
 }
 
 @end

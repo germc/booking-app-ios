@@ -33,6 +33,7 @@
 + (BOOL)trackBookings;
 + (BOOL)hideDemoWarning;
 + (BOOL)trackNearbyCabs;
++ (BOOL)enableLocationSearchModules;
 
 + (BOOL)useGoogleGeolocator;
 

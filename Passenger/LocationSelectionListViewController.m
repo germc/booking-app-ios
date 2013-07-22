@@ -112,7 +112,6 @@
     {
         self.completionBlock(self.locationType, m);
     }
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

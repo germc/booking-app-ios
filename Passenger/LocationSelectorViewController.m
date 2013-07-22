@@ -36,6 +36,18 @@
 
 @implementation LocationSelectorViewController
 
+- (NSInteger)searchResultsLimit
+{
+    if (IS_IPAD)
+    {
+        return 11;
+    }
+    else
+    {
+        return 4;
+    }
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -91,20 +103,9 @@
                                                object:_locationTextField];
     
     if (_locationName)
+    {
         [self searchForLocation:_locationName];
-    
-/*    UIView* accessoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
-    accessoryView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
-    UIButton* b = [UIButton buttonWithType:UIButtonTypeCustom];
-    [b setTitle:NSLocalizedString(@"address_search_button_cancel", @"")forState:UIControlStateNormal];
-    [b addTarget:self action:@selector(cancelSelection) forControlEvents:UIControlEventTouchUpInside];
-    [b setTitleColor:[UIColor buttonTextColor] forState:UIControlStateNormal];
-    [b setBackgroundColor:[UIColor buttonColor]];
-    [b.titleLabel setFont:[UIFont lightOpenSansOfSize:16]];
-    b.frame = CGRectMake(12, 4, 64, 32);
-    [accessoryView addSubview:b];
-    _locationTextField.inputAccessoryView = accessoryView;
-*/
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -159,7 +160,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _locations.count > 4 ? 4 : _locations.count;
+    NSInteger limit = [self searchResultsLimit];
+    return _locations.count > limit ? limit : _locations.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -191,11 +193,12 @@
         NSNumber* lng = d[@"location"][@"lng"];
         CLLocationCoordinate2D c = CLLocationCoordinate2DMake([lat floatValue], [lng floatValue]);
         
-        MapAnnotation* a = [[MapAnnotation alloc] initWithCoordinate:c withTitle:d[@"address"] withImageName:nil];
-        a.zipCode = d[@"postcode"];
+        MapAnnotation* a = [[MapAnnotation alloc] initWithCoordinate:c
+                                                           withTitle:d[@"address"]
+                                                       withImageName:nil
+                                                         withZipCode:d[@"postcode"]];
         self.completionBlock(self.locationType, a);
     }
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -205,16 +208,16 @@
 
 - (void)searchForLocation:(NSString *)location
 {
+    [[NetworkEngine getInstance] cancelAllOperations];
     if (location.length)
     {
         
-        [[NetworkEngine getInstance] cancelAllOperations];
         [[NetworkEngine getInstance] searchForLocation:location
                                                   type:self.locationType
+                                                 limit:[self searchResultsLimit]
                                        completionBlock:^(NSObject *o){
                                            self.locations = (NSArray *)o;
                                            [self.tableView reloadData];
-                                           
                                        }
                                           failureBlock:^(NSError *error) {
                                               

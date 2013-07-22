@@ -6,6 +6,6 @@
   <string name="booking_list_download_error_button">请重试</string>
   <string name="booking_cancel_confirmation_message">确定要取消这个预订吗？</string>
   <string name="booking_list_pull_to_refresh_loading">正在加载...</string>
-  <string name="booking_list_pull_to_refresh_pull">下拉屏幕以更新</string>
+  <string name="booking_list_pull_to_refresh_pull">请往下拉更新屏幕</string>
   <string name="booking_list_pull_to_refresh_release">放开屏幕以更新</string>
 </resources>

@@ -4,12 +4,12 @@
   <string name="address_search_generic_hint">所在地を入力する</string>
   <string name="address_search_pickup_hint">お迎え先の住所を入力する</string>
   <string name="address_search_dropoff_hint">宛先住所を入力する</string>
-  <string name="address_search_page_search">Search</string>
-  <string name="address_search_page_history">History</string>
-  <string name="address_search_page_favourites">Favourites</string>
-  <string name="address_search_page_stations">Train Stations</string>
-  <string name="address_search_page_locations">Locations</string>
-  <string name="address_search_page_airport">Airports</string>
-  <string name="address_search_page_buses">Bus Stations</string>
-  <string name="address_search_page_ports">Ports</string>
+  <string name="address_search_page_search">検索</string>
+  <string name="address_search_page_history">履歴</string>
+  <string name="address_search_page_favourites">お気に入り</string>
+  <string name="address_search_page_stations">鉄道駅</string>
+  <string name="address_search_page_locations">場所</string>
+  <string name="address_search_page_airport">空港</string>
+  <string name="address_search_page_buses">バス駅</string>
+  <string name="address_search_page_ports">港</string>
 </resources>

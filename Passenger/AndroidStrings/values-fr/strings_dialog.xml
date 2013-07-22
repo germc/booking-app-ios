@@ -3,8 +3,8 @@
 <resources>
   <string name="dialog_button_ok">OK</string>
   <string name="dialog_button_cancel">Annuler</string>
-  <string name="dialog_button_yes">Yes</string>
-  <string name="dialog_button_no">No</string>
+  <string name="dialog_button_yes">Oui</string>
+  <string name="dialog_button_no">Non</string>
   <string name="dialog_error_title">Une erreur est survenue</string>
   <string name="dialog_confirmation_title">Confirmation</string>
 </resources>

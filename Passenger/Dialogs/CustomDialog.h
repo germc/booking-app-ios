@@ -21,8 +21,9 @@
  ****/
 
 #import <UIKit/UIKit.h>
+#import "AGWindowView.h"
 
-@interface CustomDialog : UIView
+@interface CustomDialog : AGWindowView
 
 @property (nonatomic, weak) IBOutlet UIView* contentView;
 

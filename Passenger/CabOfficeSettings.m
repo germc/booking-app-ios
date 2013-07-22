@@ -94,6 +94,14 @@
     return [r boolValue];
 }
 
++ (BOOL)enableLocationSearchModules
+{
+    NSDictionary *s = [CabOfficeSettings cabOfficeDefaults];
+    NSNumber* r = s[@"caboffice_settings_enable_location_search_modules"];
+    return [r boolValue];
+    
+}
+
 + (BOOL)useGoogleGeolocator
 {
     NSDictionary *s = [CabOfficeSettings cabOfficeDefaults];

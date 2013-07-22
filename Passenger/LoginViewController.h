@@ -24,7 +24,7 @@
 
 @protocol LoginProtocolDelegate <NSObject>
 
-- (void)loginFinished;
+- (void)loginFinished:(BOOL)withAccessToken;
 - (void)loginFailed:(NSError*)error;
 
 @end

@@ -4,12 +4,12 @@
   <string name="address_search_generic_hint">請輸入地址</string>
   <string name="address_search_pickup_hint">請輸入接客位址</string>
   <string name="address_search_dropoff_hint">請輸入到達位址</string>
-  <string name="address_search_page_search">Search</string>
-  <string name="address_search_page_history">History</string>
-  <string name="address_search_page_favourites">Favourites</string>
-  <string name="address_search_page_stations">Train Stations</string>
-  <string name="address_search_page_locations">Locations</string>
-  <string name="address_search_page_airport">Airports</string>
-  <string name="address_search_page_buses">Bus Stations</string>
-  <string name="address_search_page_ports">Ports</string>
+  <string name="address_search_page_search">搜索</string>
+  <string name="address_search_page_history">記錄</string>
+  <string name="address_search_page_favourites">收藏夾</string>
+  <string name="address_search_page_stations">火車站</string>
+  <string name="address_search_page_locations">地點</string>
+  <string name="address_search_page_airport">機場</string>
+  <string name="address_search_page_buses">公車站</string>
+  <string name="address_search_page_ports">港口</string>
 </resources>

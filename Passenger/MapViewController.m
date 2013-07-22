@@ -20,8 +20,8 @@
  *
  ****/
 
-#import <MapKit/MapKit.h>
 #import <AddressBookUI/AddressBookUI.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 #import "MapViewController.h"
 #import "PKRevealController.h"
@@ -31,8 +31,9 @@
 #import "UserSettings.h"
 #import "ConfirmBookingDialog.h"
 #import "SGAnnotatedPagerController.h"
+#import "GMSMapView+Additions.h"
 
-@interface MapViewController () <MKMapViewDelegate>
+@interface MapViewController () <GMSMapViewDelegate, UIPopoverControllerDelegate>
 {
     NSTimer *_nearbyCabsTimer;
     BOOL _zoomToUserLocation;
@@ -42,7 +43,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *bButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *myLocationButton;
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIView *abView;
 @property (weak, nonatomic) IBOutlet UIView *priceView;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
@@ -54,6 +54,9 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *bookingActivityIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *createNewBookingButton;
+@property (strong, nonatomic) UIPopoverController* searchPopover;
+@property (weak, nonatomic) IBOutlet GMSMapView *googleMapView;
+@property (strong, nonatomic) NSMutableArray* googleMapOverlays;
 
 - (IBAction)leftButtonPressed:(id)sender;
 - (IBAction)rightButtonPressed:(id)sender;
@@ -82,9 +85,13 @@
 - (NSString*)dropoffLine
 {
     if ([CabOfficeSettings useAlternativeDropoffLabel])
+    {
         return NSLocalizedString(@"dropoff_line_alternative", @"");
+    }
     else
+    {
         return NSLocalizedString(@"dropoff_line_default", @"");
+    }
 }
 
 - (void)viewDidLoad
@@ -97,7 +104,7 @@
     
     UIImage *nb = [[UIImage imageNamed:@"map_button_normal_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(14, 14, 14, 14)];
     UIImage *pb = [[UIImage imageNamed:@"map_button_pressed_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(14, 14, 14, 14)];
-    
+
     _pickupDropoffView.backgroundColor = [UIColor mapOverlayColor];
     [_pickupDropoffView.layer setCornerRadius:8.0f];
 
@@ -148,36 +155,42 @@
     _zoomToUserLocation = YES;
     
     _bookButton.enabled = NO;
+    
+    _googleMapView.myLocationEnabled = YES;
+    _googleMapView.delegate = self;
+    self.googleMapOverlays = [[NSMutableArray alloc] initWithCapacity:3];
 
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if (![UserSettings tourHasBeenShown] && IS_IPAD)
+    {
+        [self performSegueWithIdentifier:@"showTourViewController" sender:self];
+        [UserSettings setTourHasBeenShown:YES];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.mapView.userLocation addObserver:self
-                                forKeyPath:@"location"
-                                   options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld)
-                                   context:NULL];
+    [self.googleMapView addObserver:self
+                         forKeyPath:@"myLocation"
+                            options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld)
+                            context:NULL];
     
-    if ([UserSettings refreshToken])
+    if( [CabOfficeSettings trackNearbyCabs])
     {
-        [[NetworkEngine getInstance] getAccessTokenForRefreshToken:[UserSettings refreshToken]
-                                                   completionBlock:^(NSObject *o) {
-                                                       if( [CabOfficeSettings trackNearbyCabs])
-                                                       {
-                                                           [self downloadNearbyCabs];
-                                                           _nearbyCabsTimer = [NSTimer scheduledTimerWithTimeInterval:30
-                                                                                                               target:self
-                                                                                                             selector:@selector(nearbyCabsTimerFired:)
-                                                                                                             userInfo:nil
-                                                                                                              repeats:YES];
-                                                       }
-                                                   }
-                                                      failureBlock:^(NSError *e){
-                                                          [UserSettings setRefreshToken:nil];
-                                                          [self.navigationController popToRootViewControllerAnimated:YES];
-                                                      }];
+        [self downloadNearbyCabs];
+        [_nearbyCabsTimer invalidate];
+        _nearbyCabsTimer = [NSTimer scheduledTimerWithTimeInterval:30
+                                                            target:self
+                                                          selector:@selector(nearbyCabsTimerFired:)
+                                                          userInfo:nil
+                                                           repeats:YES];
     }
 }
 
@@ -189,7 +202,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.mapView.userLocation removeObserver:self forKeyPath:@"location" context:NULL];
+    [self.googleMapView removeObserver:self forKeyPath:@"myLocation" context:NULL];
 
     [_nearbyCabsTimer invalidate];
     _nearbyCabsTimer = nil;
@@ -197,12 +210,12 @@
 
 - (void)downloadNearbyCabs
 {
-    [[NetworkEngine getInstance] getNearbyCabs:_mapView.userLocation.location.coordinate
+    [[NetworkEngine getInstance] getNearbyCabs:_googleMapView.myLocation.coordinate
                                completionBlock:^(NSObject *o)
                                     {
                                         for (MapAnnotation *m in _nearbyCabs)
                                         {
-                                            [_mapView removeAnnotation:m];
+                                            [_googleMapView removeAnnotation:m];
                                         }
                                         
                                         self.nearbyCabs = [[NSMutableArray alloc] init];
@@ -212,8 +225,8 @@
                                             NSNumber* lat = d[@"lat"];
                                             NSNumber* lng = d[@"lng"];
                                             
-                                            MapAnnotation *m = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake([lat floatValue], [lng floatValue]) withTitle:@"" withImageName:@"map_marker_nearby_cab"];
-                                            [_mapView addAnnotation:m];
+                                            MapAnnotation *m = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake([lat floatValue], [lng floatValue]) withTitle:@"" withImageName:@"map_marker_nearby_cab" withZipCode:nil];
+                                            [_googleMapView addAnnotation:m];
                                             [_nearbyCabs addObject:m];
                                         }
                                     }
@@ -228,12 +241,13 @@
                         change:(NSDictionary *)change
                        context:(void *)context {
     
-    if ([keyPath isEqualToString:@"location"])
+    if ([keyPath isEqualToString:@"myLocation"])
     {
-        if (_zoomToUserLocation) {
-            if (_mapView.userLocation.location)
+        if (_zoomToUserLocation)
+        {
+            if (_googleMapView.myLocation)
             {
-                [self resetMapZoomAndSetLocationTo:_mapView.userLocation.location.coordinate];
+                [self resetMapZoomAndSetLocationTo:_googleMapView.myLocation.coordinate];
                 _zoomToUserLocation = NO;
             }
             else
@@ -249,13 +263,17 @@
 
 - (void)resetMapZoomAndSetLocationTo:(CLLocationCoordinate2D)coordinate
 {
-    MKCoordinateRegion region;
-    region.center = coordinate;
-    MKCoordinateSpan span;
-    span.latitudeDelta = .008;
-    span.longitudeDelta = .008;
-    region.span=span;
-    [_mapView setRegion:region animated:YES];
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:coordinate.latitude
+                                                            longitude:coordinate.longitude
+                                                                 zoom:15];
+
+    [_googleMapView setCamera:camera];
+}
+
+- (void)setMapCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    GMSCameraPosition* camera = [GMSCameraPosition cameraWithTarget:coordinate zoom:_googleMapView.camera.zoom];
+    [_googleMapView setCamera:camera];
 }
 
 - (void)longPress:(UILongPressGestureRecognizer*)gesture {
@@ -265,7 +283,7 @@
         {
             if (_startAnnotation)
             {
-                [_mapView removeAnnotation:_startAnnotation];
+                [_googleMapView removeAnnotation:_startAnnotation];
                 self.startAnnotation = nil;
             }
             [_pickupButton setTitle:NSLocalizedString(@"pickup_line_default", @"") forState:UIControlStateNormal];
@@ -279,20 +297,22 @@
         {
             if (_endAnnotation)
             {
-                [_mapView removeAnnotation:_endAnnotation];
+                [_googleMapView removeAnnotation:_endAnnotation];
                 self.endAnnotation = nil;
             }
             [_dropoffButton setTitle:[self dropoffLine] forState:UIControlStateNormal];
 
             if ([CabOfficeSettings dropoffLocationIsMandatory] || !_startAnnotation)
+            {
                 _bookButton.enabled = NO;
+            }
             
             [self removeRoutes];
             _priceView.hidden = YES;
         }
         else if (tag == 3)
         {
-            [self resetMapZoomAndSetLocationTo:_mapView.userLocation.location.coordinate];
+            [self resetMapZoomAndSetLocationTo:_googleMapView.myLocation.coordinate];
         }
     }
 }
@@ -303,7 +323,6 @@
 }
 
 - (void)viewDidUnload {
-    [self setMapView:nil];
     [self setAbView:nil];
     [self setPriceView:nil];
     [self setPriceLabel:nil];
@@ -318,22 +337,27 @@
     [self setActivityIndicatorView:nil];
     [self setBookingActivityIndicator:nil];
     [self setCreateNewBookingButton:nil];
+    [self setGoogleMapView:nil];
     [super viewDidUnload];
 }
 
 - (void)removeRoutes
 {
-    NSArray* ovr = _mapView.overlays;
-    for (id o in ovr)
+    for (GMSOverlay* o in _googleMapOverlays)
     {
-        [_mapView removeOverlay:o];
+        o.map = nil;
     }
+    [_googleMapOverlays removeAllObjects];
     
     if (_startRouteAnnotation)
-        [_mapView removeAnnotation:_startRouteAnnotation];
+    {
+        [_googleMapView removeAnnotation:_startRouteAnnotation];
+    }
     if (_endRouteAnnotation)
-        [_mapView removeAnnotation:_endRouteAnnotation];
-    
+    {
+        [_googleMapView removeAnnotation:_endRouteAnnotation];
+    }
+
     self.startRouteAnnotation = nil;
     self.endRouteAnnotation = nil;
 }
@@ -347,8 +371,8 @@
         _bookButton.enabled = NO;
         [_bookingActivityIndicator startAnimating];
 
-        [[NetworkEngine getInstance] getDirectionsFrom:_startAnnotation.coordinate
-                                                    to:_endAnnotation.coordinate
+        [[NetworkEngine getInstance] getDirectionsFrom:_startAnnotation.position
+                                                    to:_endAnnotation.position
                                        completionBlock:^(NSObject *o)
                                         {
                                             _priceView.hidden = NO;
@@ -356,41 +380,40 @@
                                             _bookButton.enabled = YES;
 
                                             NSArray* points = (NSArray*)o;
-                                            
                                             if (points.count)
                                             {
-                                                MKMapPoint * pointsArray = malloc(sizeof(MKMapPoint) * points.count);
-                                                
-                                                NSInteger i = 0;
+                                                [self removeRoutes];
+
+                                                GMSMutablePath *path = [GMSMutablePath path];
                                                 for (CLLocation *loc in points)
                                                 {
-                                                    pointsArray[i++] = MKMapPointForCoordinate(loc.coordinate);
+                                                    [path addCoordinate:loc.coordinate];
                                                 }
                                                 
-                                                MKPolyline *  routeLine = [MKPolyline polylineWithPoints:pointsArray count:points.count];
-                                                free(pointsArray);
-                                                
-                                                routeLine.title = @"route";
+                                                GMSPolyline *route = [GMSPolyline polylineWithPath:path];
+                                                route.strokeColor = [UIColor mapRouteColor];
+                                                route.map = _googleMapView;
+                                                route.strokeWidth = 5;
+                                                [_googleMapOverlays addObject:route];
 
-                                                [self removeRoutes];
-                                                [_mapView addOverlay:routeLine];
-                                                
                                                 CLLocation* startLocation = points[0];
                                                 self.startRouteAnnotation = [[MapAnnotation alloc] initWithCoordinate:startLocation.coordinate
                                                                                                             withTitle:@""
-                                                                                        withImageName:@"map_marker_cab_pickup"];
-                                                [_mapView addAnnotation:_startRouteAnnotation];
-                                                [self addLiveOverlayFrom:startLocation.coordinate to:_startAnnotation.coordinate title:@"pickup"];
+                                                                                        withImageName:@"map_marker_cab_pickup"
+                                                                                                          withZipCode:nil];
+                                                _startRouteAnnotation.groundAnchor = CGPointMake(0.5f, 0.5f);
+                                                [_googleMapView addAnnotation:_startRouteAnnotation];
+                                                [self addLiveOverlayFrom:startLocation.coordinate to:_startAnnotation.position color:[UIColor pickupTextColor]];
                                                 
                                                 CLLocation* endLocation = [points lastObject];
                                                 self.endRouteAnnotation = [[MapAnnotation alloc] initWithCoordinate:endLocation.coordinate
                                                                                                             withTitle:@""
-                                                                                                        withImageName:@"map_marker_cab_dropoff"];
-                                                [_mapView addAnnotation:_endRouteAnnotation];
+                                                                                                        withImageName:@"map_marker_cab_dropoff" withZipCode:nil];
+                                                _endRouteAnnotation.groundAnchor = CGPointMake(0.5f, 0.5f);
+                                                [_googleMapView addAnnotation:_endRouteAnnotation];
                                                 
-                                                [self addLiveOverlayFrom:endLocation.coordinate to:_endAnnotation.coordinate title:@"dropoff"];
+                                                [self addLiveOverlayFrom:endLocation.coordinate to:_endAnnotation.position color:[UIColor dropoffTextColor]];
                                             }
-
                                         }
                                           failureBlock:^(NSError *e)
                                             {
@@ -402,21 +425,43 @@
     }
 }
 
-- (void) addLiveOverlayFrom:(CLLocationCoordinate2D)start
+- (void) addLiveOverlayFrom:(CLLocationCoordinate2D)begin
                          to:(CLLocationCoordinate2D)end
-                      title:(NSString *)title
+                      color:(UIColor *)color
 {
-    MKMapPoint * pointsArray = malloc(sizeof(MKMapPoint) * 2);
+	double diffLat = (end.latitude - begin.latitude);
+    double diffLng = (end.longitude - begin.longitude);
     
-    pointsArray[0] = MKMapPointForCoordinate(start);
-    pointsArray[1] = MKMapPointForCoordinate(end);
+    double zoom = (_googleMapView.camera.zoom) * 2;
     
-    MKPolyline *  routeLine = [MKPolyline polylineWithPoints:pointsArray count:2];
-    free(pointsArray);
+    double divLat = diffLat / zoom;
+    double divLng = diffLng / zoom;
     
-    routeLine.title = title;
+    CLLocationCoordinate2D tmpLat = begin;
     
-    [_mapView addOverlay:routeLine];
+    for(int i = 0; i < zoom; i++) {
+        CLLocationCoordinate2D loopLatLng = tmpLat;
+        
+        if( i == (zoom - 1) ) {
+            loopLatLng = end;
+        } else {
+            if(i > 0) {
+                loopLatLng = CLLocationCoordinate2DMake(tmpLat.latitude + (divLat * 0.25f), tmpLat.longitude + (divLng * 0.25f));
+            }
+        }
+        
+        GMSMutablePath *path = [GMSMutablePath path];
+        [path addCoordinate:loopLatLng];
+        [path addCoordinate:CLLocationCoordinate2DMake(tmpLat.latitude + divLat, tmpLat.longitude + divLng)];
+        
+        GMSPolyline *route = [GMSPolyline polylineWithPath:path];
+        route.strokeColor = [UIColor mapRouteColor];
+        route.map = _googleMapView;
+        route.strokeWidth = 5;
+        [_googleMapOverlays addObject:route];
+
+        tmpLat = CLLocationCoordinate2DMake(tmpLat.latitude + divLat, tmpLat.longitude + divLng);
+    }
 }
 
 - (void)calculateFare
@@ -428,8 +473,8 @@
         _bookButton.enabled = NO;
         [_bookingActivityIndicator startAnimating];
 
-        [[NetworkEngine getInstance] getTravelFare:_startAnnotation.coordinate
-                                                to:_endAnnotation.coordinate
+        [[NetworkEngine getInstance] getTravelFare:_startAnnotation.position
+                                                to:_endAnnotation.position
                                    completionBlock:^(NSObject *o)
                                     {
                                         _bookingActivityIndicator.hidden = YES;
@@ -465,56 +510,7 @@
 
 #pragma mark map delegate
 
-- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
-{
-    MKPolylineView* _routeLineView = [[MKPolylineView alloc] initWithPolyline:overlay];
-    
-    UIColor *color = [UIColor mapRouteColor];
-    if ([overlay.title isEqualToString:@"pickup"])
-    {
-        color = [UIColor pickupTextColor];
-        _routeLineView.lineDashPhase = 5;
-        _routeLineView.lineDashPattern = @[@10, @10];
-    }
-    else if ([overlay.title isEqualToString:@"dropoff"])
-    {
-        color = [UIColor dropoffTextColor];
-        _routeLineView.lineDashPhase = 5;
-        _routeLineView.lineDashPattern = @[@10, @10];
-    }
-
-    _routeLineView.fillColor = color;
-    _routeLineView.strokeColor = color;
-    _routeLineView.lineWidth = 4;
-    _routeLineView.lineCap = kCGLineCapRound;
-    
-    return _routeLineView;
-}
-
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
-    
-	MKAnnotationView *test = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"locID"];
-	test.annotation = annotation;
-	test.canShowCallout = NO;
-	test.userInteractionEnabled = NO;
-    
-    if ([annotation isKindOfClass:[MapAnnotation class]])
-    {
-        MapAnnotation* a = (MapAnnotation*)annotation;
-        test.image = [UIImage imageNamed:a.imageName];
-        
-        if (a.title.length != 0)
-            test.centerOffset = CGPointMake(0, -test.image.size.height / 2);
-    }
-	return test;
-}
-
-
-- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
-{
-}
-
-- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+- (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)position
 {
     _aButton.enabled = NO;
     _bButton.enabled = NO;
@@ -523,21 +519,25 @@
     _bookingActivityIndicator.hidden = NO;
     [_bookingActivityIndicator startAnimating];
     _bookButton.enabled = NO;
-    [self findAddressForLocation:_mapView.centerCoordinate completionBlock:^(NSString *address, NSString *zipCode) {
-
+    [self findAddressForLocation:position.target completionBlock:^(NSString *address, NSString *zipCode) {
+        
         _aButton.enabled = YES;
         _bButton.enabled = YES;
         _activityIndicatorView.hidden = YES;
         _bookingActivityIndicator.hidden = YES;
-
+        
         if (_startAnnotation)
         {
             if ([CabOfficeSettings dropoffLocationIsMandatory])
             {
                 if (_endAnnotation)
+                {
                     _bookButton.enabled = YES;
+                }
                 else
+                {
                     _bookButton.enabled = NO;
+                }
             }
             else
             {
@@ -547,12 +547,11 @@
         
         self.locationName = address;
         self.zipCode = zipCode;
-    }];
+    }];    
 }
 
-- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
-{
-}
+
+#pragma mark IBActions
 
 - (IBAction)leftButtonPressed:(id)sender {
     PKRevealController *rc = self.revealController;
@@ -616,6 +615,7 @@
     }
     else
     {
+        [[NetworkEngine getInstance] cancelAllOperations];
         [[NetworkEngine getInstance] getReverseForLocation:coordinate
                                            completionBlock:^(NSObject *response){
                                                NSArray *results = (NSArray *)response;
@@ -669,7 +669,9 @@
                                                            }
                                                        }
                                                    }
-                                                   NSMutableString* address = [[NSMutableString alloc] initWithString:route];
+                                                   NSMutableString* address = [[NSMutableString alloc] init];
+                                                   if (route)
+                                                       [address appendString:route];
                                                    if (streetNumber)
                                                        [address appendFormat:@" %@", streetNumber];
                                                    if (address2)
@@ -705,7 +707,7 @@
     if (_locationName)
     {
         [self removeRoutes];
-        [self setPickupLocation:_mapView.centerCoordinate title:_locationName zipCode:_zipCode];
+        [self setPickupLocation:_googleMapView.camera.target title:_locationName zipCode:_zipCode];
         [self calculateFare];
     }
 }
@@ -714,13 +716,13 @@
     if (_locationName)
     {
         [self removeRoutes];
-        [self setDropoffLocation:_mapView.centerCoordinate title:_locationName zipCode:_zipCode];
+        [self setDropoffLocation:_googleMapView.camera.target title:_locationName zipCode:_zipCode];
         [self calculateFare];
     }
 }
 
 - (IBAction)myLocationButtonPressed:(id)sender {
-    [_mapView setCenterCoordinate:_mapView.userLocation.coordinate animated:YES];
+    [self setMapCoordinate:_googleMapView.myLocation.coordinate];
 }
 
 - (IBAction)bookButtonPressed:(id)sender {
@@ -736,10 +738,10 @@
                    confirmationBlock:^(NSDate *date){
                        [[NetworkEngine getInstance] createBooking:_startAnnotation.title
                                                     pickupZipCode:_startAnnotation.zipCode
-                                                   pickupLocation:_startAnnotation.coordinate
+                                                   pickupLocation:_startAnnotation.position
                                                       dropoffName:_endAnnotation.title
                                                    dropoffZipCode:_endAnnotation.zipCode
-                                                  dropoffLocation:_endAnnotation.coordinate
+                                                  dropoffLocation:_endAnnotation.position
                                                        pickupDate:date
                                                   completionBlock:^(NSObject *response) {
                                                       [MessageDialog showMessage:[NSString stringWithFormat:NSLocalizedString(@"new_booking_body_fmt", @""), _startAnnotation.title]
@@ -759,13 +761,13 @@
                                                       
                                                       if (_startAnnotation)
                                                       {
-                                                          [_mapView removeAnnotation:_startAnnotation];
+                                                          [_googleMapView removeAnnotation:_startAnnotation];
                                                           self.startAnnotation = nil;
                                                       }
                                                       
                                                       if (_endAnnotation)
                                                       {
-                                                          [_mapView removeAnnotation:_endAnnotation];
+                                                          [_googleMapView removeAnnotation:_endAnnotation];
                                                           self.endAnnotation = nil;
                                                       }
                                                       
@@ -785,11 +787,15 @@
     [self removeRoutes];
     
     if (_startAnnotation)
-        [_mapView removeAnnotation:_startAnnotation];
+    {
+        [_googleMapView removeAnnotation:_startAnnotation];
+    }
     self.startAnnotation = nil;
 
     if (_endAnnotation)
-        [_mapView removeAnnotation:_endAnnotation];
+    {
+        [_googleMapView removeAnnotation:_endAnnotation];
+    }
     self.endAnnotation = nil;
 
     _createNewBookingButton.hidden = YES;
@@ -806,19 +812,25 @@
     [_pickupButton setTitle:title forState:UIControlStateNormal];
 
     if (_startAnnotation)
-        [_mapView removeAnnotation:_startAnnotation];
+    {
+        [_googleMapView removeAnnotation:_startAnnotation];
+    }
     self.startAnnotation = [[MapAnnotation alloc] initWithCoordinate:location
                                                            withTitle:title
-                                                       withImageName:@"map_marker_pickup_big"];
-    _startAnnotation.zipCode = zipCode;
-    [_mapView addAnnotation:_startAnnotation];
+                                                       withImageName:@"map_marker_pickup_big"
+                                                         withZipCode:zipCode];
+    [_googleMapView addAnnotation:_startAnnotation];
 
     if ([CabOfficeSettings dropoffLocationIsMandatory])
     {
         if (_endAnnotation)
+        {
             _bookButton.enabled = YES;
+        }
         else
+        {
             _bookButton.enabled = NO;
+        }
     }
     else
     {
@@ -833,12 +845,14 @@
     [_dropoffButton setTitle:title forState:UIControlStateNormal];
 
     if (_endAnnotation)
-        [_mapView removeAnnotation:_endAnnotation];
+    {
+        [_googleMapView removeAnnotation:_endAnnotation];
+    }
     self.endAnnotation = [[MapAnnotation alloc] initWithCoordinate:location
                                                          withTitle:title
-                                                     withImageName:@"map_marker_dropoff"];
-    _endAnnotation.zipCode = zipCode;
-    [_mapView addAnnotation:_endAnnotation];
+                                                     withImageName:@"map_marker_dropoff"
+                                                       withZipCode:zipCode];
+    [_googleMapView addAnnotation:_endAnnotation];
  
     if ([CabOfficeSettings dropoffLocationIsMandatory] && _startAnnotation)
     {
@@ -847,109 +861,120 @@
 }
 
 - (IBAction)pickupLocationButtonPressed:(id)sender {
-    [self showLocatioSelectionViewController:LocationTypePickup];
+    [self showLocatioSelectionViewController:LocationTypePickup sender:sender];
 }
 
 - (IBAction)dropoffLocationButtonPressed:(id)sender {
-    [self showLocatioSelectionViewController:LocationTypeDropoff];
+    [self showLocatioSelectionViewController:LocationTypeDropoff sender:sender];
 }
 
-- (void)showLocatioSelectionViewController:(LocationType)type
+- (void)showLocatioSelectionViewController:(LocationType)type sender:(UIView *)sender
 {
     LocationSelectorCompletionBlock completionBlock = ^(LocationType type, MapAnnotation *a) {
         
         if (type == LocationTypePickup)
-            [self setPickupLocation:a.coordinate title:a.title zipCode:a.zipCode];
+        {
+            [self setPickupLocation:a.position title:a.title zipCode:a.zipCode];
+        }
         else
-            [self setDropoffLocation:a.coordinate title:a.title zipCode:a.zipCode];
+        {
+            [self setDropoffLocation:a.position title:a.title zipCode:a.zipCode];
+        }
         
-        [_mapView setCenterCoordinate:a.coordinate animated:YES];
+        [self setMapCoordinate:a.position];
 
         [self calculateFare];
+
+        if (IS_IPAD)
+        {
+            [self.searchPopover dismissPopoverAnimated:YES];
+        }
+        else
+        {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
     };
     
+    SGAnnotatedPagerController *sg = [[SGAnnotatedPagerController alloc] init];
+    
     LocationSelectorViewController* loc;
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iphone"
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:DEVICE_STORYBOARD
                                                          bundle:nil];
     loc = [storyboard instantiateViewControllerWithIdentifier:@"locationSelectorViewController"];
     loc.locationType = type;
     loc.title = NSLocalizedString(@"address_search_page_search", @"");
     if (type == LocationTypeDropoff && _endAnnotation)
+    {
         loc.locationName = _endAnnotation.title;
+    }
     else if (type == LocationTypePickup && _startAnnotation)
+    {
         loc.locationName = _startAnnotation.title;
+    }
     loc.completionBlock = completionBlock;
     
-    
-    
-    LocationSelectionListViewController* loc1;
-    loc1 = [storyboard instantiateViewControllerWithIdentifier:@"locationSelectionListViewController"];
-    loc1.title = NSLocalizedString(@"address_search_page_stations", @"");
-    loc1.locationType = type;
-    loc1.stationType = StationTypeTrain;
-    loc1.completionBlock = completionBlock;
-    
-    MapAnnotation *a1 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(52.253708, 0.712454)
-                                                        withTitle:@"Bury St Edmonds Station"
-                                                    withImageName:nil
-                                                      withZipCode:@"IP32 6AQ"];
-    MapAnnotation *a2 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(51.736465, 0.468708)
-                                                        withTitle:@"Chelmsford Station"
-                                                    withImageName:nil
-                                                      withZipCode:@"CM1 1HT"];
-    MapAnnotation *a3 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(51.901230, 0.893736)
-                                                        withTitle:@"Colchester Station"
-                                                    withImageName:nil
-                                                      withZipCode:@"CO4 5EY"];
-    MapAnnotation *a4 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(52.391209, 0.265048)
-                                                        withTitle:@"Ely Station"
-                                                    withImageName:nil
-                                                      withZipCode:@"CB7 4DJ"];
-    MapAnnotation *a5 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(52.050720, 1.144216)
-                                                        withTitle:@"Ipswich Station"
-                                                    withImageName:nil
-                                                      withZipCode:@"IP2 8AL"];
-    MapAnnotation *a6 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(52.627151, 1.306835)
-                                                        withTitle:@"Norwich Station"
-                                                    withImageName:nil
-                                                      withZipCode:@"NR1 1EH"];
-    loc1.places = @[a1, a2, a3, a4, a5, a6];
-    
+    if ([CabOfficeSettings enableLocationSearchModules])
+    {
+        LocationSelectionListViewController* loc1;
+        loc1 = [storyboard instantiateViewControllerWithIdentifier:@"locationSelectionListViewController"];
+        loc1.title = NSLocalizedString(@"address_search_page_stations", @"");
+        loc1.locationType = type;
+        loc1.stationType = StationTypeTrain;
+        loc1.completionBlock = completionBlock;
+        
+        MapAnnotation *a1 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(52.253708, 0.712454)
+                                                            withTitle:@"Bury St Edmonds Station"
+                                                        withImageName:nil
+                                                          withZipCode:@"IP32 6AQ"];
+        MapAnnotation *a2 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(51.736465, 0.468708)
+                                                            withTitle:@"Chelmsford Station"
+                                                        withImageName:nil
+                                                          withZipCode:@"CM1 1HT"];
+        MapAnnotation *a3 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(51.901230, 0.893736)
+                                                            withTitle:@"Colchester Station"
+                                                        withImageName:nil
+                                                          withZipCode:@"CO4 5EY"];
+        MapAnnotation *a4 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(52.391209, 0.265048)
+                                                            withTitle:@"Ely Station"
+                                                        withImageName:nil
+                                                          withZipCode:@"CB7 4DJ"];
+        MapAnnotation *a5 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(52.050720, 1.144216)
+                                                            withTitle:@"Ipswich Station"
+                                                        withImageName:nil
+                                                          withZipCode:@"IP2 8AL"];
+        MapAnnotation *a6 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(52.627151, 1.306835)
+                                                            withTitle:@"Norwich Station"
+                                                        withImageName:nil
+                                                          withZipCode:@"NR1 1EH"];
+        MapAnnotation *a7 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(51.666916, 0.383777)
+                                                            withTitle:@"Ingatestone Station"
+                                                        withImageName:nil
+                                                          withZipCode:@"CM4 0BW"];
+        
+        loc1.places = @[a1, a2, a3, a4, a5, a6, a7];
 
-    SGAnnotatedPagerController *sg = [[SGAnnotatedPagerController alloc] init];
-    [sg setViewControllers:@[loc, loc1] animated:NO];
-    [self presentViewController:sg animated:YES completion:nil];
+        [sg setViewControllers:@[loc, loc1] animated:NO];
+    }
+    else
+    {
+        [sg setViewControllers:@[loc] animated:NO];
+    }
+    
+    if (IS_IPAD)
+    {
+        self.searchPopover = [[UIPopoverController alloc] initWithContentViewController:sg];
+        _searchPopover.delegate = self;
+        [_searchPopover presentPopoverFromRect:sender.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    }
+    else
+    {
+        [self presentViewController:sg animated:YES completion:nil];
+    }
 }
 
-- (void)zoomToFitMapAnnotations {
-    
-    if (_startAnnotation == nil && _endAnnotation == nil)
-    {
-        return;
-    }
-    else if (_startAnnotation && _endAnnotation == nil)
-    {
-        [self resetMapZoomAndSetLocationTo:_startAnnotation.coordinate];
-        return;
-    }
-    
-    CLLocationCoordinate2D topLeftCoord;
-    CLLocationCoordinate2D bottomRightCoord;
-    topLeftCoord.longitude = fmin(_endAnnotation.coordinate.longitude, _startAnnotation.coordinate.longitude);
-    topLeftCoord.latitude = fmax(_endAnnotation.coordinate.latitude, _startAnnotation.coordinate.latitude);
-    bottomRightCoord.longitude = fmax(_endAnnotation.coordinate.longitude, _startAnnotation.coordinate.longitude);
-    bottomRightCoord.latitude = fmin(_endAnnotation.coordinate.latitude, _startAnnotation.coordinate.latitude);
-
-    MKCoordinateRegion region;
-    region.center.latitude = topLeftCoord.latitude - (topLeftCoord.latitude - bottomRightCoord.latitude) * 0.5;
-    region.center.longitude = topLeftCoord.longitude + (bottomRightCoord.longitude - topLeftCoord.longitude) * 0.5;
-    region.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) * 1.5;
-    
-    // Add a little extra space on the sides
-    region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * 1.5;
-    
-    region = [_mapView regionThatFits:region];
-    [_mapView setRegion:region animated:YES];
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    self.searchPopover = nil;
 }
 
 #pragma mark booking history selection delegate
@@ -968,21 +993,30 @@
     if (onlyShow)
     {
         if (pickupName)
-            [_mapView setCenterCoordinate:pickupLocation animated:YES];
+        {
+            [self setMapCoordinate:pickupLocation];
+        }
         else
-            [_mapView setCenterCoordinate:dropoffLocation animated:YES];
+        {
+            [self setMapCoordinate:dropoffLocation];
+        }
     }
     else
     {
-        if (pickupName) {
+        if (pickupName)
+        {
             [self setPickupLocation:pickupLocation title:pickupName zipCode:pickupZipCode];
-            [_mapView setCenterCoordinate:pickupLocation animated:YES];
-        } else {
-            [_mapView setCenterCoordinate:dropoffLocation animated:YES];
+            [self setMapCoordinate:pickupLocation];
+        }
+        else
+        {
+            [self setMapCoordinate:dropoffLocation];
         }
         
         if (dropoffName)
+        {
             [self setDropoffLocation:dropoffLocation title:dropoffName zipCode:dropoffZipCode];
+        }
 
         [self calculateFare];
     }

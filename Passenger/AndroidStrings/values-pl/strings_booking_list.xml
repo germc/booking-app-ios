@@ -5,7 +5,7 @@
   <string name="booking_list_download_error_message">Nie mogę pobrać historii zleceń</string>
   <string name="booking_list_download_error_button">Spróbuj ponownie</string>
   <string name="booking_cancel_confirmation_message">Na pewno chcesz anulować to zlecenie?</string>
-  <string name="booking_list_pull_to_refresh_loading">Wczytywanie...</string>
+  <string name="booking_list_pull_to_refresh_loading">Wczytywanie…</string>
   <string name="booking_list_pull_to_refresh_pull">Pociągnij aby odświeżyć</string>
   <string name="booking_list_pull_to_refresh_release">Puść aby odświeżyć</string>
 </resources>

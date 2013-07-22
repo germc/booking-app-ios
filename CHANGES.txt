@@ -1,8 +1,16 @@
+v1.6 (2013.07.22)
+-----------------------------
+- Replaced Apple maps with Google maps.
+- Added iPad support.
+- Added Korean and Swedish translations.
+- Updated all translation to latest version.
+- Search location modules can now be enabled/disabled in CabOffixeSettings.plist.
+
 v1.5 (2013.07.15)
 -----------------------------
 - Added Google geolocator (default). Apple geolocator can be selected as default using cab office settings.
 - Added support for location search extension modules
-- Changed appearence of search dialog.
+- Changed appearance of search dialog.
 - Improved compatibility with iOS7.
 - Improved UI layout to better fit translated texts.
 - E-mail/phone number in Cab Office is now hidden if not set by the office.

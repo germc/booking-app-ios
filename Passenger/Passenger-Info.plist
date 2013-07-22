@@ -16,6 +16,8 @@
 			<array>
 				<string>icon.png</string>
 				<string>icon@2x.png</string>
+				<string>icon_72.png</string>
+				<string>icon_144.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
@@ -30,11 +32,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.5.0</string>
+	<string>1.6.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.5.0</string>
+	<string>1.6.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIAppFonts</key>
@@ -43,7 +45,9 @@
 		<string>OpenSans-Semibold.ttf</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
-	<string>MainStoryboard_iphone</string>
+	<string>MainStoryboard~iPhone</string>
+	<key>UIMainStoryboardFile~ipad</key>
+	<string>MainStoryboard~iPad</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -53,6 +57,11 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>

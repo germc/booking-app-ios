@@ -30,4 +30,13 @@
 	<string name="address_search_pickup_hint">Enter pickup address</string>
 	<string name="address_search_dropoff_hint">Enter destination address</string>
 
+	<string name="address_search_page_search">Search</string>
+	<string name="address_search_page_history">History</string>
+	<string name="address_search_page_favourites">Favourites</string>
+	<string name="address_search_page_stations">Train Stations</string>
+	<string name="address_search_page_locations">Locations</string>
+	<string name="address_search_page_airport">Airports</string>
+	<string name="address_search_page_buses">Bus Stations</string>
+	<string name="address_search_page_ports">Ports</string>
+	
 </resources>

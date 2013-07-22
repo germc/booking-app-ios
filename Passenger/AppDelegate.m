@@ -28,7 +28,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     NSArray* files = @[@"strings_address_search",
-                       @"strings_app_name",
                        @"strings_booking_list",
                        @"strings_demo",
                        @"strings_dialog",
@@ -39,11 +38,13 @@
                        @"strings_oauth",
                        @"strings_office",
                        @"strings_profile",
+                       @"strings_pulltorefresh",
                        @"strings_register",
                        @"strings_slide_menu",
                        @"strings_tdfragment",
-                       @"strings_tour"];
-    NSArray* languages = @[@"de", @"en", @"es", @"fr", @"it", @"ja", @"ms", @"pl", @"ru", @"th", @"uk", @"zh-Hans", @"zh-Hant" ];
+                       @"strings_tour",
+                       @"strings_translator_credits"];
+    NSArray* languages = @[@"de", @"en", @"es", @"fr", @"it", @"ja", @"ko", @"ms", @"pl", @"ru", @"sv", @"th", @"uk", @"zh-Hans", @"zh-Hant" ];
     
     for (NSString *language in languages)
     {
@@ -56,19 +57,16 @@
     [TestFlight takeOff:@""];
 #endif
     
+#error "add your google API key here"
+    [GMSServices provideAPIKey:@"your_google_maps_api_key"];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iphone"
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:DEVICE_STORYBOARD
                                                          bundle:nil];
     UINavigationController* vc = [storyboard instantiateViewControllerWithIdentifier:@"startNavigationController"];
 
-    if ([UserSettings refreshToken])
-    {
-        [vc.visibleViewController performSegueWithIdentifier:@"showMainViewController" sender:self];
-    }
-       
     self.window.rootViewController = vc;
-
     self.window.backgroundColor = [UIColor backgroundColor];
     [self.window makeKeyAndVisible];
 

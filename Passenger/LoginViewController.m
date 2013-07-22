@@ -120,7 +120,7 @@
             //fixme - show wait dialog
             [[NetworkEngine getInstance] getRefreshToken:code
                                          completionBlock:^(NSObject *o) {
-                                             [self.delegate loginFinished];
+                                             [self.delegate loginFinished:YES];
                                          }
                                             failureBlock:^(NSError* error) {
                                                 [self.delegate loginFailed:error];
