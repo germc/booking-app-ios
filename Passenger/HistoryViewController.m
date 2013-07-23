@@ -226,7 +226,17 @@
 
     cell.pickupLabel.font = [UIFont semiboldOpenSansOfSize:16];
     cell.pickupLabel.textColor = [UIColor pickupTextColor];
-    cell.pickupLabel.text = booking[@"pickup_location"][@"address"];
+    NSDictionary* pickup = booking[@"pickup_location"];
+    BOOL pickupButtonHidden = NO;
+    if (!IS_NULL(pickup))
+    {
+        cell.pickupLabel.text = pickup[@"address"];
+    }
+    else
+    {
+        cell.pickupLabel.text = @"---";
+        pickupButtonHidden = YES;
+    }
     
     cell.dropoffLabel.font = [UIFont semiboldOpenSansOfSize:16];
     cell.dropoffLabel.textColor = [UIColor dropoffTextColor];
@@ -242,20 +252,25 @@
         }
         else
         {
-            cell.pickupButton.hidden = NO;
+            cell.pickupButton.hidden = pickupButtonHidden;
             cell.dropoffButton.hidden = NO;
-            cell.pickupAndDropoffButton.hidden = NO;
+            cell.pickupAndDropoffButton.hidden = pickupButtonHidden;
         }
     }
     else
     {
         cell.dropoffLabel.text = @"---";
         cell.dropoffButton.hidden = YES;
-        cell.pickupAndDropoffButton.hidden = YES;
         if (indexPath.row != _selectedRow)
+        {
+            cell.pickupAndDropoffButton.hidden = YES;
             cell.pickupButton.hidden = YES;
+        }
         else
-            cell.pickupButton.hidden = NO;
+        {
+            cell.pickupAndDropoffButton.hidden = pickupButtonHidden;
+            cell.pickupButton.hidden = pickupButtonHidden;
+        }
     }
 
     if (indexPath.row == _selectedRow)

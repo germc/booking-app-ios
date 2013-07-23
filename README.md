@@ -73,6 +73,7 @@ Mandatory are T Dispatch APIs (Fleet API and Passenger API) and Google Maps iOS 
  - Français (French): baltmayer
  - Malay (Malay): JC Way Translation Inc.
  - Polski (Polish): Marcin Orłowski
+ - Português do Brasil (Brazilian Portuguese): Mario Brandão, Bernardo Heynemann
  - Svenska (Swedish): strix
  - Українска (Ukrainian): Eugeny Perepelkov
  - русский (Russian): Eugeny Perepelkov

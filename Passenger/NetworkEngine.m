@@ -247,7 +247,8 @@
     
     [op addCompletionHandler:^(MKNetworkOperation *operation) {
         NSDictionary* response = operation.responseJSON;
-        completionBlock(response[@"preferences"]);
+        self.accountPreferences = response[@"preferences"];
+        completionBlock(_accountPreferences);
     } errorHandler:^(MKNetworkOperation *errorOp, NSError* error) {
         failureBlock([self errorFromResponse:errorOp.responseJSON andError:error]);
     }];
@@ -407,6 +408,18 @@
     [self enqueueOperation:op];
 }
 
+- (void)setValueOrEmptyString:(NSString *)value forKey:(NSString *)key inDictionary:(NSMutableDictionary *)passenger
+{
+    if (IS_NULL(value))
+    {
+        passenger[key] = @"";
+    }
+    else
+    {
+        passenger[key] = value;
+    }
+}
+
 - (void)createBooking:(NSString *)pickupName
         pickupZipCode:(NSString *)pickupZipCode
        pickupLocation:(CLLocationCoordinate2D)pickupLocation
@@ -451,6 +464,32 @@
         NSString* str = [dateFormatter stringFromDate:pickupDate];
         params[@"pickup_time"] = [str stringByReplacingOccurrencesOfString:@"GMT" withString:@""];;
     }
+    
+    NSMutableDictionary *passenger = [[NSMutableDictionary alloc] initWithCapacity:3];
+    NSString* firstName = _accountPreferences[@"first_name"];
+    NSString* lastName = _accountPreferences[@"last_name"];
+    
+    NSMutableString* fullName = [[NSMutableString alloc] initWithCapacity:64];
+    if (!IS_NULL(firstName))
+    {
+        [fullName appendString:firstName];
+    }
+    
+    if (!IS_NULL(lastName))
+    {
+        if (fullName.length)
+        {
+            [fullName appendString:@" "];
+        }
+        [fullName appendString:lastName];
+    }
+    
+    NSString* phone = _accountPreferences[@"phone"];
+    NSString* email = _accountPreferences[@"email"];
+    [self setValueOrEmptyString:fullName forKey:@"name" inDictionary:passenger];
+    [self setValueOrEmptyString:phone forKey:@"phone" inDictionary:passenger];
+    [self setValueOrEmptyString:email forKey:@"email" inDictionary:passenger];
+    params[@"passenger"] = passenger;
     
     params[@"status"] = @"incoming";
     

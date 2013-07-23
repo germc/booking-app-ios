@@ -1,10 +1,15 @@
+v1.7 (2013.07.23)
+-----------------------------
+- Fixed crash in bookings history.
+- Set proper passenger name/email/phone data in create booking request.
+- Added Brazilian Portuguese translation.
+
 v1.6 (2013.07.22)
 -----------------------------
-- Added detailed build step-by-step guide to README
 - Replaced Apple maps with Google maps.
 - Added iPad support.
 - Added Korean and Swedish translations.
-- Updated all translations to latest version.
+- Updated all translation to latest version.
 - Search location modules can now be enabled/disabled in CabOffixeSettings.plist.
 
 v1.5 (2013.07.15)

@@ -102,8 +102,16 @@
     [wait show];
     [[NetworkEngine getInstance] getAccessTokenForRefreshToken:[UserSettings refreshToken]
                                                completionBlock:^(NSObject *o) {
-                                                   [wait dismiss];
-                                                   [self performSegueWithIdentifier:@"showMainViewController" sender:self];
+                                                   [[NetworkEngine getInstance] getAccountPreferences:^(NSObject* response)
+                                                    {
+                                                        [wait dismiss];
+                                                        [self performSegueWithIdentifier:@"showMainViewController" sender:self];
+                                                    }
+                                                                                         failureBlock:^(NSError *error)
+                                                    {
+                                                        [wait dismiss];
+                                                        [MessageDialog showError:error.localizedDescription withTitle:NSLocalizedString(@"dialog_error_title", @"")];
+                                                    }];
                                                }
                                                   failureBlock:^(NSError *e){
                                                       [wait dismiss];
@@ -126,26 +134,27 @@
     [super viewDidUnload];
 }
 
+- (void)setPopoverDelegate:(UIStoryboardSegue *)segue
+{
+    if (IS_IPAD)
+    {
+        _popover = [(UIStoryboardPopoverSegue *)segue popoverController];
+        _popover.delegate = self;
+    }
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showLoginViewController"])
     {
         LoginViewController* lvc = segue.destinationViewController;
-        if (IS_IPAD)
-        {
-            _popover = [(UIStoryboardPopoverSegue *)segue popoverController];
-            _popover.delegate = self;
-        }
+        [self setPopoverDelegate:segue];
         lvc.delegate = self;
     }
     else if ([[segue identifier] isEqualToString:@"showCreateAccountViewController"])
     {
         CreateAccountViewController* cavc = segue.destinationViewController;
-        if (IS_IPAD)
-        {
-            _popover = [(UIStoryboardPopoverSegue *)segue popoverController];
-            _popover.delegate = self;
-        }
+        [self setPopoverDelegate:segue];
         cavc.delegate = self;
     }
 }
@@ -157,32 +166,43 @@
     [MessageDialog showError:error.localizedDescription withTitle:NSLocalizedString(@"dialog_error_title", @"")];
 }
 
+- (void)showMainViewController:(BOOL)accessTokenAvailable
+{
+    if (accessTokenAvailable)
+    {
+        __block WaitDialog* wait = [[WaitDialog alloc] init];
+        [wait show];
+        [[NetworkEngine getInstance] getAccountPreferences:^(NSObject* response)
+         {
+             [wait dismiss];
+             [self performSegueWithIdentifier:@"showMainViewController" sender:self];
+         }
+                                              failureBlock:^(NSError *error)
+         {
+             [wait dismiss];
+             [MessageDialog showError:error.localizedDescription withTitle:NSLocalizedString(@"dialog_error_title", @"")];
+         }];
+    }
+    else
+    {
+        [self getAccessTokenAndShowMainScreen];
+    }
+}
+
 - (void)loginFinished:(BOOL)withAccessToken
 {
     _getAccessToken = NO;
+    
+    //ignore the object it is saved in networkengine
     if (IS_IPAD)
     {
         [_popover dismissPopoverAnimated:YES];
-        if (withAccessToken)
-        {
-            [self performSegueWithIdentifier:@"showMainViewController" sender:self];
-        }
-        else
-        {
-            [self getAccessTokenAndShowMainScreen];
-        }
+        [self showMainViewController:withAccessToken];
     }
     else
     {
         [self.navigationController dismissViewControllerAnimated:YES completion:^{
-            if (withAccessToken)
-            {
-                [self performSegueWithIdentifier:@"showMainViewController" sender:self];
-            }
-            else
-            {
-                [self getAccessTokenAndShowMainScreen];
-            }
+            [self showMainViewController:withAccessToken];
         }];
     }
 }

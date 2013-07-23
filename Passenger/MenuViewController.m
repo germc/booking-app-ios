@@ -35,7 +35,6 @@
 - (IBAction)logoutButtonPressed:(id)sender;
 
 @property (nonatomic, strong) NSDictionary* officeData;
-@property (nonatomic, strong) NSDictionary* accountPreferences;
 
 @end
 
@@ -74,12 +73,6 @@
     [_logoutButton setTitle:NSLocalizedString(@"menu_button_logout", @"") forState:UIControlStateNormal];
     [_logoutButton setTextAlignment:NSTextAlignmentLeft];
 
-    [[NetworkEngine getInstance] getAccountPreferences:^(NSObject *o) {
-                                                self.accountPreferences = (NSDictionary *)o;
-                                            }
-                                          failureBlock:^(NSError * error) {
-                                          }];
-
     [[NetworkEngine getInstance] getFleetData:^(NSObject *o) {
                                                 self.officeData = (NSDictionary *)o;
                                             }
@@ -108,7 +101,7 @@
     if ([segue.identifier isEqualToString:@"showMyAccountViewController"])
     {
         MyAccountViewController* vc = segue.destinationViewController;
-        vc.accountPreferences = _accountPreferences;
+        vc.accountPreferences = [NetworkEngine getInstance].accountPreferences;
     }
     else if ([segue.identifier isEqualToString:@"showCabOfficeViewController"])
     {

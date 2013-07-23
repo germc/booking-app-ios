@@ -115,6 +115,8 @@
 		239B1146174EAB3900C0DC63 /* map_aim_point_pickup_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 239B113A174EAB3900C0DC63 /* map_aim_point_pickup_pressed@2x.png */; };
 		239B114B174EB5C200C0DC63 /* UIColor+CustomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 239B1148174EB5C200C0DC63 /* UIColor+CustomColors.m */; };
 		239B114C174EB5C200C0DC63 /* UIFont+CustomFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 239B114A174EB5C200C0DC63 /* UIFont+CustomFonts.m */; };
+		239E3125179F29AD00F4F386 /* values-pt in Resources */ = {isa = PBXBuildFile; fileRef = 239E3124179F29AD00F4F386 /* values-pt */; };
+		239E3126179F29AD00F4F386 /* values-pt in Resources */ = {isa = PBXBuildFile; fileRef = 239E3124179F29AD00F4F386 /* values-pt */; };
 		23AB20C81753F37E0085C492 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AB20C71753F37D0085C492 /* AddressBookUI.framework */; };
 		23AB20CB1753F4EF0085C492 /* CBAutoScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AB20CA1753F4EF0085C492 /* CBAutoScrollLabel.m */; };
 		23AB20CC1753F4EF0085C492 /* CBAutoScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AB20CA1753F4EF0085C492 /* CBAutoScrollLabel.m */; };
@@ -458,6 +460,7 @@
 		239B1148174EB5C200C0DC63 /* UIColor+CustomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+CustomColors.m"; path = "Passenger/UIColor+CustomColors.m"; sourceTree = SOURCE_ROOT; };
 		239B1149174EB5C200C0DC63 /* UIFont+CustomFonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+CustomFonts.h"; path = "Passenger/UIFont+CustomFonts.h"; sourceTree = SOURCE_ROOT; };
 		239B114A174EB5C200C0DC63 /* UIFont+CustomFonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+CustomFonts.m"; path = "Passenger/UIFont+CustomFonts.m"; sourceTree = SOURCE_ROOT; };
+		239E3124179F29AD00F4F386 /* values-pt */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "values-pt"; sourceTree = "<group>"; };
 		23AB20C71753F37D0085C492 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		23AB20C91753F4EF0085C492 /* CBAutoScrollLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAutoScrollLabel.h; sourceTree = "<group>"; };
 		23AB20CA1753F4EF0085C492 /* CBAutoScrollLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAutoScrollLabel.m; sourceTree = "<group>"; };
@@ -858,6 +861,7 @@
 				23CFE19F176B64910048EF67 /* values-fr */,
 				23CFE1A1176B64910048EF67 /* values-it */,
 				23CFE1A2176B64910048EF67 /* values-pl */,
+				239E3124179F29AD00F4F386 /* values-pt */,
 				23CFE1A4176B64910048EF67 /* values-ru */,
 				23526A3617750B57006257CC /* values-uk */,
 			);
@@ -1243,6 +1247,7 @@
 				232533251799EC8E00CEE4F6 /* Default-Landscape~ipad.png in Resources */,
 				232533291799F02600CEE4F6 /* values-ko in Resources */,
 				2325332B1799F02600CEE4F6 /* values-sv in Resources */,
+				239E3125179F29AD00F4F386 /* values-pt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1358,6 +1363,7 @@
 				232533261799EC8E00CEE4F6 /* Default-Landscape~ipad.png in Resources */,
 				2325332A1799F02600CEE4F6 /* values-ko in Resources */,
 				2325332C1799F02600CEE4F6 /* values-sv in Resources */,
+				239E3126179F29AD00F4F386 /* values-pt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1559,6 +1565,7 @@
 		23DC016D174D6C8D0066FEDB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1582,6 +1589,7 @@
 		23DC016E174D6C8D0066FEDB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1605,6 +1613,7 @@
 		23E8D25D17513AAC00C6AB14 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1632,6 +1641,7 @@
 		23E8D25E17513AAC00C6AB14 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",

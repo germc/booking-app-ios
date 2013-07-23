@@ -44,7 +44,7 @@
                        @"strings_tdfragment",
                        @"strings_tour",
                        @"strings_translator_credits"];
-    NSArray* languages = @[@"de", @"en", @"es", @"fr", @"it", @"ja", @"ko", @"ms", @"pl", @"ru", @"sv", @"th", @"uk", @"zh-Hans", @"zh-Hant" ];
+    NSArray* languages = @[@"de", @"en", @"es", @"fr", @"it", @"ja", @"ko", @"ms", @"pl", @"pt", @"ru", @"sv", @"th", @"uk", @"zh-Hans", @"zh-Hant" ];
     
     for (NSString *language in languages)
     {

@@ -31,6 +31,8 @@ typedef void (^NetworkEngineFailureBlock)(NSError* error);
 
 @interface NetworkEngine : MKNetworkEngine
 
+@property (nonatomic, strong) NSDictionary* accountPreferences;
+
 + (NetworkEngine *)getInstance;
 
 //OAuth login
