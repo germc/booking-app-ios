@@ -9,6 +9,7 @@
   <string name="new_booking_no_pickup_location_body">Por favor especifica primero la dirección de recogida.</string>
   <string name="new_booking_pickup_date_already_passed">La fecha especificada ya ha pasada.</string>
   <string name="new_booking_pickup_date_too_ahead_body_fmt">La fecha de recogida no puede ser superior a %d días en adelante.</string>
+  <string name="new_booking_pickup_date_too_early_fmt">El taxi puede ser reservado no más temprano que %d minutos desde ahora. </string>
   <string name="new_booking_title">Confirmación de la reserva</string>
   <string name="new_booking_body_fmt">Tu reserva ha sido establecida. Tu ubicación de recogida es en \"%s\". Por favor espera tu taxi.</string>
   <string name="new_booking_failed_body_fmt">Error al introducir tu reserva.\n\nRazón: %s</string>

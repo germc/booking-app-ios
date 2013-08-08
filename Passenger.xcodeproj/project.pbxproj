@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230F654B17AEE8340045886E /* DAPageIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 230F654617AEE8340045886E /* DAPageIndicatorView.m */; };
+		230F654C17AEE8340045886E /* DAPageIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 230F654617AEE8340045886E /* DAPageIndicatorView.m */; };
+		230F654D17AEE8340045886E /* DAPagesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 230F654817AEE8340045886E /* DAPagesContainer.m */; };
+		230F654E17AEE8340045886E /* DAPagesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 230F654817AEE8340045886E /* DAPagesContainer.m */; };
+		230F654F17AEE8340045886E /* DAPagesContainerTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 230F654A17AEE8340045886E /* DAPagesContainerTopBar.m */; };
+		230F655017AEE8340045886E /* DAPagesContainerTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 230F654A17AEE8340045886E /* DAPagesContainerTopBar.m */; };
+		230F655417AEE9190045886E /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 230F655317AEE9190045886E /* SearchViewController.m */; };
+		230F655517AEE9190045886E /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 230F655317AEE9190045886E /* SearchViewController.m */; };
+		230F655817AEF0D10045886E /* close_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 230F655617AEF0D10045886E /* close_button.png */; };
+		230F655917AEF0D10045886E /* close_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 230F655617AEF0D10045886E /* close_button.png */; };
+		230F655A17AEF0D10045886E /* close_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 230F655717AEF0D10045886E /* close_button@2x.png */; };
+		230F655B17AEF0D10045886E /* close_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 230F655717AEF0D10045886E /* close_button@2x.png */; };
 		2321DFC61780B62A005DEAF6 /* values-ja in Resources */ = {isa = PBXBuildFile; fileRef = 2321DFC51780B62A005DEAF6 /* values-ja */; };
 		2321DFC71780B62A005DEAF6 /* values-ja in Resources */ = {isa = PBXBuildFile; fileRef = 2321DFC51780B62A005DEAF6 /* values-ja */; };
 		2321DFC91780B857005DEAF6 /* values-th in Resources */ = {isa = PBXBuildFile; fileRef = 2321DFC81780B857005DEAF6 /* values-th */; };
@@ -27,8 +39,6 @@
 		2325332C1799F02600CEE4F6 /* values-sv in Resources */ = {isa = PBXBuildFile; fileRef = 232533281799F02600CEE4F6 /* values-sv */; };
 		23253335179AF5E300CEE4F6 /* AGWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23253334179AF5E300CEE4F6 /* AGWindowView.m */; };
 		23253336179AF5E300CEE4F6 /* AGWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23253334179AF5E300CEE4F6 /* AGWindowView.m */; };
-		23385330178CABE5003315D6 /* SGAnnotatedPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2338532B178CABE5003315D6 /* SGAnnotatedPagerController.m */; };
-		23385331178CABE5003315D6 /* SGAnnotatedPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2338532B178CABE5003315D6 /* SGAnnotatedPagerController.m */; };
 		23385335178CD7B8003315D6 /* LocationSelectionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23385334178CD7B7003315D6 /* LocationSelectionListViewController.m */; };
 		23385336178CD7B8003315D6 /* LocationSelectionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23385334178CD7B7003315D6 /* LocationSelectionListViewController.m */; };
 		2338533A178D6363003315D6 /* LocationSelectionBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23385339178D6363003315D6 /* LocationSelectionBaseViewController.m */; };
@@ -174,6 +184,16 @@
 		23BE53CB17973B7C008010CB /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23BE53C917973B7C008010CB /* GoogleMaps.framework */; };
 		23BE53CD17973B96008010CB /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 23BE53CC17973B96008010CB /* GoogleMaps.bundle */; };
 		23BE53CE17973B96008010CB /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 23BE53CC17973B96008010CB /* GoogleMaps.bundle */; };
+		23BEBF4B17B0F312000345FE /* FlatCheckMark.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BEBF4A17B0F312000345FE /* FlatCheckMark.m */; };
+		23BEBF4C17B0F312000345FE /* FlatCheckMark.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BEBF4A17B0F312000345FE /* FlatCheckMark.m */; };
+		23BEBF5117B0F525000345FE /* checkmark_notselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 23BEBF4D17B0F525000345FE /* checkmark_notselected.png */; };
+		23BEBF5217B0F525000345FE /* checkmark_notselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 23BEBF4D17B0F525000345FE /* checkmark_notselected.png */; };
+		23BEBF5317B0F525000345FE /* checkmark_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 23BEBF4E17B0F525000345FE /* checkmark_selected.png */; };
+		23BEBF5417B0F525000345FE /* checkmark_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 23BEBF4E17B0F525000345FE /* checkmark_selected.png */; };
+		23BEBF5517B0F525000345FE /* checkmark_notselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23BEBF4F17B0F525000345FE /* checkmark_notselected@2x.png */; };
+		23BEBF5617B0F525000345FE /* checkmark_notselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23BEBF4F17B0F525000345FE /* checkmark_notselected@2x.png */; };
+		23BEBF5717B0F525000345FE /* checkmark_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23BEBF5017B0F525000345FE /* checkmark_selected@2x.png */; };
+		23BEBF5817B0F525000345FE /* checkmark_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23BEBF5017B0F525000345FE /* checkmark_selected@2x.png */; };
 		23CFE1A7176B64910048EF67 /* values-de in Resources */ = {isa = PBXBuildFile; fileRef = 23CFE19C176B64910048EF67 /* values-de */; };
 		23CFE1A8176B64910048EF67 /* values-de in Resources */ = {isa = PBXBuildFile; fileRef = 23CFE19C176B64910048EF67 /* values-de */; };
 		23CFE1A9176B64910048EF67 /* values-en in Resources */ = {isa = PBXBuildFile; fileRef = 23CFE19D176B64910048EF67 /* values-en */; };
@@ -375,6 +395,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		230F654517AEE8340045886E /* DAPageIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAPageIndicatorView.h; sourceTree = "<group>"; };
+		230F654617AEE8340045886E /* DAPageIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAPageIndicatorView.m; sourceTree = "<group>"; };
+		230F654717AEE8340045886E /* DAPagesContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAPagesContainer.h; sourceTree = "<group>"; };
+		230F654817AEE8340045886E /* DAPagesContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAPagesContainer.m; sourceTree = "<group>"; };
+		230F654917AEE8340045886E /* DAPagesContainerTopBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAPagesContainerTopBar.h; sourceTree = "<group>"; };
+		230F654A17AEE8340045886E /* DAPagesContainerTopBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAPagesContainerTopBar.m; sourceTree = "<group>"; };
+		230F655217AEE9190045886E /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		230F655317AEE9190045886E /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		230F655617AEF0D10045886E /* close_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close_button.png; sourceTree = "<group>"; };
+		230F655717AEF0D10045886E /* close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_button@2x.png"; sourceTree = "<group>"; };
 		2321DFC51780B62A005DEAF6 /* values-ja */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "values-ja"; sourceTree = "<group>"; };
 		2321DFC81780B857005DEAF6 /* values-th */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "values-th"; sourceTree = "<group>"; };
 		2321DFCB1780B88C005DEAF6 /* values-ms */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "values-ms"; sourceTree = "<group>"; };
@@ -386,8 +416,6 @@
 		232533281799F02600CEE4F6 /* values-sv */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "values-sv"; sourceTree = "<group>"; };
 		23253333179AF5E300CEE4F6 /* AGWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AGWindowView.h; path = Passenger/AGWindowView/AGWindowView.h; sourceTree = SOURCE_ROOT; };
 		23253334179AF5E300CEE4F6 /* AGWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AGWindowView.m; path = Passenger/AGWindowView/AGWindowView.m; sourceTree = SOURCE_ROOT; };
-		2338532A178CABE5003315D6 /* SGAnnotatedPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGAnnotatedPagerController.h; sourceTree = "<group>"; };
-		2338532B178CABE5003315D6 /* SGAnnotatedPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGAnnotatedPagerController.m; sourceTree = "<group>"; };
 		23385333178CD7B7003315D6 /* LocationSelectionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationSelectionListViewController.h; sourceTree = "<group>"; };
 		23385334178CD7B7003315D6 /* LocationSelectionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSelectionListViewController.m; sourceTree = "<group>"; };
 		23385338178D6363003315D6 /* LocationSelectionBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationSelectionBaseViewController.h; sourceTree = "<group>"; };
@@ -495,6 +523,12 @@
 		23BE53B9179732D1008010CB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		23BE53C917973B7C008010CB /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "GoogleMaps-iOS/GoogleMaps.framework"; sourceTree = "<group>"; };
 		23BE53CC17973B96008010CB /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "GoogleMaps-iOS/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
+		23BEBF4917B0F312000345FE /* FlatCheckMark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatCheckMark.h; sourceTree = "<group>"; };
+		23BEBF4A17B0F312000345FE /* FlatCheckMark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatCheckMark.m; sourceTree = "<group>"; };
+		23BEBF4D17B0F525000345FE /* checkmark_notselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark_notselected.png; sourceTree = "<group>"; };
+		23BEBF4E17B0F525000345FE /* checkmark_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark_selected.png; sourceTree = "<group>"; };
+		23BEBF4F17B0F525000345FE /* checkmark_notselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark_notselected@2x.png"; sourceTree = "<group>"; };
+		23BEBF5017B0F525000345FE /* checkmark_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark_selected@2x.png"; sourceTree = "<group>"; };
 		23CFE19C176B64910048EF67 /* values-de */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "values-de"; sourceTree = "<group>"; };
 		23CFE19D176B64910048EF67 /* values-en */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "values-en"; sourceTree = "<group>"; };
 		23CFE19E176B64910048EF67 /* values-es */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "values-es"; sourceTree = "<group>"; };
@@ -677,13 +711,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		23385327178CABE5003315D6 /* SGViewPager */ = {
+		230F654417AEE8340045886E /* DAPagesContainer */ = {
 			isa = PBXGroup;
 			children = (
-				2338532A178CABE5003315D6 /* SGAnnotatedPagerController.h */,
-				2338532B178CABE5003315D6 /* SGAnnotatedPagerController.m */,
+				230F654517AEE8340045886E /* DAPageIndicatorView.h */,
+				230F654617AEE8340045886E /* DAPageIndicatorView.m */,
+				230F654717AEE8340045886E /* DAPagesContainer.h */,
+				230F654817AEE8340045886E /* DAPagesContainer.m */,
+				230F654917AEE8340045886E /* DAPagesContainerTopBar.h */,
+				230F654A17AEE8340045886E /* DAPagesContainerTopBar.m */,
 			);
-			path = SGViewPager;
+			path = DAPagesContainer;
+			sourceTree = "<group>";
+		};
+		230F655117AEE8380045886E /* SearchModules */ = {
+			isa = PBXGroup;
+			children = (
+				23385338178D6363003315D6 /* LocationSelectionBaseViewController.h */,
+				23385339178D6363003315D6 /* LocationSelectionBaseViewController.m */,
+				23E8D2A11752964F00C6AB14 /* LocationSelectorViewController.h */,
+				23E8D2A21752965100C6AB14 /* LocationSelectorViewController.m */,
+				23385333178CD7B7003315D6 /* LocationSelectionListViewController.h */,
+				23385334178CD7B7003315D6 /* LocationSelectionListViewController.m */,
+			);
+			name = SearchModules;
 			sourceTree = "<group>";
 		};
 		2368DE58177C28CA00ABF925 /* SMPageControl */ = {
@@ -733,6 +784,12 @@
 				23D68126175951F300CE6FDB /* Default@2x.png */,
 				232533211799EC8E00CEE4F6 /* Default-Landscape@2x~ipad.png */,
 				232533221799EC8E00CEE4F6 /* Default-Landscape~ipad.png */,
+				230F655617AEF0D10045886E /* close_button.png */,
+				230F655717AEF0D10045886E /* close_button@2x.png */,
+				23BEBF4D17B0F525000345FE /* checkmark_notselected.png */,
+				23BEBF4E17B0F525000345FE /* checkmark_selected.png */,
+				23BEBF4F17B0F525000345FE /* checkmark_notselected@2x.png */,
+				23BEBF5017B0F525000345FE /* checkmark_selected@2x.png */,
 				2397EBDE17612CD5003435EC /* demo_warning.png */,
 				2397EBDF17612CD5003435EC /* demo_warning@2x.png */,
 				23D6812D175951FA00CE6FDB /* icon.png */,
@@ -824,19 +881,16 @@
 		23BD23CC176114170092ED32 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				23385338178D6363003315D6 /* LocationSelectionBaseViewController.h */,
-				23385339178D6363003315D6 /* LocationSelectionBaseViewController.m */,
-				23E8D2A11752964F00C6AB14 /* LocationSelectorViewController.h */,
-				23E8D2A21752965100C6AB14 /* LocationSelectorViewController.m */,
-				23385333178CD7B7003315D6 /* LocationSelectionListViewController.h */,
-				23385334178CD7B7003315D6 /* LocationSelectionListViewController.m */,
+				230F654417AEE8340045886E /* DAPagesContainer */,
+				230F655117AEE8380045886E /* SearchModules */,
 				23DC0167174D6C8D0066FEDB /* MapViewController.h */,
 				23DC0168174D6C8D0066FEDB /* MapViewController.m */,
+				230F655217AEE9190045886E /* SearchViewController.h */,
+				230F655317AEE9190045886E /* SearchViewController.m */,
 				23E8D1FE17511DA500C6AB14 /* MapAnnotation.h */,
 				23E8D1FF17511DA500C6AB14 /* MapAnnotation.m */,
 				23FAEBCA179747C900529D36 /* GMSMapView+Additions.h */,
 				23FAEBCB179747C900529D36 /* GMSMapView+Additions.m */,
-				23385327178CABE5003315D6 /* SGViewPager */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -952,6 +1006,8 @@
 				23E8D20217511E8700C6AB14 /* FlatButton.m */,
 				23AB20C91753F4EF0085C492 /* CBAutoScrollLabel.h */,
 				23AB20CA1753F4EF0085C492 /* CBAutoScrollLabel.m */,
+				23BEBF4917B0F312000345FE /* FlatCheckMark.h */,
+				23BEBF4A17B0F312000345FE /* FlatCheckMark.m */,
 				2368DE58177C28CA00ABF925 /* SMPageControl */,
 				23BA75E2176275FB003291D3 /* SVPullToRefresh */,
 				23F4BB421752BDDC0085D790 /* Dialogs */,
@@ -1248,6 +1304,12 @@
 				232533291799F02600CEE4F6 /* values-ko in Resources */,
 				2325332B1799F02600CEE4F6 /* values-sv in Resources */,
 				239E3125179F29AD00F4F386 /* values-pt in Resources */,
+				230F655817AEF0D10045886E /* close_button.png in Resources */,
+				230F655A17AEF0D10045886E /* close_button@2x.png in Resources */,
+				23BEBF5117B0F525000345FE /* checkmark_notselected.png in Resources */,
+				23BEBF5317B0F525000345FE /* checkmark_selected.png in Resources */,
+				23BEBF5517B0F525000345FE /* checkmark_notselected@2x.png in Resources */,
+				23BEBF5717B0F525000345FE /* checkmark_selected@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1364,6 +1426,12 @@
 				2325332A1799F02600CEE4F6 /* values-ko in Resources */,
 				2325332C1799F02600CEE4F6 /* values-sv in Resources */,
 				239E3126179F29AD00F4F386 /* values-pt in Resources */,
+				230F655917AEF0D10045886E /* close_button.png in Resources */,
+				230F655B17AEF0D10045886E /* close_button@2x.png in Resources */,
+				23BEBF5217B0F525000345FE /* checkmark_notselected.png in Resources */,
+				23BEBF5417B0F525000345FE /* checkmark_selected.png in Resources */,
+				23BEBF5617B0F525000345FE /* checkmark_notselected@2x.png in Resources */,
+				23BEBF5817B0F525000345FE /* checkmark_selected@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1423,11 +1491,15 @@
 				23526A4C1778DDB8006257CC /* NSLocale+MetricSystem.m in Sources */,
 				2368DE48177B7A9100ABF925 /* NSString+FontSizeWithFont.m in Sources */,
 				2368DE5B177C28CB00ABF925 /* SMPageControl.m in Sources */,
-				23385330178CABE5003315D6 /* SGAnnotatedPagerController.m in Sources */,
 				23385335178CD7B8003315D6 /* LocationSelectionListViewController.m in Sources */,
 				2338533A178D6363003315D6 /* LocationSelectionBaseViewController.m in Sources */,
 				23FAEBCC179747C900529D36 /* GMSMapView+Additions.m in Sources */,
 				23253335179AF5E300CEE4F6 /* AGWindowView.m in Sources */,
+				230F654B17AEE8340045886E /* DAPageIndicatorView.m in Sources */,
+				230F654D17AEE8340045886E /* DAPagesContainer.m in Sources */,
+				230F654F17AEE8340045886E /* DAPagesContainerTopBar.m in Sources */,
+				230F655417AEE9190045886E /* SearchViewController.m in Sources */,
+				23BEBF4B17B0F312000345FE /* FlatCheckMark.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1484,11 +1556,15 @@
 				23526A4D1778DDB8006257CC /* NSLocale+MetricSystem.m in Sources */,
 				2368DE49177B7A9100ABF925 /* NSString+FontSizeWithFont.m in Sources */,
 				2368DE5C177C28CB00ABF925 /* SMPageControl.m in Sources */,
-				23385331178CABE5003315D6 /* SGAnnotatedPagerController.m in Sources */,
 				23385336178CD7B8003315D6 /* LocationSelectionListViewController.m in Sources */,
 				2338533B178D6363003315D6 /* LocationSelectionBaseViewController.m in Sources */,
 				23FAEBCD179747C900529D36 /* GMSMapView+Additions.m in Sources */,
 				23253336179AF5E300CEE4F6 /* AGWindowView.m in Sources */,
+				230F654C17AEE8340045886E /* DAPageIndicatorView.m in Sources */,
+				230F654E17AEE8340045886E /* DAPagesContainer.m in Sources */,
+				230F655017AEE8340045886E /* DAPagesContainerTopBar.m in Sources */,
+				230F655517AEE9190045886E /* SearchViewController.m in Sources */,
+				23BEBF4C17B0F312000345FE /* FlatCheckMark.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

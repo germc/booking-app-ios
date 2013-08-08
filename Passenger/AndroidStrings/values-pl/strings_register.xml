@@ -8,11 +8,14 @@
   <string name="register_form_password_1_hint">Hasło</string>
   <string name="register_form_password_2_hint">Weryfikacja hasła</string>
   <string name="register_form_button_register">Utwórz konto</string>
+  <string name="register_form_terms_and_conditions">Znam i akceptuję regulamin świadczenia usług.</string>
+  <string name="register_form_button_show_terms_and_conditions">Pokaż regulamin</string>
   <string name="register_form_dialog_error_first_name">Podane imię nie jest poprawne. Skoryguj wpisane dane i spróbuj ponownie.</string>
   <string name="register_form_dialog_error_last_name">Podane nazwisko nie jest poprawne. Skoryguj wpisane dane i spróbuj ponownie.</string>
   <string name="register_form_dialog_error_email">Podany adres email nie jest poprawny. Skoryguj wpisane dane i spróbuj ponownie.</string>
   <string name="register_form_dialog_error_phone">Podany numer telefonu nie jest poprawny. Skoryguj wpisane dane i spróbuj ponownie.</string>
   <string name="register_form_dialog_error_password">Podane hasło nie jest poprawne lub jest za krótkie. Skoryguj wpisane dane i spróbuj ponownie.</string>
   <string name="register_form_dialog_error_password_verification">Wpisane do weryfikacji hasło nie zgadza się. Skoryguj wpisane dane i spróbuj ponownie.</string>
+  <string name="register_form_dialog_error_tos">Musisz zaakceptować regulamin świadczenia usług aby kontynuować.</string>
   <string name="register_form_button_cancel">Anuluj</string>
 </resources>

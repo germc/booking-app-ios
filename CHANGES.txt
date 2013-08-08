@@ -1,3 +1,16 @@
+v1.8 (2013.08.08)
+-----------------------------
+- Improved UI for iPad.
+- Fixed a bug where app would crash if zip code or address sent to createBooking method was nil.
+- Fixed a bug where fare price and distance would not be calculated at all.
+- Improved search dialog.
+- Added option to force booking pickup time to be at least X minutes ahead.
+- Added app version to menu pane.
+- Added source code signature and app version to main menu.
+- Removed google maps SDK from repository and added instructions how to add it to the project.
+- Updated localisation strings to latest version.
+- Registration form now require accepting Terms and Services prior proceeding. Configurable via CabOfficeSettings.plist
+
 v1.7 (2013.07.23)
 -----------------------------
 - Fixed crash in bookings history.

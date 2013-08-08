@@ -186,7 +186,7 @@
 
 + (UIColor *)searchDialogSelectedTitleColor
 {
-    return [UIColor colorWithHexString:@"#070707"];
+    return [UIColor colorWithHexString:@"070707"];
 }
 
 + (UIColor *)searchDialogNotSelectedTitleColor

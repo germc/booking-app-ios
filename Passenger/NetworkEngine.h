@@ -106,6 +106,8 @@ typedef enum LocationType
           completionBlock:(NetworkEngineCompletionBlock)completionBlock
              failureBlock:(NetworkEngineFailureBlock)failureBlock;
 
+- (void)cancelReverseForLocationOperations;
+
 - (void)getReverseForLocation:(CLLocationCoordinate2D)location
               completionBlock:(NetworkEngineCompletionBlock)completionBlock
                  failureBlock:(NetworkEngineFailureBlock)failureBlock;

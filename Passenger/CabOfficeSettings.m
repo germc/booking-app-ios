@@ -99,8 +99,29 @@
     NSDictionary *s = [CabOfficeSettings cabOfficeDefaults];
     NSNumber* r = s[@"caboffice_settings_enable_location_search_modules"];
     return [r boolValue];
-    
 }
+
++ (NSInteger)minimumAllowedPickupTimeOffsetInMinutes
+{
+    NSDictionary *s = [CabOfficeSettings cabOfficeDefaults];
+    NSNumber* r = s[@"caboffice_minimum_allowed_pickup_time_offset_in_minutes"];
+    return [r integerValue];
+}
+
++ (BOOL)tosMustAcceptOnSignup
+{
+    NSDictionary *s = [CabOfficeSettings cabOfficeDefaults];
+    NSNumber* r = s[@"caboffice_tos_must_accept_on_signup"];
+    return [r boolValue];
+}
+
++ (NSString *)tosUrl
+{
+    NSDictionary *s = [CabOfficeSettings cabOfficeDefaults];
+    NSString* r = s[@"caboffice_tos_url"];
+    return r;
+}
+
 
 + (BOOL)useGoogleGeolocator
 {

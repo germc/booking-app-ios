@@ -9,6 +9,7 @@
   <string name="new_booking_no_pickup_location_body">Будь ласка спершу вкажіть початкове місцезнахоження.</string>
   <string name="new_booking_pickup_date_already_passed">Вказану дату початку подорожі вже передано.</string>
   <string name="new_booking_pickup_date_too_ahead_body_fmt">Не можна зробити замовлення наперед більше ніж за %d днів.</string>
+  <string name="new_booking_pickup_date_too_early_fmt">Cab can be booked no earlier than in %d minutes from now.</string>
   <string name="new_booking_title">Підтвердження замовлення</string>
   <string name="new_booking_body_fmt">Ваше замовлення сбережено. Ваша початкова точка \"%s\". Будь ласка очікуйте на машину.</string>
   <string name="new_booking_failed_body_fmt">Не вдалося зробити замовлення.\n\nПричина: %s</string>

@@ -8,11 +8,14 @@
   <string name="register_form_password_1_hint">Password</string>
   <string name="register_form_password_2_hint">Conferma Password</string>
   <string name="register_form_button_register">Aprire un conto</string>
+  <string name="register_form_terms_and_conditions">Ho letto e accetto i termini e le condizioni di servizio.</string>
+  <string name="register_form_button_show_terms_and_conditions">Visualizza termini e condizioni</string>
   <string name="register_form_dialog_error_first_name">Il nome inserito non è valido. Si prega di correggere e riprovare.</string>
   <string name="register_form_dialog_error_last_name">Il cognome inserito non è valido. Si prega di correggere e riprovare.</string>
   <string name="register_form_dialog_error_email">L\'indirizzo E-mail inserito non è valido. Si prega di correggere e riprovare.</string>
   <string name="register_form_dialog_error_phone">Il numero telefonico inserito non è valido. Si prega di correggere e riprovare.</string>
   <string name="register_form_dialog_error_password">la password inserita non è valida. Si prega di correggere e riprovare.</string>
   <string name="register_form_dialog_error_password_verification">La password di verifica non è corretta. Si prega di correggere e riprovare.</string>
+  <string name="register_form_dialog_error_tos">È necessario accettare le condizioni di servizio e le condizioni per procedere.</string>
   <string name="register_form_button_cancel">Annulla</string>
 </resources>

@@ -30,8 +30,8 @@
 #import "MapAnnotation.h"
 #import "UserSettings.h"
 #import "ConfirmBookingDialog.h"
-#import "SGAnnotatedPagerController.h"
 #import "GMSMapView+Additions.h"
+#import "SearchViewController.h"
 
 @interface MapViewController () <GMSMapViewDelegate, UIPopoverControllerDelegate>
 {
@@ -615,7 +615,7 @@
     }
     else
     {
-        [[NetworkEngine getInstance] cancelAllOperations];
+        [[NetworkEngine getInstance] cancelReverseForLocationOperations];
         [[NetworkEngine getInstance] getReverseForLocation:coordinate
                                            completionBlock:^(NSObject *response){
                                                NSArray *results = (NSArray *)response;
@@ -624,7 +624,6 @@
                                                    NSString* route = nil;
                                                    NSString* streetNumber = nil;
                                                    NSString* address2 = nil;
-                                                   NSString* county = nil;
                                                    NSString* city = nil;
                                                    NSString* state = nil;
                                                    NSString* country = nil;
@@ -654,9 +653,6 @@
                                                                else if([type isEqualToString:@"postal_town"]) {
                                                                    city = longName;
                                                                }
-                                                               else if([type isEqualToString:@"administrative_area_level_2"]) {
-                                                                   county = longName;
-                                                               }
                                                                else if([type isEqualToString:@"administrative_area_level_1"]) {
                                                                    state = longName;
                                                                }
@@ -678,8 +674,6 @@
                                                        [address appendFormat:@", %@", address2];
                                                    if (city)
                                                        [address appendFormat:@", %@", city];
-                                                   if (county)
-                                                       [address appendFormat:@", %@", county];
                                                    if (state)
                                                        [address appendFormat:@", %@", state];
                                                    if (country)
@@ -736,6 +730,11 @@
     [ConfirmBookingDialog showDialog:_startAnnotation.title
                              dropoff:_endAnnotation.title
                    confirmationBlock:^(NSDate *date){
+
+                       _bookButton.enabled = NO;
+                       _bookingActivityIndicator.hidden = NO;
+                       [_bookingActivityIndicator startAnimating];
+
                        [[NetworkEngine getInstance] createBooking:_startAnnotation.title
                                                     pickupZipCode:_startAnnotation.zipCode
                                                    pickupLocation:_startAnnotation.position
@@ -756,6 +755,9 @@
                                                       _priceView.hidden = YES;
                                                       _abView.hidden = YES;
                                                       _pickupDropoffView.hidden = YES;
+                                                      _bookButton.enabled = YES;
+                                                      _bookingActivityIndicator.hidden = YES;
+                                                      [_bookingActivityIndicator stopAnimating];
                                                       
                                                       [self removeRoutes];
                                                       
@@ -776,6 +778,9 @@
 
                                                   }
                                                      failureBlock:^(NSError *error) {
+                                                         _bookButton.enabled = YES;
+                                                         _bookingActivityIndicator.hidden = YES;
+                                                         [_bookingActivityIndicator stopAnimating];
                                                          [MessageDialog showError:[NSString stringWithFormat:NSLocalizedString(@"new_booking_failed_body_fmt", @""), error.localizedDescription]
                                                                         withTitle:NSLocalizedString(@"dialog_error_title", @"")];
                                                      }];
@@ -872,18 +877,21 @@
 {
     LocationSelectorCompletionBlock completionBlock = ^(LocationType type, MapAnnotation *a) {
         
-        if (type == LocationTypePickup)
+        if (a)
         {
-            [self setPickupLocation:a.position title:a.title zipCode:a.zipCode];
+            if (type == LocationTypePickup)
+            {
+                [self setPickupLocation:a.position title:a.title zipCode:a.zipCode];
+            }
+            else
+            {
+                [self setDropoffLocation:a.position title:a.title zipCode:a.zipCode];
+            }
+            
+            [self setMapCoordinate:a.position];
+            
+            [self calculateFare];
         }
-        else
-        {
-            [self setDropoffLocation:a.position title:a.title zipCode:a.zipCode];
-        }
-        
-        [self setMapCoordinate:a.position];
-
-        [self calculateFare];
 
         if (IS_IPAD)
         {
@@ -894,81 +902,28 @@
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     };
-    
-    SGAnnotatedPagerController *sg = [[SGAnnotatedPagerController alloc] init];
-    
-    LocationSelectorViewController* loc;
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:DEVICE_STORYBOARD
-                                                         bundle:nil];
-    loc = [storyboard instantiateViewControllerWithIdentifier:@"locationSelectorViewController"];
-    loc.locationType = type;
-    loc.title = NSLocalizedString(@"address_search_page_search", @"");
+
+    SearchViewController *l = [[SearchViewController alloc] init];
+    l.locationType = type;
     if (type == LocationTypeDropoff && _endAnnotation)
     {
-        loc.locationName = _endAnnotation.title;
+        l.annotation = _endAnnotation;
     }
     else if (type == LocationTypePickup && _startAnnotation)
     {
-        loc.locationName = _startAnnotation.title;
+        l.annotation = _startAnnotation;
     }
-    loc.completionBlock = completionBlock;
-    
-    if ([CabOfficeSettings enableLocationSearchModules])
-    {
-        LocationSelectionListViewController* loc1;
-        loc1 = [storyboard instantiateViewControllerWithIdentifier:@"locationSelectionListViewController"];
-        loc1.title = NSLocalizedString(@"address_search_page_stations", @"");
-        loc1.locationType = type;
-        loc1.stationType = StationTypeTrain;
-        loc1.completionBlock = completionBlock;
-        
-        MapAnnotation *a1 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(52.253708, 0.712454)
-                                                            withTitle:@"Bury St Edmonds Station"
-                                                        withImageName:nil
-                                                          withZipCode:@"IP32 6AQ"];
-        MapAnnotation *a2 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(51.736465, 0.468708)
-                                                            withTitle:@"Chelmsford Station"
-                                                        withImageName:nil
-                                                          withZipCode:@"CM1 1HT"];
-        MapAnnotation *a3 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(51.901230, 0.893736)
-                                                            withTitle:@"Colchester Station"
-                                                        withImageName:nil
-                                                          withZipCode:@"CO4 5EY"];
-        MapAnnotation *a4 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(52.391209, 0.265048)
-                                                            withTitle:@"Ely Station"
-                                                        withImageName:nil
-                                                          withZipCode:@"CB7 4DJ"];
-        MapAnnotation *a5 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(52.050720, 1.144216)
-                                                            withTitle:@"Ipswich Station"
-                                                        withImageName:nil
-                                                          withZipCode:@"IP2 8AL"];
-        MapAnnotation *a6 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(52.627151, 1.306835)
-                                                            withTitle:@"Norwich Station"
-                                                        withImageName:nil
-                                                          withZipCode:@"NR1 1EH"];
-        MapAnnotation *a7 = [[MapAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(51.666916, 0.383777)
-                                                            withTitle:@"Ingatestone Station"
-                                                        withImageName:nil
-                                                          withZipCode:@"CM4 0BW"];
-        
-        loc1.places = @[a1, a2, a3, a4, a5, a6, a7];
-
-        [sg setViewControllers:@[loc, loc1] animated:NO];
-    }
-    else
-    {
-        [sg setViewControllers:@[loc] animated:NO];
-    }
+    l.completionBlock = completionBlock;
     
     if (IS_IPAD)
     {
-        self.searchPopover = [[UIPopoverController alloc] initWithContentViewController:sg];
+        self.searchPopover = [[UIPopoverController alloc] initWithContentViewController:l];
         _searchPopover.delegate = self;
         [_searchPopover presentPopoverFromRect:sender.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     }
     else
     {
-        [self presentViewController:sg animated:YES completion:nil];
+        [self presentViewController:l animated:YES completion:nil];
     }
 }
 

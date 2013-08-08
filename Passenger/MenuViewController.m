@@ -31,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet FlatButton *cabOfficeButton;
 @property (weak, nonatomic) IBOutlet FlatButton *tourButton;
 @property (weak, nonatomic) IBOutlet FlatButton *logoutButton;
+@property (weak, nonatomic) IBOutlet UILabel *appVersionLabel;
 
 - (IBAction)logoutButtonPressed:(id)sender;
 
@@ -52,6 +53,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+
+    [_appVersionLabel setFont:[UIFont lightOpenSansOfSize:17]];
+    [_appVersionLabel setText:[NSString stringWithFormat:@"v%@",version]];
+    [_appVersionLabel setTextColor:[UIColor colorWithWhite:0.8 alpha:1.0]];
     
     [_myAccountButton setTitleFont:[UIFont lightOpenSansOfSize:31]];
     [_myAccountButton setButtonBackgroundColor:[UIColor clearColor]];
@@ -93,6 +100,7 @@
     [self setCabOfficeButton:nil];
     [self setTourButton:nil];
     [self setLogoutButton:nil];
+    [self setAppVersionLabel:nil];
     [super viewDidUnload];
 }
 

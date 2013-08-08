@@ -8,11 +8,14 @@
   <string name="register_form_password_1_hint">Mot de passe</string>
   <string name="register_form_password_2_hint">Confirmer le mot de passe</string>
   <string name="register_form_button_register">Créer un compte</string>
+  <string name="register_form_terms_and_conditions">I read and agree to service terms and conditions.</string>
+  <string name="register_form_button_show_terms_and_conditions">Show terms and conditions</string>
   <string name="register_form_dialog_error_first_name">Le prénom entré n\'est pas valide. Merci de le corriger et de réessayer.</string>
   <string name="register_form_dialog_error_last_name">Le nom de famille entré n\'est pas valide. Merci de le corriger et de réessayer.</string>
   <string name="register_form_dialog_error_email">L\'adresse mail n\'est pas valide. Merci de la corriger et de réessayer.</string>
   <string name="register_form_dialog_error_phone">Le numéro de téléphone entré n\'est pas valide. Merci de le corriger et de réessayer.</string>
   <string name="register_form_dialog_error_password">Le mot de passe entré n\'est pas valide. Merci de le corriger et de réessayer.</string>
   <string name="register_form_dialog_error_password_verification">Le mot de passe de vérification est différent. Merci de le corriger et de réessayer.</string>
+  <string name="register_form_dialog_error_tos">You must accept service Terms and Conditions to proceed.</string>
   <string name="register_form_button_cancel">Annuler</string>
 </resources>

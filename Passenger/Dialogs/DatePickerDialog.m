@@ -54,7 +54,9 @@
 {
     DatePickerDialog* d = [[DatePickerDialog alloc] init];
     d.picker.datePickerMode = UIDatePickerModeTime;
-    d.picker.minimumDate = [NSDate date];
+
+    NSInteger minimumTimeOffset = [CabOfficeSettings minimumAllowedPickupTimeOffsetInMinutes];
+    d.picker.minimumDate = [[NSDate date] dateByAddingTimeInterval:minimumTimeOffset * 60];
     d.completionBlock = completionBlock;
     [d show];
 }

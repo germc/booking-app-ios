@@ -8,11 +8,14 @@
   <string name="register_form_password_1_hint">รหัสผ่าน</string>
   <string name="register_form_password_2_hint">ยืนยันรหัสผ่าน</string>
   <string name="register_form_button_register">สร้างบัญชี</string>
+  <string name="register_form_terms_and_conditions">I read and agree to service terms and conditions.</string>
+  <string name="register_form_button_show_terms_and_conditions">Show terms and conditions</string>
   <string name="register_form_dialog_error_first_name">ชื่อที่ได้กรอกไว้ตอนแรกไม่ถูกต้อง  โปรดตรวจสอบและลองใหม่อีกครั้ง</string>
   <string name="register_form_dialog_error_last_name">นามสกุลที่ได้กรอกไว้ไม่ถูกต้อง โปรดตรวจสอบและลองใหม่อีกครั้ง</string>
   <string name="register_form_dialog_error_email">อีเมล์ที่ได้กรอกไว้ไม่ถูกต้อง โปรดตรวจสอบและลองใหม่อีกครั้ง</string>
   <string name="register_form_dialog_error_phone">หมายเลขโทรศัพท์ที่ได้กรอกไว้ไม่ถูกต้อง โปรดตรวจสอบและลองใหม่อีกครั้ง</string>
   <string name="register_form_dialog_error_password">รหัสผ่านที่ป้อนไม่ถูกต้อง โปรดตรวจสอบและลองใหม่อีกครั้ง</string>
   <string name="register_form_dialog_error_password_verification">รหัสผ่านสำหรับการตรวจสอบผิดปกติ โปรดตรวจสอบและลองใหม่อีกครั้ง</string>
+  <string name="register_form_dialog_error_tos">You must accept service Terms and Conditions to proceed.</string>
   <string name="register_form_button_cancel">ยกเลิก</string>
 </resources>

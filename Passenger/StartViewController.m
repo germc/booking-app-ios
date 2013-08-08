@@ -29,12 +29,15 @@
 {
     UIPopoverController* _popover;
     BOOL _getAccessToken;
+    NSInteger _tapCount;
 }
 
 @property (weak, nonatomic) IBOutlet FlatButton *signInButton;
 @property (weak, nonatomic) IBOutlet FlatButton *registerButton;
 @property (weak, nonatomic) IBOutlet UIView *demoView;
 @property (weak, nonatomic) IBOutlet UILabel *demoLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
+@property (weak, nonatomic) IBOutlet UILabel *codeSignatureLabel;
 
 @end
 
@@ -77,7 +80,32 @@
     
     _getAccessToken = YES;
     
-    // Do any additional setup after loading the view.
+    _logoImageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] init];
+    [tap addTarget:self action:@selector(tapGesture:)];
+    tap.numberOfTapsRequired = 1;
+    [_logoImageView addGestureRecognizer:tap];
+
+    _codeSignatureLabel.hidden = YES;
+    [_codeSignatureLabel setFont:[UIFont lightOpenSansOfSize:14]];
+    [_codeSignatureLabel setTextColor:[UIColor blackColor]];
+    
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    version = [NSString stringWithFormat:@"v%@ (%@)", version, @"2013080800"];
+    [_codeSignatureLabel setText:version];
+    
+    
+    _tapCount = 0;
+}
+
+- (void)tapGesture:(UITapGestureRecognizer*)gesture
+{
+    _tapCount++;
+    if (_tapCount == 5)
+    {
+        _codeSignatureLabel.hidden = NO;
+    }
+    NSLog(@"logo image tap, count: %d", _tapCount);
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -131,6 +159,8 @@
     [self setRegisterButton:nil];
     [self setDemoView:nil];
     [self setDemoLabel:nil];
+    [self setLogoImageView:nil];
+    [self setCodeSignatureLabel:nil];
     [super viewDidUnload];
 }
 

@@ -33,14 +33,19 @@
     <string name="register_form_password_1_hint">Password</string>
     <string name="register_form_password_2_hint">Confirm password</string>
     <string name="register_form_button_register">Create Account</string>
+    <string name="register_form_terms_and_conditions">I read and agree to service terms and conditions.</string>
 
+    <string name="register_form_button_show_terms_and_conditions">Show terms and conditions</string>
+    
     <string name="register_form_dialog_error_first_name">Entered first name is not valid. Please correct and try again.</string>
     <string name="register_form_dialog_error_last_name">Entered last name is not valid. Please correct and try again.</string>
     <string name="register_form_dialog_error_email">Entered email address is not valid. Please correct and try again.</string>
     <string name="register_form_dialog_error_phone">Entered phone number is not valid. Please correct and try again.</string>
     <string name="register_form_dialog_error_password">Entered password is not valid. Please correct and try again.</string>
     <string name="register_form_dialog_error_password_verification">Verification password is different. Please correct and try again.</string>
-
+    <string name="register_form_dialog_error_tos">You must accept service Terms and Conditions to proceed.</string>
+    
 	<!-- iOS -->
 	<string name="register_form_button_cancel">Cancel</string>
+	
 </resources>

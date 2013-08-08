@@ -8,11 +8,14 @@
   <string name="register_form_password_1_hint">Пароль</string>
   <string name="register_form_password_2_hint">Подтверждение пароля</string>
   <string name="register_form_button_register">Создать аккаунт</string>
+  <string name="register_form_terms_and_conditions">I read and agree to service terms and conditions.</string>
+  <string name="register_form_button_show_terms_and_conditions">Show terms and conditions</string>
   <string name="register_form_dialog_error_first_name">Введенное имя не является допустимым. Исправьте и повторите попытку.</string>
   <string name="register_form_dialog_error_last_name">Введенная фамилия не является допустимой. Исправьте и повторите попытку.</string>
   <string name="register_form_dialog_error_email">Введенный адрес не является допустимым. Исправьте и повторите попытку.</string>
   <string name="register_form_dialog_error_phone">Введенный номер телефона не является допустимым. Исправьте и повторите попытку.</string>
   <string name="register_form_dialog_error_password">Введенный пароль не является допустимым. Исправьте и повторите попытку.</string>
   <string name="register_form_dialog_error_password_verification">Пароли не совпадают. Исправьте и повторите попытку.</string>
+  <string name="register_form_dialog_error_tos">You must accept service Terms and Conditions to proceed.</string>
   <string name="register_form_button_cancel">Отмена</string>
 </resources>

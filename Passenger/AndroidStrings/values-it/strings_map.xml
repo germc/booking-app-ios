@@ -9,6 +9,7 @@
   <string name="new_booking_no_pickup_location_body">Si prega di inserire prima il luogo di partenza.</string>
   <string name="new_booking_pickup_date_already_passed">La data di partenza fissata è fuori termine.</string>
   <string name="new_booking_pickup_date_too_ahead_body_fmt">Data di partenza non può essere più di %d giorni in anticipo.</string>
+  <string name="new_booking_pickup_date_too_early_fmt">Il Taxi non può essere prenotato prima di %d minuti da partire da adesso.</string>
   <string name="new_booking_title">Conferma di prenotazione</string>
   <string name="new_booking_body_fmt">La prenotatione è stata eseguita. L\'indirizzo di partenza è \"%s\". Si prega di attendere il taxi.</string>
   <string name="new_booking_failed_body_fmt">La prenotazione non è stata eseguita.\n\nReason:%s</string>

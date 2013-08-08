@@ -21,6 +21,7 @@
  ****/
 
 #import "CreateAccountViewController.h"
+#import "FlatCheckMark.h"
 
 @interface CreateAccountViewController () <UITextFieldDelegate, UIGestureRecognizerDelegate>
 {
@@ -45,9 +46,13 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic, strong) WaitDialog* waitDialog;
+@property (weak, nonatomic) IBOutlet FlatCheckMark *tosCheckMark;
+@property (weak, nonatomic) IBOutlet UILabel *tosLabel;
+@property (weak, nonatomic) IBOutlet FlatButton *tosShowButton;
 
 - (IBAction)cancelButtonPressed:(id)sender;
 - (IBAction)createAccountButtonPressed:(id)sender;
+- (IBAction)showTosButtonPressed:(id)sender;
 
 @end
 
@@ -65,6 +70,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if ([CabOfficeSettings tosMustAcceptOnSignup])
+    {
+        [_tosLabel setFont:[UIFont lightOpenSansOfSize:13]];
+        [_tosLabel setTextColor:[UIColor blackColor]];
+        [_tosLabel setText:NSLocalizedString(@"register_form_terms_and_conditions", @"")];
+        _tosLabel.numberOfLines = 2;
+
+        [_tosShowButton setTitle:NSLocalizedString(@"register_form_button_show_terms_and_conditions", @"") forState:UIControlStateNormal];
+        [_tosShowButton setTitleColor:[UIColor colorWithRed:58.0/255.0 green:176.0/255.0 blue:215.0/255.0 alpha:1.0] forState:UIControlStateNormal];
+        [_tosShowButton setButtonBackgroundColor:[UIColor clearColor]];
+        [_tosShowButton setTitleFont:[UIFont lightOpenSansOfSize:13]];
+        if (IS_IPAD)
+        {
+            [_tosShowButton setTextAlignment:UITextAlignmentRight];
+        }
+        
+        _tosCheckMark.checked = NO;
+        
+    }
+    else
+    {
+        _tosCheckMark.hidden = YES;
+        _tosLabel.hidden = YES;
+        _tosShowButton.hidden = YES;
+        _tosCheckMark.checked = YES; //to avoid additional check for tosMustAccept later.
+    }
     
     _firstNameView.backgroundColor = [UIColor textFieldBackgroundColor];
     _firstNameTextField.font = [UIFont lightOpenSansOfSize:17];
@@ -203,6 +235,13 @@
 
     [self tapGesture:nil]; //hide keyboard!
 
+    if (_tosCheckMark.checked == NO)
+    {
+        NSString* title = NSLocalizedString(@"dialog_error_title", @"");
+        [MessageDialog showError:NSLocalizedString(@"register_form_dialog_error_tos", @"") withTitle:title];
+        return;
+    }
+    
     NSString* title = NSLocalizedString(@"dialog_error_title", @"");
     
     if (_firstNameTextField.text.length == 0)
@@ -253,6 +292,11 @@
                                   }];
 }
 
+- (IBAction)showTosButtonPressed:(id)sender {
+    NSURL *url = [NSURL URLWithString:[CabOfficeSettings tosUrl]];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
 - (void)viewDidUnload {
     [self setCreateAccountButton:nil];
     [self setFirstNameView:nil];
@@ -269,6 +313,9 @@
     [self setConfirmPasswordTextField:nil];
     [self setCancelButton:nil];
     [self setScrollView:nil];
+    [self setTosCheckMark:nil];
+    [self setTosLabel:nil];
+    [self setTosShowButton:nil];
     [super viewDidUnload];
 }
 @end

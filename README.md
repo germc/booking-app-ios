@@ -21,10 +21,21 @@ T Dispatch logo, T Dispatch, the T Dispatch T shaped logo are all trademarks of 
 Build requirements
  - At least basic knowledge on iOS development
  - XCode
+ - GoogleMaps iOS SDK (https://developers.google.com/maps/documentation/ios/start)
 
 To make the app work you need to collect couple of keys and tokens for various APIs application is using.
 Mandatory are T Dispatch APIs (Fleet API and Passenger API) and Google Maps iOS API.
 
+ - Download Google Maps iOS SDK. Unzip the archive and rename unpacked directory to GoogleMaps-iOS. Copy the directory
+   to the same dir Passenger.xcodeproject is located. The structure should look like this:
+    CHANGES.txt
+    LICENSE.txt
+    Passenger
+    Passenger.xcodeproj
+    TestFlightSDK
+    screenshots
+    GoogleMaps-iOS
+    README.md
  - Open Passenger project in XCode.
  - Change name of the application and bundle id in [Passenger-Info.plist](Passenger/Passenger-Info.plist) file. The common pattern for bundle id is to use
    domain name here. For example if the cab office uses `cabofficename.com` domain, then your pakcage name should be
@@ -112,7 +123,7 @@ This application uses the following third party components:
  - PKRevealController by Philip Kluz
  - AGWindowView by Håvard Fossli
  - libCocolize by Tall Developments
-
+ - DAPagesContainer by Daria Kopaliani
 
 #### Screenshots phones
 

@@ -40,5 +40,6 @@ typedef enum StationType
 @property (nonatomic, copy) LocationSelectorCompletionBlock completionBlock;
 @property (nonatomic, assign) LocationType locationType;
 @property (nonatomic, assign) StationType stationType;
+@property (nonatomic, strong) MapAnnotation* annotation;
 
 @end

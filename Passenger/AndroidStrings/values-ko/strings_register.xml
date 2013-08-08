@@ -8,11 +8,14 @@
   <string name="register_form_password_1_hint">비밀번호</string>
   <string name="register_form_password_2_hint">비밀번호 확인</string>
   <string name="register_form_button_register">계정 등록</string>
+  <string name="register_form_terms_and_conditions">I read and agree to service terms and conditions.</string>
+  <string name="register_form_button_show_terms_and_conditions">Show terms and conditions</string>
   <string name="register_form_dialog_error_first_name">입력한 이름이 유효하지 않습니다. 수정 후 다시 시도해 주십시오.</string>
   <string name="register_form_dialog_error_last_name">입력한 성이 유효하지 않습니다. 수정 후 다시 시도해 주십시오.</string>
   <string name="register_form_dialog_error_email">입력한 이메일 주소가 유효하지 않습니다. 수정 후 다시 시도해 주십시오.</string>
   <string name="register_form_dialog_error_phone">입력한 전화번호가 유효하지 않습니다. 수정 후 다시 시도해 주십시오.</string>
   <string name="register_form_dialog_error_password">재확인 비밀번호가 다릅니다. 수정 후 다시 시도해 주십시오.</string>
   <string name="register_form_dialog_error_password_verification">재확인 비밀번호가 다릅니다. 수정 후 다시 시도해 주십시오.</string>
+  <string name="register_form_dialog_error_tos">You must accept service Terms and Conditions to proceed.</string>
   <string name="register_form_button_cancel">취소</string>
 </resources>

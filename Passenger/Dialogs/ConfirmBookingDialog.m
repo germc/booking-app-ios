@@ -131,7 +131,39 @@
     frame.origin.y -= 60;
     _dropoffView.frame = frame;
     
+    NSInteger minimumTimeOffset = [CabOfficeSettings minimumAllowedPickupTimeOffsetInMinutes];
+    if (minimumTimeOffset)
+    {
+        NSDate *now = [NSDate date];
+        now = [now dateByAddingTimeInterval:minimumTimeOffset * 60];
+        self.selectedTime = now;
+        self.selectedDate = [NSDate date];
+        
+        [self setButtonsTitles:_selectedTime day:_selectedDate];
+        
+        [self enableDateButton];
+    }
+
     [super show];
+}
+
+- (void)enableDateButton
+{
+    if (_dateView.hidden)
+    {
+        CGRect frame = self.contentView.frame;
+        frame.size.height += 60;
+        _dateView.hidden = NO;
+        self.contentView.frame = frame;
+        
+        frame = _pickupView.frame;
+        frame.origin.y += 60;
+        _pickupView.frame = frame;
+        
+        frame = _dropoffView.frame;
+        frame.origin.y += 60;
+        _dropoffView.frame = frame;
+    }
 }
 
 - (IBAction)bookButtonPressed:(id)sender
@@ -182,19 +214,8 @@
 - (IBAction)timeButtonPressed:(id)sender {
     [DatePickerDialog showTimePicker:^(NSDate *date){
         
-        CGRect frame = self.contentView.frame;
-        frame.size.height += 60;
-        _dateView.hidden = NO;
-        self.contentView.frame = frame;
+        [self enableDateButton];
         
-        frame = _pickupView.frame;
-        frame.origin.y += 60;
-        _pickupView.frame = frame;
-        
-        frame = _dropoffView.frame;
-        frame.origin.y += 60;
-        _dropoffView.frame = frame;
-
         self.selectedTime = date;
         self.selectedDate = [NSDate date];
         [self setButtonsTitles:date day:[NSDate date]];

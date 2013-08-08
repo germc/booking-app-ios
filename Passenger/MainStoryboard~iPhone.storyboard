@@ -178,11 +178,19 @@
                                     <action selector="logoutButtonPressed:" destination="JOP-S2-Dwr" eventType="touchUpInside" id="YSG-X2-6ov"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6KM-mA-QbY">
+                                <rect key="frame" x="162" y="436" width="98" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="appVersionLabel" destination="6KM-mA-QbY" id="acT-vi-Y5M"/>
                         <outlet property="cabOfficeButton" destination="qQw-pZ-ujq" id="Kb0-TB-Qhz"/>
                         <outlet property="logoutButton" destination="GBt-QW-VTP" id="Kq9-cw-MSM"/>
                         <outlet property="myAccountButton" destination="BLu-Rp-Jvm" id="V4p-h0-MYa"/>
@@ -268,8 +276,8 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="dUk-lJ-upJ">
-                                <rect key="frame" x="96" y="144" width="128" height="86"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="96" y="150" width="128" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="q1a-Fm-3nc">
                                         <rect key="frame" x="0.0" y="0.0" width="64" height="87"/>
@@ -693,13 +701,22 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g1z-ai-BMm">
+                                <rect key="frame" x="20" y="0.0" width="300" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="nYU-jU-Hen"/>
                     <connections>
+                        <outlet property="codeSignatureLabel" destination="g1z-ai-BMm" id="UMe-ME-pYN"/>
                         <outlet property="demoLabel" destination="AkQ-do-lF9" id="CWr-UA-fa3"/>
                         <outlet property="demoView" destination="e07-K7-x5e" id="Ybs-KG-N8I"/>
+                        <outlet property="logoImageView" destination="9Ee-kd-kTW" id="f6J-yG-Vge"/>
                         <outlet property="registerButton" destination="VGd-op-8n5" id="7e4-pG-4MM"/>
                         <outlet property="signInButton" destination="hGY-UF-uU6" id="81f-hg-51j"/>
                         <segue destination="Jlv-XK-g75" kind="push" identifier="showMainViewController" id="oja-Xv-Kr5"/>
@@ -749,7 +766,7 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Wad-FY-EKp">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="302"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="282"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="PVC-hV-uh0">
@@ -850,6 +867,40 @@
                                     </view>
                                 </subviews>
                             </scrollView>
+                            <button opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TFd-fj-pHP" customClass="FlatCheckMark">
+                                <rect key="frame" x="26" y="292" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H8p-dh-TKh">
+                                <rect key="frame" x="60" y="286" width="240" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yuS-Mx-rwI" customClass="FlatButton">
+                                <rect key="frame" x="20" y="319" width="280" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showTosButtonPressed:" destination="Qsh-jB-2LF" eventType="touchUpInside" id="h7f-o7-7yJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -869,6 +920,9 @@
                         <outlet property="phoneNumberTextField" destination="XvX-Ya-i34" id="Lgm-ms-HJm"/>
                         <outlet property="phoneNumberView" destination="oTM-a7-Wgf" id="21O-vn-a8F"/>
                         <outlet property="scrollView" destination="Wad-FY-EKp" id="JJc-qT-VhD"/>
+                        <outlet property="tosCheckMark" destination="TFd-fj-pHP" id="eKR-ga-lHL"/>
+                        <outlet property="tosLabel" destination="H8p-dh-TKh" id="woN-zi-ud5"/>
+                        <outlet property="tosShowButton" destination="yuS-Mx-rwI" id="uV7-32-yqk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ivK-Yl-814" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1301,12 +1355,205 @@
         <image name="tour_03_01.png" width="520" height="325"/>
         <image name="tour_04_01.png" width="361" height="146"/>
     </resources>
+    <classes>
+        <class className="BookingsHistoryViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BookingsHistoryViewCell.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:"/>
+                <relationship kind="action" name="dropoffButtonPressed:"/>
+                <relationship kind="action" name="pickupButtonPressed:"/>
+                <relationship kind="action" name="pickupDropoffButtonPressed:"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dropoffButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dropoffLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pickupAndDropoffButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="pickupButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="pickupLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CabOfficeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CabOfficeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="emailButtonPressed:"/>
+                <relationship kind="action" name="okButtonPressed:"/>
+                <relationship kind="action" name="phoneButtonPressed:"/>
+                <relationship kind="outlet" name="emailAddressTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emailButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="officeNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="officeNameTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="okButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="phoneButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="phoneNumberTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CreateAccountViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CreateAccountViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:"/>
+                <relationship kind="action" name="createAccountButtonPressed:"/>
+                <relationship kind="action" name="showTosButtonPressed:"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="confirmPasswordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="confirmPasswordView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="createAccountButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="emailView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="firstNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="firstNameView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="lastNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lastNameView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="phoneNumberTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="phoneNumberView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="tosCheckMark" candidateClass="FlatCheckMark"/>
+                <relationship kind="outlet" name="tosLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tosShowButton" candidateClass="FlatButton"/>
+            </relationships>
+        </class>
+        <class className="FlatButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlatButton.h"/>
+        </class>
+        <class className="FlatCheckMark" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlatCheckMark.h"/>
+        </class>
+        <class className="GMSMapView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GMSMapView.h"/>
+        </class>
+        <class className="HistoryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HistoryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="tryAgainButtonPressed:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="errorView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="messageView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="noBookingsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pleaseWaitLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pleaseWaitView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="tryAgainButton" candidateClass="FlatButton"/>
+            </relationships>
+        </class>
+        <class className="LocationSelectionBaseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationSelectionBaseViewController.h"/>
+        </class>
+        <class className="LocationSelectionListViewController" superclassName="LocationSelectionBaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationSelectionListViewController.h"/>
+        </class>
+        <class className="LocationSelectorViewController" superclassName="LocationSelectionBaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationSelectorViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="locationTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="locationView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="logoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="separatorView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="MainViewController" superclassName="PKRevealController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+        </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="bookButtonPressed:"/>
+                <relationship kind="action" name="buttonAPressed:"/>
+                <relationship kind="action" name="buttonBPressed:"/>
+                <relationship kind="action" name="createNewBookingButtonPressed:"/>
+                <relationship kind="action" name="leftButtonPressed:"/>
+                <relationship kind="action" name="myLocationButtonPressed:"/>
+                <relationship kind="action" name="rightButtonPressed:"/>
+                <relationship kind="outlet" name="aButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="abView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="activityIndicatorView" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="bButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="bookButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="bookingActivityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="createNewBookingButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dropoffButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="googleMapView" candidateClass="GMSMapView"/>
+                <relationship kind="outlet" name="myLocationButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="pickupButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="pickupDropoffView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="priceView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="MenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logoutButtonPressed:"/>
+                <relationship kind="outlet" name="appVersionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="cabOfficeButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="logoutButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="myAccountButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="tourButton" candidateClass="FlatButton"/>
+            </relationships>
+        </class>
+        <class className="MyAccountViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyAccountViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="okButtonPressed:"/>
+                <relationship kind="outlet" name="emailAddressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emailAddressTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fullNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fullNameTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="okButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="phoneNumberLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="phoneNumberTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PKRevealController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PKRevealController.h"/>
+        </class>
+        <class className="SMPageControl" superclassName="UIControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMPageControl.h"/>
+        </class>
+        <class className="StartViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="codeSignatureLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="demoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="demoView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="logoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="registerButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="signInButton" candidateClass="FlatButton"/>
+            </relationships>
+        </class>
+        <class className="TourViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TourViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="buttonOkPressed:"/>
+                <relationship kind="outlet" name="label1_1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="label1_2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="label2_1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="label2_2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="label3_1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="label4_1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="okButton" candidateClass="FlatButton"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="SMPageControl"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="hGQ-Hr-FDu"/>
+        <segue reference="N5g-Y2-gkv"/>
     </inferredMetricsTieBreakers>
 </document>

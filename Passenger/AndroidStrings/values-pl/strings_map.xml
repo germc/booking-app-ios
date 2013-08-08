@@ -9,6 +9,7 @@
   <string name="new_booking_no_pickup_location_body">Ustaw proszę najpierw adres początkowy.</string>
   <string name="new_booking_pickup_date_already_passed">Wybrana data rozpoczęcia podróży juz minęła.</string>
   <string name="new_booking_pickup_date_too_ahead_body_fmt">Nie możesz złożyć zlecenia na więcej niż %d dni naprzód.</string>
+  <string name="new_booking_pickup_date_too_early_fmt">Możesz zamówić taksówkę nie wcześniej niż za %d minut od teraz.</string>
   <string name="new_booking_title">Potwierdzenie zlecenia</string>
   <string name="new_booking_body_fmt">Zlecenie zostało złożone. Punkt początkowy to \"%s\". Oczekuj na taksówkę.</string>
   <string name="new_booking_failed_body_fmt">Błąd składania zlecenia.\n\nPowód: %s</string>

@@ -34,6 +34,10 @@
 + (BOOL)hideDemoWarning;
 + (BOOL)trackNearbyCabs;
 + (BOOL)enableLocationSearchModules;
++ (NSInteger)minimumAllowedPickupTimeOffsetInMinutes;
++ (BOOL)tosMustAcceptOnSignup;
++ (NSString *)tosUrl;
+
 
 + (BOOL)useGoogleGeolocator;
 

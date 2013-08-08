@@ -8,11 +8,14 @@
   <string name="register_form_password_1_hint">密碼</string>
   <string name="register_form_password_2_hint">確認密碼</string>
   <string name="register_form_button_register">創造帳戶</string>
+  <string name="register_form_terms_and_conditions">I read and agree to service terms and conditions.</string>
+  <string name="register_form_button_show_terms_and_conditions">Show terms and conditions</string>
   <string name="register_form_dialog_error_first_name">已輸入的名字無效。請更正，然後重試。</string>
   <string name="register_form_dialog_error_last_name">已輸入的姓氏無效。請更正，然後重試。</string>
   <string name="register_form_dialog_error_email">已輸入的電郵位址無效。請更正，然後重試。</string>
   <string name="register_form_dialog_error_phone">已輸入的電話號碼無效。請更正，然後重試。</string>
   <string name="register_form_dialog_error_password">已輸入的密碼無效。請更正，然後重試。</string>
   <string name="register_form_dialog_error_password_verification">驗證密碼是不同的。請更正，然後重試。</string>
+  <string name="register_form_dialog_error_tos">You must accept service Terms and Conditions to proceed.</string>
   <string name="register_form_button_cancel">取消</string>
 </resources>

@@ -9,6 +9,7 @@
   <string name="new_booking_no_pickup_location_body">먼저 픽업 위치를 정하십시오.</string>
   <string name="new_booking_pickup_date_already_passed">픽업 날짜가 이미 지났습니다.</string>
   <string name="new_booking_pickup_date_too_ahead_body_fmt">픽업 일자는 최소한 %d 일 이내여야 합니다. </string>
+  <string name="new_booking_pickup_date_too_early_fmt">Cab can be booked no earlier than in %d minutes from now.</string>
   <string name="new_booking_title">예약 확정</string>
   <string name="new_booking_body_fmt">예약이 완료되었습니다. 픽업 위치는 \"%s\"입니다. 택시를 기다리십시오.</string>
   <string name="new_booking_failed_body_fmt">예약을 완료하지 못했습니다. 원인: %s</string>

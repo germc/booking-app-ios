@@ -24,5 +24,11 @@
 	<true/>
 	<key>caboffice_settings_enable_location_search_modules</key>
 	<true/>
+	<key>caboffice_minimum_allowed_pickup_time_offset_in_minutes</key>
+	<integer>0</integer>
+	<key>caboffice_tos_must_accept_on_signup</key>
+	<false/>
+	<key>caboffice_tos_url</key>
+	<string>http://tdispatch.com/</string>
 </dict>
 </plist>

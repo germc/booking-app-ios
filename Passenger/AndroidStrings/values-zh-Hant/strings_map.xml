@@ -9,6 +9,7 @@
   <string name="new_booking_no_pickup_location_body">請先指定接客地點。</string>
   <string name="new_booking_pickup_date_already_passed">去接的日期已經過去。</string>
   <string name="new_booking_pickup_date_too_ahead_body_fmt">去接的日期不能超過提前 ％d 天。</string>
+  <string name="new_booking_pickup_date_too_early_fmt">Cab can be booked no earlier than in %d minutes from now.</string>
   <string name="new_booking_title">預訂確認</string>
   <string name="new_booking_body_fmt">您的預訂已訂。你的接客位址是在\"%s\"。請等待計程車。</string>
   <string name="new_booking_failed_body_fmt">無法訂你的預訂。原因：%s</string>

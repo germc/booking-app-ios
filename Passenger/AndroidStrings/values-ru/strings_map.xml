@@ -9,6 +9,7 @@
   <string name="new_booking_no_pickup_location_body">Пожалуйста сперва укажите стартовую точку.</string>
   <string name="new_booking_pickup_date_already_passed">Указанная дата начала поездки уже прошла.</string>
   <string name="new_booking_pickup_date_too_ahead_body_fmt">Нельзя сделать заказ заранее более чем за %d дней.</string>
+  <string name="new_booking_pickup_date_too_early_fmt">Cab can be booked no earlier than in %d minutes from now.</string>
   <string name="new_booking_title">Подтверждение заказа</string>
   <string name="new_booking_body_fmt">Ваш заказ был размещен. Ваша точка отправки это «%s». Пожалуйста, ожидате машину.</string>
   <string name="new_booking_failed_body_fmt">Не удалось разместить ваш заказ.\n\nПричина: %s</string>

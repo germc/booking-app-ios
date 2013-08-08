@@ -9,6 +9,7 @@
   <string name="new_booking_no_pickup_location_body">โปรดระบุตำแหน่งที่รับเสียก่อน</string>
   <string name="new_booking_pickup_date_already_passed">ได้อนุมัติวันรับที่ได้ระบุเอาไว้แล้ว</string>
   <string name="new_booking_pickup_date_too_ahead_body_fmt">วันรับไม่สามารถเกินกว่า %d วันก่อนหน้านี้</string>
+  <string name="new_booking_pickup_date_too_early_fmt">Cab can be booked no earlier than in %d minutes from now.</string>
   <string name="new_booking_title">การยืนยันการจอง</string>
   <string name="new_booking_body_fmt">ได้จัดการจองของคุณแล้ว ตำแหน่งที่รับของคุณอยู่ที่ \"%s\" โปรดคอยรถแท๊กซี่</string>
   <string name="new_booking_failed_body_fmt">การจัดการจองของคุณได้ล้มเหลว  เหตุผลคือ: %s</string>

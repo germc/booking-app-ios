@@ -9,6 +9,7 @@
   <string name="new_booking_no_pickup_location_body">Sila tetapkan lokasi pikap dahulu.</string>
   <string name="new_booking_pickup_date_already_passed">Tarikh pikap yang ditetapkan sudah berlalu.</string>
   <string name="new_booking_pickup_date_too_ahead_body_fmt">Tarikh pikap tidak boleh lebih daripada %d hari lebih awal.</string>
+  <string name="new_booking_pickup_date_too_early_fmt">Cab can be booked no earlier than in %d minutes from now.</string>
   <string name="new_booking_title">Pengesahan tempahan</string>
   <string name="new_booking_body_fmt">Tempahan anda telah diatur. Lokasi pikap anda adalah di \"%s\". Sila tunggu kedatangan teksi.</string>
   <string name="new_booking_failed_body_fmt">Gagal untuk membuat tempahan anda. Sebab: %s</string>

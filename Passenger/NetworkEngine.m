@@ -376,6 +376,11 @@
 
 }
 
+- (void)cancelReverseForLocationOperations
+{
+    [MKNetworkEngine cancelOperationsContainingURLString:@"http://maps.googleapis.com/maps/api/geocode/"];
+}
+
 - (void)getReverseForLocation:(CLLocationCoordinate2D)location
               completionBlock:(NetworkEngineCompletionBlock)completionBlock
                  failureBlock:(NetworkEngineFailureBlock)failureBlock
@@ -434,8 +439,8 @@
     
     NSMutableDictionary* params = [[NSMutableDictionary alloc] initWithDictionary:@{
                                                                                   @"pickup_location": @{
-                                                                                          @"postcode" : pickupZipCode,
-                                                                                          @"address" : pickupName,
+                                   @"postcode" : pickupZipCode ? pickupZipCode : @"",
+                                   @"address" : pickupName ? pickupName : @"",
                                                                                           @"location" : @{
                                                                                                   @"lat" : [NSNumber numberWithFloat:pickupLocation.latitude],
                                                                                                   @"lng" : [NSNumber numberWithFloat:pickupLocation.longitude]
@@ -447,7 +452,7 @@
     {
         [params addEntriesFromDictionary:@{
                                             @"dropoff_location": @{
-                                                @"postcode" : dropoffZipCode,
+         @"postcode" : dropoffZipCode ? dropoffZipCode : @"",
                                                 @"address" : dropoffName,
                                                 @"location" : @{
                                                     @"lat" : [NSNumber numberWithFloat:dropoffLocation.latitude],
