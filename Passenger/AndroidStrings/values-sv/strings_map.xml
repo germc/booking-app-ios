@@ -3,17 +3,17 @@
 <resources>
   <string name="pickup_line_default">Ange upphämtningsplats…</string>
   <string name="dropoff_line_default">…</string>
-  <string name="dropoff_line_alternative">Ange mål…</string>
-  <string name="map_aim_location_unknown_body">Det gick inte att bestämma adressen du pekar på. Markera en närliggande plats på kartan för att försöka hitta din plats.</string>
+  <string name="dropoff_line_alternative">Ange slutdestination…</string>
+  <string name="map_aim_location_unknown_body">Det gick inte att bestämma adressen du pekar på. Flytta på kartan till närliggande plats för att försöka fastställa din plats.</string>
   <string name="new_booking_both_locations_required_to_place_booking">Både från och till -adress måste anges för att slutföra bokningen.</string>
   <string name="new_booking_no_pickup_location_body">Ange upphämtningsplats först.</string>
   <string name="new_booking_pickup_date_already_passed">Angivet avresedatum har passerats.</string>
   <string name="new_booking_pickup_date_too_ahead_body_fmt">Datum för upphämtning får inte vara längre bort än %d dagar framåt.</string>
   <string name="new_booking_pickup_date_too_early_fmt">Kan inte bokas tidigare än %d minuter räknat från nu.</string>
-  <string name="new_booking_title">Bokningsbekräftelse</string>
-  <string name="new_booking_body_fmt">Bokningen är genomförd. Din upphämtningsplats är \"%s\". Din TAXI kommer snart.</string>
+  <string name="new_booking_title">Bokningsförfrågan</string>
+  <string name="new_booking_body_fmt">Din bokningsförfrågan är genomförd. Din upphämtningsplats är \"%s\". Invänta bekräftelse för fullföljd bokning.</string>
   <string name="new_booking_failed_body_fmt">Din bokning kunde inte genomföras.\n\nP.g.a: %s</string>
   <string name="unable_to_get_current_location_body">Det går inte att fastställa din nuvarande position. Kontrollera Systeminställningarna.</string>
   <string name="unable_to_get_current_location_button_show_settings">Systeminställningar</string>
-  <string name="address_search_button_cancel">Makulera</string>
+  <string name="address_search_button_cancel">Avbryt</string>
 </resources>

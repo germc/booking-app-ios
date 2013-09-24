@@ -91,7 +91,8 @@
     [_codeSignatureLabel setTextColor:[UIColor blackColor]];
     
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    version = [NSString stringWithFormat:@"v%@ (%@)", version, @"2013080800"];
+
+    version = [NSString stringWithFormat:@"v%@ (%@)", version, @"2013092400"];
     [_codeSignatureLabel setText:version];
     
     

@@ -1,3 +1,10 @@
+v1.9 (2013.09.17)
+-----------------------------
+- Added Greek localisation.
+- Updated localisation strings to latest version.
+- Fixed a bug where user was not able to select desired pickup time after selecting pickup date.
+- Updated UI to work properly on iOS 7.
+
 v1.8 (2013.08.08)
 -----------------------------
 - Improved UI for iPad.

@@ -40,6 +40,7 @@
     #import "NetworkEngine.h"
     #import "NSError+Description.h"
     #import "FlatButton.h"
+    #import "FlatAutoScrollButton.h"
     #import "NSString+RFC3339.h"
     #import "MessageDialog.h"
     #import "WaitDialog.h"

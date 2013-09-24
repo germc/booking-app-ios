@@ -8,14 +8,14 @@
   <string name="register_form_password_1_hint">Passwort</string>
   <string name="register_form_password_2_hint">Passwort bestätigen</string>
   <string name="register_form_button_register">Konto erstellen</string>
-  <string name="register_form_terms_and_conditions">I read and agree to service terms and conditions.</string>
-  <string name="register_form_button_show_terms_and_conditions">Show terms and conditions</string>
+  <string name="register_form_terms_and_conditions">Ich gelesen und Stimme zu Geschäftsbedingungen.</string>
+  <string name="register_form_button_show_terms_and_conditions">Karte-Allgemeine Geschäftsbedingungen</string>
   <string name="register_form_dialog_error_first_name">Eingegebene Vorname ist nicht gültig. Bitte korrigieren und versuchen Sie es erneut.</string>
   <string name="register_form_dialog_error_last_name">Eingegebene Nachname ist nicht gültig. Bitte korrigieren und versuchen Sie es erneut.</string>
   <string name="register_form_dialog_error_email">Eingegebene Email-Adresse ist nicht gültig. Bitte kontrollieren und versuchen Sie es erneut.</string>
   <string name="register_form_dialog_error_phone">Eingegebene Telefonnummer ist nicht gültig. Bitte kontrollieren und versuchen Sie es erneut.</string>
   <string name="register_form_dialog_error_password">Eingegebene Kennwort ist ungültig. Bitte kontrollieren und versuchen Sie es erneut.</string>
   <string name="register_form_dialog_error_password_verification">Passwörter stimmen nicht überein. Bitte kontrollieren und versuchen Sie es erneut.</string>
-  <string name="register_form_dialog_error_tos">You must accept service Terms and Conditions to proceed.</string>
+  <string name="register_form_dialog_error_tos">Müssen Sie die Geschäftsbedingungen zu akzeptieren.</string>
   <string name="register_form_button_cancel">Abbrechen</string>
 </resources>

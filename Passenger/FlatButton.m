@@ -21,26 +21,11 @@
  ****/
 
 #import "FlatButton.h"
-#import "CBAutoScrollLabel.h"
-
-@interface FlatButton()
-
-@property (nonatomic, weak) CBAutoScrollLabel* label;
-
-@end
 
 @implementation FlatButton
 
 - (void)initialize
 {
-    CBAutoScrollLabel* l = [[CBAutoScrollLabel alloc] initWithFrame:self.bounds];
-    l.backgroundColor = [UIColor clearColor];
-    l.font = [UIFont lightOpenSansOfSize:17];
-    l.textAlignment = NSTextAlignmentCenter;
-    l.textColor = [UIColor buttonTextColor];
-    [self addSubview:l];
-    self.label = l;
-    
     self.buttonBackgroundColor = [UIColor buttonColor];
     _buttonHighlightedBackgroundColor = [UIColor buttonHighlightColor];
     [self setTitleColor:[UIColor buttonTextColor] forState:UIControlStateNormal];
@@ -78,29 +63,17 @@
 
 - (void)setTitleFont:(UIFont*)font
 {
-    _label.font = font;
+    self.titleLabel.font = font;
 }
 
 - (void)setTitleColor:(UIColor *)color forState:(UIControlState)state
 {
-    self.titleLabel.textColor = color;
-    _label.textColor = color;
-}
-
-- (void) setTitle:(NSString *)title forState:(UIControlState)state
-{
-    [_label setText:title refreshLabels:YES];
+    [super setTitleColor:color forState:state];
 }
 
 - (void)setTextAlignment:(UITextAlignment)textAlignment
 {
-    _label.textAlignment = textAlignment;
-    [_label refreshLabels];
-}
-
-- (NSString *)titleForState:(UIControlState)state
-{
-    return _label.text;
+    self.titleLabel.textAlignment = textAlignment;
 }
 
 - (void)setHighlighted:(BOOL)highlighted

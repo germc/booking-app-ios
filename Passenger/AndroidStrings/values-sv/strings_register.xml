@@ -4,7 +4,7 @@
   <string name="register_form_first_name_hint">Förnamn</string>
   <string name="register_form_last_name_hint">Efternamn</string>
   <string name="register_form_phone_hint">Telefonnummer</string>
-  <string name="register_form_email_hint">e-postadress</string>
+  <string name="register_form_email_hint">e-mail</string>
   <string name="register_form_password_1_hint">Lösenord</string>
   <string name="register_form_password_2_hint">Repetera lösenord</string>
   <string name="register_form_button_register">Skapa konto</string>
@@ -12,7 +12,7 @@
   <string name="register_form_button_show_terms_and_conditions">Visa villkor</string>
   <string name="register_form_dialog_error_first_name">Förnamnet är inte rätt. Korrigera och försök igen.</string>
   <string name="register_form_dialog_error_last_name">Angivet efternamn är inte rätt. Korrigera och försök igen.</string>
-  <string name="register_form_dialog_error_email">Angiven e-postadress är inte rätt. Korrigera och försök igen.</string>
+  <string name="register_form_dialog_error_email">Angiven e-mailadress är inte rätt. Korrigera och försök igen.</string>
   <string name="register_form_dialog_error_phone">Angivet telefonnummer är inte rätt. Korrigera och försök igen.</string>
   <string name="register_form_dialog_error_password">Lösenordet är inte rätt. Korrigera och försök igen.</string>
   <string name="register_form_dialog_error_password_verification">Lösenorden är olika. Korrigera och försök igen.</string>

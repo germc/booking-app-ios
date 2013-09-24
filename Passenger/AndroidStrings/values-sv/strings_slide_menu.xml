@@ -3,6 +3,6 @@
 <resources>
   <string name="menu_button_account">Mitt konto</string>
   <string name="menu_button_cab_office">TAXI NU</string>
-  <string name="menu_button_tour">Visning</string>
+  <string name="menu_button_tour">Gör så här</string>
   <string name="menu_button_logout">Logga ut</string>
 </resources>

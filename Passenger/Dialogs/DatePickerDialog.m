@@ -50,13 +50,12 @@
     return self;
 }
 
-+ (void)showTimePicker:(DatePickerCompletionBlock)completionBlock
++ (void)showTimePicker:(DatePickerCompletionBlock)completionBlock withMinimumDate:(NSDate *)date
 {
     DatePickerDialog* d = [[DatePickerDialog alloc] init];
     d.picker.datePickerMode = UIDatePickerModeTime;
 
-    NSInteger minimumTimeOffset = [CabOfficeSettings minimumAllowedPickupTimeOffsetInMinutes];
-    d.picker.minimumDate = [[NSDate date] dateByAddingTimeInterval:minimumTimeOffset * 60];
+    d.picker.minimumDate = date;
     d.completionBlock = completionBlock;
     [d show];
 }

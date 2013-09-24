@@ -20,13 +20,8 @@
  *
  ****/
 
-#import <UIKit/UIKit.h>
+#import "FlatButton.h"
 
-typedef void (^DatePickerCompletionBlock)(NSDate *date);
-
-@interface DatePickerDialog : CustomDialog
-
-+ (void)showTimePicker:(DatePickerCompletionBlock)completionBlock withMinimumDate:(NSDate *)date;
-+ (void)showDatePicker:(DatePickerCompletionBlock)completionBlock;
+@interface FlatAutoScrollButton : FlatButton
 
 @end

@@ -62,8 +62,8 @@
     // Do any additional setup after loading the view.
 }
 
--(BOOL)shouldAutorotateToInterfaceOrientation:(UIDeviceOrientation)orientation{
-    if(orientation == UIDeviceOrientationPortrait || orientation == UIDeviceOrientationPortraitUpsideDown)
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation{
+    if(orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown)
     {
         return YES;
     }

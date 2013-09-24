@@ -44,7 +44,7 @@
                        @"strings_tdfragment",
                        @"strings_tour",
                        @"strings_translator_credits"];
-    NSArray* languages = @[@"de", @"en", @"es", @"fr", @"it", @"ja", @"ko", @"ms", @"pl", @"pt", @"ru", @"sv", @"th", @"uk", @"zh-Hans", @"zh-Hant" ];
+    NSArray* languages = @[@"de", @"el", @"en", @"es", @"fr", @"it", @"ja", @"ko", @"ms", @"pl", @"pt", @"ru", @"sv", @"th", @"uk", @"zh-Hans", @"zh-Hant" ];
     
     for (NSString *language in languages)
     {
@@ -52,7 +52,6 @@
     }
 
 #ifdef TEST_FLIGHT
-    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
 #warning add your test flight token here
     [TestFlight takeOff:@""];
 #endif
@@ -69,6 +68,9 @@
     self.window.rootViewController = vc;
     self.window.backgroundColor = [UIColor backgroundColor];
     [self.window makeKeyAndVisible];
+
+    //clear cache. fixes possible problems with changed CSS presented in webviews.
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
 
     return YES;
 }

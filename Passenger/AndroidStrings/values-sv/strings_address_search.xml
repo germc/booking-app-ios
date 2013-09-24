@@ -3,7 +3,7 @@
 <resources>
   <string name="address_search_generic_hint">Ange adress</string>
   <string name="address_search_pickup_hint">Ange hämtadress</string>
-  <string name="address_search_dropoff_hint">Ange resmålets adress</string>
+  <string name="address_search_dropoff_hint">Ange slutdestination</string>
   <string name="address_search_page_search">Sök</string>
   <string name="address_search_page_history">Historik</string>
   <string name="address_search_page_favourites">Favoriter</string>

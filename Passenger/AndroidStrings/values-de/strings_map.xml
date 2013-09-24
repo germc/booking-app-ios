@@ -9,7 +9,7 @@
   <string name="new_booking_no_pickup_location_body">Bitte Start zuerst angeben.</string>
   <string name="new_booking_pickup_date_already_passed">Angegebene Abholdatum ist bereits abgelaufen.</string>
   <string name="new_booking_pickup_date_too_ahead_body_fmt">Abholsdatum darf nicht mehr als %d Tage im voraus sein.</string>
-  <string name="new_booking_pickup_date_too_early_fmt">Cab can be booked no earlier than in %d minutes from now.</string>
+  <string name="new_booking_pickup_date_too_early_fmt">Taxi Nein buchbar frühestens in %d Minuten ab jetzt.</string>
   <string name="new_booking_title">Buchungsbestätigung</string>
   <string name="new_booking_body_fmt">Ihre Buchung wurde absesendet. Ihre Abholort ist \"%s\". Bitte warten Sie auf Ihren Taxi.</string>
   <string name="new_booking_failed_body_fmt">Ihre Buchung konnte nicht abgesendet werden.\n\nReason: %s</string>

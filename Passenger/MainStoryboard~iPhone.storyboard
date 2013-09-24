@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="49P-O4-GVL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="49P-O4-GVL">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <deployment defaultVersion="1280" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--cabOfficeViewController-->
@@ -9,7 +10,7 @@
             <objects>
                 <viewController storyboardIdentifier="cabOfficeViewController" id="pqM-ek-ac3" userLabel="cabOfficeViewController" customClass="CabOfficeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iaC-k2-dGC">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="center" image="caboffice_logo.png" id="Q1D-eH-bHc">
@@ -75,7 +76,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="15I-hF-u2c" customClass="FlatButton">
-                                <rect key="frame" x="20" y="396" width="280" height="44"/>
+                                <rect key="frame" x="20" y="416" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
@@ -111,90 +112,97 @@
             <objects>
                 <viewController storyboardIdentifier="menuViewController" id="JOP-S2-Dwr" userLabel="menuViewController" customClass="MenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xyO-52-NW1">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BLu-Rp-Jvm" customClass="FlatButton">
-                                <rect key="frame" x="32" y="76" width="288" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="i4f-X4-vdq" kind="modal" identifier="showMyAccountViewController" id="3rX-F6-gni"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qQw-pZ-ujq" customClass="FlatButton">
-                                <rect key="frame" x="32" y="160" width="288" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="pqM-ek-ac3" kind="modal" identifier="showCabOfficeViewController" id="ueR-Mb-csf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UzW-6i-pbM" customClass="FlatButton">
-                                <rect key="frame" x="32" y="244" width="288" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="TIN-XW-l4b" kind="modal" id="N5g-Y2-gkv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GBt-QW-VTP" customClass="FlatButton">
-                                <rect key="frame" x="32" y="328" width="288" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="logoutButtonPressed:" destination="JOP-S2-Dwr" eventType="touchUpInside" id="YSG-X2-6ov"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6KM-mA-QbY">
-                                <rect key="frame" x="162" y="436" width="98" height="21"/>
+                                <rect key="frame" x="162" y="456" width="98" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" id="siO-D4-V7S">
+                                <rect key="frame" x="0.0" y="56" width="320" height="336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fco-Xt-OzA" customClass="FlatButton">
+                                        <rect key="frame" x="32" y="20" width="288" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="i4f-X4-vdq" kind="modal" identifier="showMyAccountViewController" id="p18-td-m8T"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZPV-nn-tWe" customClass="FlatButton">
+                                        <rect key="frame" x="32" y="104" width="288" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="pqM-ek-ac3" kind="modal" identifier="showCabOfficeViewController" id="6A4-kn-lBW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pq9-gl-yWg" customClass="FlatButton">
+                                        <rect key="frame" x="32" y="188" width="288" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="TIN-XW-l4b" kind="modal" id="Svg-hP-BGK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wQu-Dg-JxR" customClass="FlatButton">
+                                        <rect key="frame" x="32" y="272" width="288" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logoutButtonPressed:" destination="JOP-S2-Dwr" eventType="touchUpInside" id="CVo-qB-M88"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="appVersionLabel" destination="6KM-mA-QbY" id="acT-vi-Y5M"/>
-                        <outlet property="cabOfficeButton" destination="qQw-pZ-ujq" id="Kb0-TB-Qhz"/>
-                        <outlet property="logoutButton" destination="GBt-QW-VTP" id="Kq9-cw-MSM"/>
-                        <outlet property="myAccountButton" destination="BLu-Rp-Jvm" id="V4p-h0-MYa"/>
-                        <outlet property="tourButton" destination="UzW-6i-pbM" id="s59-PC-D4b"/>
+                        <outlet property="cabOfficeButton" destination="ZPV-nn-tWe" id="Qa9-Pf-YHl"/>
+                        <outlet property="logoutButton" destination="wQu-Dg-JxR" id="at7-ed-48F"/>
+                        <outlet property="menuView" destination="siO-D4-V7S" id="Xiy-ZY-gps"/>
+                        <outlet property="myAccountButton" destination="fco-Xt-OzA" id="9pg-qf-gME"/>
+                        <outlet property="tourButton" destination="pq9-gl-yWg" id="y3s-Bg-2SS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qGr-Wp-bhJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -206,7 +214,7 @@
             <objects>
                 <viewController storyboardIdentifier="mainViewController" id="Jlv-XK-g75" customClass="MainViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SQV-uu-Erp">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -221,16 +229,16 @@
             <objects>
                 <viewController storyboardIdentifier="mapViewController" id="2" customClass="MapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="oib-vV-ZJ1" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CdL-qv-6WZ" userLabel="rightMapButton">
-                                <rect key="frame" x="287" y="170" width="33" height="121"/>
+                                <rect key="frame" x="287" y="180" width="33" height="121"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="drag_handle_right.png">
@@ -245,7 +253,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fmD-uV-aXz" userLabel="leftMapButton">
-                                <rect key="frame" x="0.0" y="170" width="37" height="122"/>
+                                <rect key="frame" x="0.0" y="180" width="37" height="122"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="drag_handle_left.png">
@@ -276,7 +284,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="dUk-lJ-upJ">
-                                <rect key="frame" x="96" y="150" width="128" height="86"/>
+                                <rect key="frame" x="96" y="158" width="128" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="q1a-Fm-3nc">
@@ -319,7 +327,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0cB-TF-t7p">
-                                <rect key="frame" x="232" y="384" width="82" height="70"/>
+                                <rect key="frame" x="232" y="404" width="82" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="button_booking_place_booking.png">
@@ -334,7 +342,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="hnP-Ud-CB0" userLabel="priceView">
-                                <rect key="frame" x="6" y="384" width="218" height="70"/>
+                                <rect key="frame" x="6" y="404" width="218" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M0k-Ob-aw0">
@@ -358,7 +366,7 @@
                                 <rect key="frame" x="6" y="6" width="230" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lu4-KO-p8d" customClass="FlatButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lu4-KO-p8d" customClass="FlatAutoScrollButton">
                                         <rect key="frame" x="6" y="0.0" width="218" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -373,7 +381,7 @@
                                             <action selector="pickupLocationButtonPressed:" destination="2" eventType="touchUpInside" id="3v9-Tp-hDy"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2tZ-He-9Qe" customClass="FlatButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2tZ-He-9Qe" customClass="FlatAutoScrollButton">
                                         <rect key="frame" x="6" y="35" width="218" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -412,7 +420,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="aButton" destination="q1a-Fm-3nc" id="fX3-65-pAr"/>
                         <outlet property="abView" destination="dUk-lJ-upJ" id="G2q-kY-AGE"/>
@@ -440,11 +447,11 @@
             <objects>
                 <viewController storyboardIdentifier="locationSelectorViewController" id="eac-Qg-IAo" userLabel="locationSelectorViewController" customClass="LocationSelectorViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3ei-LQ-vdI">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="YXY-VV-DtU">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="KgG-7z-0JZ">
@@ -464,28 +471,27 @@
                                     </textField>
                                 </subviews>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jtt-Kq-XH2">
-                                <rect key="frame" x="0.0" y="48" width="320" height="176"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jtt-Kq-XH2">
+                                <rect key="frame" x="0.0" y="48" width="320" height="196"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="locationTableViewCell" textLabel="xwK-XE-sBc" style="IBUITableViewCellStyleDefault" id="XMe-aC-NdH">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XMe-aC-NdH" id="LDk-4U-Ue9">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xwK-XE-sBc">
-                                                    <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -513,22 +519,21 @@
             <objects>
                 <viewController storyboardIdentifier="locationSelectionListViewController" id="6o9-cz-0gc" customClass="LocationSelectionListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PcO-5k-Tgq">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yMv-ee-jJv">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yMv-ee-jJv">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="locationSelectionListCell" id="aXA-JW-5aR">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aXA-JW-5aR" id="wOA-U7-pOj">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -549,7 +554,7 @@
             <objects>
                 <viewController storyboardIdentifier="myAccountViewController" id="i4f-X4-vdq" userLabel="myAccountViewController" customClass="MyAccountViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0bA-pj-Zki">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nXb-7P-OGq">
@@ -595,7 +600,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Wbi-Jx-CL4" customClass="FlatButton">
-                                <rect key="frame" x="20" y="396" width="280" height="44"/>
+                                <rect key="frame" x="20" y="416" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
@@ -646,7 +651,7 @@
             <objects>
                 <viewController storyboardIdentifier="startViewController" id="sCV-wb-aBk" userLabel="startViewController" customClass="StartViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nVp-Ta-d3x">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hGY-UF-uU6" customClass="FlatButton">
@@ -684,7 +689,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="e07-K7-x5e">
-                                <rect key="frame" x="0.0" y="380" width="320" height="80"/>
+                                <rect key="frame" x="0.0" y="400" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="demo_warning.png" id="H06-5t-lyG">
@@ -732,11 +737,11 @@
             <objects>
                 <viewController id="Qsh-jB-2LF" userLabel="registerViewController" customClass="CreateAccountViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H8j-5r-4e8">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7Vd-HQ-NVx" customClass="FlatButton">
-                                <rect key="frame" x="20" y="344" width="280" height="44"/>
+                                <rect key="frame" x="20" y="364" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
@@ -751,7 +756,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Iup-Dy-pl3" customClass="FlatButton">
-                                <rect key="frame" x="20" y="396" width="280" height="44"/>
+                                <rect key="frame" x="20" y="416" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
@@ -934,16 +939,16 @@
             <objects>
                 <viewController id="W0N-gz-5sE" userLabel="loginViewController" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6nJ-kZ-Hbf">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" id="AbJ-tn-7ca">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="413"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="433"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="j3K-cY-hYP" customClass="FlatButton">
-                                <rect key="frame" x="0.0" y="410" width="320" height="51"/>
+                                <rect key="frame" x="0.0" y="430" width="320" height="51"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
@@ -974,15 +979,15 @@
             <objects>
                 <viewController storyboardIdentifier="tourViewController" id="TIN-XW-l4b" userLabel="tourViewController" customClass="TourViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ERG-jC-TK1">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="bba-Q7-yWO">
-                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="aNM-JV-Ie0">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tour_01_01.png" id="xM5-Ln-iXB">
@@ -990,7 +995,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tour_01_02.png" id="jvs-yd-Nz1">
-                                                <rect key="frame" x="30" y="320" width="260" height="92"/>
+                                                <rect key="frame" x="30" y="340" width="260" height="92"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             </imageView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Scroll to your location on the map and tap A button to set the pickup point." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uoU-2q-t4i">
@@ -1001,7 +1006,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tap Book to call a cab." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gFM-XU-sVt">
-                                                <rect key="frame" x="30" y="270" width="260" height="50"/>
+                                                <rect key="frame" x="30" y="290" width="260" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1012,7 +1017,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="2KK-if-ghL">
-                                        <rect key="frame" x="320" y="0.0" width="320" height="460"/>
+                                        <rect key="frame" x="320" y="0.0" width="320" height="480"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tour_02_01.png" id="0XO-No-teW">
@@ -1020,7 +1025,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tour_02_02.png" id="kqm-WW-U8m">
-                                                <rect key="frame" x="30" y="320" width="260" height="92"/>
+                                                <rect key="frame" x="30" y="340" width="260" height="92"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             </imageView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B89-Kg-99z">
@@ -1032,7 +1037,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tap Book to call a cab." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PSI-A1-cNc">
-                                                <rect key="frame" x="30" y="270" width="260" height="50"/>
+                                                <rect key="frame" x="30" y="290" width="260" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1043,7 +1048,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="qFO-Hw-AVm">
-                                        <rect key="frame" x="640" y="0.0" width="320" height="460"/>
+                                        <rect key="frame" x="640" y="0.0" width="320" height="480"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tour_03_01.png" id="CEf-An-Fbu">
@@ -1061,7 +1066,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="qhg-4o-nid">
-                                        <rect key="frame" x="960" y="0.0" width="320" height="460"/>
+                                        <rect key="frame" x="960" y="0.0" width="320" height="480"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tour_04_01.png" id="O3w-1G-36r">
@@ -1076,7 +1081,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qb1-pt-EBs" customClass="FlatButton">
-                                                <rect key="frame" x="29" y="330" width="261" height="54"/>
+                                                <rect key="frame" x="29" y="350" width="261" height="54"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="OK">
@@ -1097,7 +1102,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </scrollView>
                             <view contentMode="scaleToFill" id="KLl-Nu-G2t" customClass="SMPageControl">
-                                <rect key="frame" x="0.0" y="420" width="320" height="36"/>
+                                <rect key="frame" x="0.0" y="440" width="320" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -1126,19 +1131,19 @@
             <objects>
                 <viewController storyboardIdentifier="historyViewController" id="o18-Fr-9Aq" userLabel="historyViewController" customClass="HistoryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XZb-dH-9P0">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jgg-eN-341">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="historyTableViewCell" rowHeight="176" id="ZGV-Ox-Z7B" customClass="BookingsHistoryViewCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="176"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="175"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZGV-Ox-Z7B" id="W13-Vv-rHo">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="pickup" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="16" id="oOW-pb-LaB">
@@ -1228,8 +1233,7 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cancelButton" destination="Qqe-hK-fFY" id="O6l-UO-Rvi"/>
                                             <outlet property="dropoffButton" destination="9Z8-8T-Awm" id="pYK-wu-OCF"/>
@@ -1247,7 +1251,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" id="FjP-Cq-PkA">
-                                <rect key="frame" x="30" y="0.0" width="290" height="460"/>
+                                <rect key="frame" x="30" y="0.0" width="290" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="rjQ-lN-hlk" userLabel="errorView">
@@ -1310,7 +1314,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="qkU-Nr-NGy" id="JpJ-Hb-tTi"/>
                         <outlet property="errorLabel" destination="tu3-Wl-SWi" id="VKZ-yd-EVO"/>
@@ -1355,205 +1358,12 @@
         <image name="tour_03_01.png" width="520" height="325"/>
         <image name="tour_04_01.png" width="361" height="146"/>
     </resources>
-    <classes>
-        <class className="BookingsHistoryViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BookingsHistoryViewCell.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButtonPressed:"/>
-                <relationship kind="action" name="dropoffButtonPressed:"/>
-                <relationship kind="action" name="pickupButtonPressed:"/>
-                <relationship kind="action" name="pickupDropoffButtonPressed:"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="dropoffButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="dropoffLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pickupAndDropoffButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="pickupButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="pickupLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CabOfficeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CabOfficeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="emailButtonPressed:"/>
-                <relationship kind="action" name="okButtonPressed:"/>
-                <relationship kind="action" name="phoneButtonPressed:"/>
-                <relationship kind="outlet" name="emailAddressTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="emailButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="officeNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="officeNameTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="okButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="phoneButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="phoneNumberTitle" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CreateAccountViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CreateAccountViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButtonPressed:"/>
-                <relationship kind="action" name="createAccountButtonPressed:"/>
-                <relationship kind="action" name="showTosButtonPressed:"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="confirmPasswordTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="confirmPasswordView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="createAccountButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="emailView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="firstNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="firstNameView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="lastNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lastNameView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="passwordView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="phoneNumberTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="phoneNumberView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="tosCheckMark" candidateClass="FlatCheckMark"/>
-                <relationship kind="outlet" name="tosLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tosShowButton" candidateClass="FlatButton"/>
-            </relationships>
-        </class>
-        <class className="FlatButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlatButton.h"/>
-        </class>
-        <class className="FlatCheckMark" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlatCheckMark.h"/>
-        </class>
-        <class className="GMSMapView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GMSMapView.h"/>
-        </class>
-        <class className="HistoryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HistoryViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tryAgainButtonPressed:"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="errorView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="messageView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="noBookingsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pleaseWaitLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pleaseWaitView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="tryAgainButton" candidateClass="FlatButton"/>
-            </relationships>
-        </class>
-        <class className="LocationSelectionBaseViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationSelectionBaseViewController.h"/>
-        </class>
-        <class className="LocationSelectionListViewController" superclassName="LocationSelectionBaseViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationSelectionListViewController.h"/>
-        </class>
-        <class className="LocationSelectorViewController" superclassName="LocationSelectionBaseViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationSelectorViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="locationTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="locationView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="logoImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="separatorView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButtonPressed:"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="MainViewController" superclassName="PKRevealController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-        </class>
-        <class className="MapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="bookButtonPressed:"/>
-                <relationship kind="action" name="buttonAPressed:"/>
-                <relationship kind="action" name="buttonBPressed:"/>
-                <relationship kind="action" name="createNewBookingButtonPressed:"/>
-                <relationship kind="action" name="leftButtonPressed:"/>
-                <relationship kind="action" name="myLocationButtonPressed:"/>
-                <relationship kind="action" name="rightButtonPressed:"/>
-                <relationship kind="outlet" name="aButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="abView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="activityIndicatorView" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="bButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="bookButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="bookingActivityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="createNewBookingButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dropoffButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="googleMapView" candidateClass="GMSMapView"/>
-                <relationship kind="outlet" name="myLocationButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="pickupButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="pickupDropoffView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="priceView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="MenuViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logoutButtonPressed:"/>
-                <relationship kind="outlet" name="appVersionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cabOfficeButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="logoutButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="myAccountButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="tourButton" candidateClass="FlatButton"/>
-            </relationships>
-        </class>
-        <class className="MyAccountViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyAccountViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="okButtonPressed:"/>
-                <relationship kind="outlet" name="emailAddressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="emailAddressTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fullNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fullNameTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="okButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="phoneNumberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="phoneNumberTitle" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PKRevealController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PKRevealController.h"/>
-        </class>
-        <class className="SMPageControl" superclassName="UIControl">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMPageControl.h"/>
-        </class>
-        <class className="StartViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="codeSignatureLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="demoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="demoView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="logoImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="registerButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="signInButton" candidateClass="FlatButton"/>
-            </relationships>
-        </class>
-        <class className="TourViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TourViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="buttonOkPressed:"/>
-                <relationship kind="outlet" name="label1_1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="label1_2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="label2_1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="label2_2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="label3_1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="label4_1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="okButton" candidateClass="FlatButton"/>
-                <relationship kind="outlet" name="pageControl" candidateClass="SMPageControl"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="N5g-Y2-gkv"/>
+        <segue reference="Svg-hP-BGK"/>
     </inferredMetricsTieBreakers>
 </document>

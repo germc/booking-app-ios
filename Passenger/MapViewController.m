@@ -49,8 +49,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (weak, nonatomic) IBOutlet UIButton *bookButton;
 @property (weak, nonatomic) IBOutlet UIView *pickupDropoffView;
-@property (weak, nonatomic) IBOutlet FlatButton *pickupButton;
-@property (weak, nonatomic) IBOutlet FlatButton *dropoffButton;
+@property (weak, nonatomic) IBOutlet FlatAutoScrollButton *pickupButton;
+@property (weak, nonatomic) IBOutlet FlatAutoScrollButton *dropoffButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *bookingActivityIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *createNewBookingButton;
@@ -130,13 +130,13 @@
     _pickupButton.buttonBackgroundColor = [UIColor clearColor];
     [_pickupButton setTitleColor:[UIColor pickupTextColor] forState:UIControlStateNormal];
     [_pickupButton setTitle:NSLocalizedString(@"pickup_line_default", @"") forState:UIControlStateNormal];
-    [_pickupButton setTextAlignment:NSTextAlignmentLeft];
+    [_pickupButton setTextAlignment:UITextAlignmentLeft];
     
     [_dropoffButton setTitleFont:[UIFont semiboldOpenSansOfSize:16]];
     _dropoffButton.buttonBackgroundColor = [UIColor clearColor];
     [_dropoffButton setTitleColor:[UIColor dropoffTextColor] forState:UIControlStateNormal];
     [_dropoffButton setTitle:[self dropoffLine] forState:UIControlStateNormal];
-    [_dropoffButton setTextAlignment:NSTextAlignmentLeft];
+    [_dropoffButton setTextAlignment:UITextAlignmentLeft];
         
     UILongPressGestureRecognizer *longPressA = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
     _aButton.tag = 1;

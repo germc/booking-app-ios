@@ -9,7 +9,7 @@
   <string name="new_booking_no_pickup_location_body">Merci de rentrer l\'adresse de départ en premier.</string>
   <string name="new_booking_pickup_date_already_passed">La date de départ indiquée se trouve dans le passé!</string>
   <string name="new_booking_pickup_date_too_ahead_body_fmt">La réservation ne peut se faire que %d jours à l\'avance.</string>
-  <string name="new_booking_pickup_date_too_early_fmt">Cab can be booked no earlier than in %d minutes from now.</string>
+  <string name="new_booking_pickup_date_too_early_fmt">Taxis peut être réservé plus tôt que dans %d minutes dès maintenant.</string>
   <string name="new_booking_title">Confirmation de réservation</string>
   <string name="new_booking_body_fmt">Votre réservation est confirmée. Votre lieu de départ est \"%s\". Merci d\'attendre votre véhicule.</string>
   <string name="new_booking_failed_body_fmt">Nous ne pouvons répondre à votre demande de réservation.\n\nMotif : %s</string>

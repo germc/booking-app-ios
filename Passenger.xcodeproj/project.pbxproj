@@ -194,6 +194,10 @@
 		23BEBF5617B0F525000345FE /* checkmark_notselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23BEBF4F17B0F525000345FE /* checkmark_notselected@2x.png */; };
 		23BEBF5717B0F525000345FE /* checkmark_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23BEBF5017B0F525000345FE /* checkmark_selected@2x.png */; };
 		23BEBF5817B0F525000345FE /* checkmark_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23BEBF5017B0F525000345FE /* checkmark_selected@2x.png */; };
+		23C2911917F1B1C700D4989B /* values-el in Resources */ = {isa = PBXBuildFile; fileRef = 23C2911817F1B1C700D4989B /* values-el */; };
+		23C2911A17F1B1C700D4989B /* values-el in Resources */ = {isa = PBXBuildFile; fileRef = 23C2911817F1B1C700D4989B /* values-el */; };
+		23C79AF217E8F3D400C20A79 /* FlatAutoScrollButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C79AF117E8F3D400C20A79 /* FlatAutoScrollButton.m */; };
+		23C79AF317E8F3D400C20A79 /* FlatAutoScrollButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C79AF117E8F3D400C20A79 /* FlatAutoScrollButton.m */; };
 		23CFE1A7176B64910048EF67 /* values-de in Resources */ = {isa = PBXBuildFile; fileRef = 23CFE19C176B64910048EF67 /* values-de */; };
 		23CFE1A8176B64910048EF67 /* values-de in Resources */ = {isa = PBXBuildFile; fileRef = 23CFE19C176B64910048EF67 /* values-de */; };
 		23CFE1A9176B64910048EF67 /* values-en in Resources */ = {isa = PBXBuildFile; fileRef = 23CFE19D176B64910048EF67 /* values-en */; };
@@ -529,6 +533,9 @@
 		23BEBF4E17B0F525000345FE /* checkmark_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark_selected.png; sourceTree = "<group>"; };
 		23BEBF4F17B0F525000345FE /* checkmark_notselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark_notselected@2x.png"; sourceTree = "<group>"; };
 		23BEBF5017B0F525000345FE /* checkmark_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark_selected@2x.png"; sourceTree = "<group>"; };
+		23C2911817F1B1C700D4989B /* values-el */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "values-el"; sourceTree = "<group>"; };
+		23C79AF017E8F3D400C20A79 /* FlatAutoScrollButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatAutoScrollButton.h; sourceTree = "<group>"; };
+		23C79AF117E8F3D400C20A79 /* FlatAutoScrollButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatAutoScrollButton.m; sourceTree = "<group>"; };
 		23CFE19C176B64910048EF67 /* values-de */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "values-de"; sourceTree = "<group>"; };
 		23CFE19D176B64910048EF67 /* values-en */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "values-en"; sourceTree = "<group>"; };
 		23CFE19E176B64910048EF67 /* values-es */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "values-es"; sourceTree = "<group>"; };
@@ -902,6 +909,7 @@
 				23D6814F175BE19500CE6FDB /* AndroidXMLReader.m */,
 				23D68150175BE19500CE6FDB /* NSBundle+AndroidStrings.h */,
 				23D68151175BE19500CE6FDB /* NSBundle+AndroidStrings.m */,
+				23C2911817F1B1C700D4989B /* values-el */,
 				232533271799F02600CEE4F6 /* values-ko */,
 				232533281799F02600CEE4F6 /* values-sv */,
 				2321DFCB1780B88C005DEAF6 /* values-ms */,
@@ -1004,6 +1012,8 @@
 				23E8D1F51750D5A500C6AB14 /* NetworkEngine.m */,
 				23E8D20117511E8600C6AB14 /* FlatButton.h */,
 				23E8D20217511E8700C6AB14 /* FlatButton.m */,
+				23C79AF017E8F3D400C20A79 /* FlatAutoScrollButton.h */,
+				23C79AF117E8F3D400C20A79 /* FlatAutoScrollButton.m */,
 				23AB20C91753F4EF0085C492 /* CBAutoScrollLabel.h */,
 				23AB20CA1753F4EF0085C492 /* CBAutoScrollLabel.m */,
 				23BEBF4917B0F312000345FE /* FlatCheckMark.h */,
@@ -1169,7 +1179,7 @@
 		23DC0141174D6C8D0066FEDB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Webnet;
 			};
 			buildConfigurationList = 23DC0144174D6C8D0066FEDB /* Build configuration list for PBXProject "Passenger" */;
@@ -1294,6 +1304,7 @@
 				23385359178DF98E003315D6 /* station_type_ship@2x.png in Resources */,
 				2338535B178DF98E003315D6 /* station_type_train.png in Resources */,
 				2338535D178DF98E003315D6 /* station_type_train@2x.png in Resources */,
+				23C2911917F1B1C700D4989B /* values-el in Resources */,
 				23BE53A617972F5B008010CB /* ConfirmBookingDialog~ipad.xib in Resources */,
 				23BE53A817972F5B008010CB /* MessageDialog~ipad.xib in Resources */,
 				23BE53CD17973B96008010CB /* GoogleMaps.bundle in Resources */,
@@ -1416,6 +1427,7 @@
 				2338535A178DF98E003315D6 /* station_type_ship@2x.png in Resources */,
 				2338535C178DF98E003315D6 /* station_type_train.png in Resources */,
 				2338535E178DF98E003315D6 /* station_type_train@2x.png in Resources */,
+				23C2911A17F1B1C700D4989B /* values-el in Resources */,
 				23BE53A717972F5B008010CB /* ConfirmBookingDialog~ipad.xib in Resources */,
 				23BE53A917972F5B008010CB /* MessageDialog~ipad.xib in Resources */,
 				23BE53CE17973B96008010CB /* GoogleMaps.bundle in Resources */,
@@ -1446,6 +1458,7 @@
 				23DC015D174D6C8D0066FEDB /* AppDelegate.m in Sources */,
 				23DC0169174D6C8D0066FEDB /* MapViewController.m in Sources */,
 				23DC0178174D72A70066FEDB /* PKRevealController.m in Sources */,
+				23C79AF217E8F3D400C20A79 /* FlatAutoScrollButton.m in Sources */,
 				23DC0179174D72A70066FEDB /* PKRevealControllerContainerView.m in Sources */,
 				23DC017A174D72A70066FEDB /* UIViewController+PKRevealController.m in Sources */,
 				23DC0195174D74580066FEDB /* NSAlert+MKNetworkKitAdditions.m in Sources */,
@@ -1511,6 +1524,7 @@
 				23E8D20A17513AAC00C6AB14 /* AppDelegate.m in Sources */,
 				23E8D20B17513AAC00C6AB14 /* MapViewController.m in Sources */,
 				23E8D20C17513AAC00C6AB14 /* PKRevealController.m in Sources */,
+				23C79AF317E8F3D400C20A79 /* FlatAutoScrollButton.m in Sources */,
 				23E8D20D17513AAC00C6AB14 /* PKRevealControllerContainerView.m in Sources */,
 				23E8D20E17513AAC00C6AB14 /* UIViewController+PKRevealController.m in Sources */,
 				23E8D20F17513AAC00C6AB14 /* NSAlert+MKNetworkKitAdditions.m in Sources */,
@@ -1610,6 +1624,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = armv7;
 			};
 			name = Debug;
 		};
@@ -1635,13 +1650,13 @@
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = armv7;
 			};
 			name = Release;
 		};
 		23DC016D174D6C8D0066FEDB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = armv7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1665,7 +1680,6 @@
 		23DC016E174D6C8D0066FEDB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = armv7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1689,7 +1703,8 @@
 		23E8D25D17513AAC00C6AB14 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = armv7;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1709,6 +1724,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Passenger;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1717,7 +1734,8 @@
 		23E8D25E17513AAC00C6AB14 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = armv7;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1734,6 +1752,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Passenger;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

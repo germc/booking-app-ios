@@ -32,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet FlatButton *tourButton;
 @property (weak, nonatomic) IBOutlet FlatButton *logoutButton;
 @property (weak, nonatomic) IBOutlet UILabel *appVersionLabel;
+@property (weak, nonatomic) IBOutlet UIView *menuView;
 
 - (IBAction)logoutButtonPressed:(id)sender;
 
@@ -63,22 +64,22 @@
     [_myAccountButton setTitleFont:[UIFont lightOpenSansOfSize:31]];
     [_myAccountButton setButtonBackgroundColor:[UIColor clearColor]];
     [_myAccountButton setTitle:NSLocalizedString(@"menu_button_account", @"") forState:UIControlStateNormal];
-    [_myAccountButton setTextAlignment:NSTextAlignmentLeft];
+    [_myAccountButton setTextAlignment:UITextAlignmentLeft];
     
     [_cabOfficeButton setTitleFont:[UIFont lightOpenSansOfSize:31]];
     [_cabOfficeButton setButtonBackgroundColor:[UIColor clearColor]];
     [_cabOfficeButton setTitle:NSLocalizedString(@"menu_button_cab_office", @"")forState:UIControlStateNormal];
-    [_cabOfficeButton setTextAlignment:NSTextAlignmentLeft];
+    [_cabOfficeButton setTextAlignment:UITextAlignmentLeft];
 
     [_tourButton setTitleFont:[UIFont lightOpenSansOfSize:31]];
     [_tourButton setButtonBackgroundColor:[UIColor clearColor]];
     [_tourButton setTitle:NSLocalizedString(@"menu_button_tour", @"") forState:UIControlStateNormal];
-    [_tourButton setTextAlignment:NSTextAlignmentLeft];
+    [_tourButton setTextAlignment:UITextAlignmentLeft];
 
     [_logoutButton setTitleFont:[UIFont lightOpenSansOfSize:31]];
     [_logoutButton setButtonBackgroundColor:[UIColor clearColor]];
     [_logoutButton setTitle:NSLocalizedString(@"menu_button_logout", @"") forState:UIControlStateNormal];
-    [_logoutButton setTextAlignment:NSTextAlignmentLeft];
+    [_logoutButton setTextAlignment:UITextAlignmentLeft];
 
     [[NetworkEngine getInstance] getFleetData:^(NSObject *o) {
                                                 self.officeData = (NSDictionary *)o;
@@ -87,6 +88,12 @@
                                           }];
 
 	// Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    _menuView.center = self.view.center;
 }
 
 - (void)didReceiveMemoryWarning

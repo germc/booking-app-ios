@@ -3,3 +3,6 @@
 *.xcsettings
 *.xcscheme
 xcschememanagement.plist
+GoogleMaps-iOS
+Passenger.xccheckout
+braintree

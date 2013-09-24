@@ -211,21 +211,58 @@
     [_dateButton setTitle:str forState:UIControlStateNormal];
 }
 
+- (BOOL)isDateToday:(NSDate *)date
+{
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:[NSDate date]];
+    NSDate *today = [cal dateFromComponents:components];
+    components = [cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:date];
+    NSDate *otherDate = [cal dateFromComponents:components];
+    
+    if([today isEqualToDate:otherDate]) {
+        return YES;
+    }
+    return NO;
+}
+
 - (IBAction)timeButtonPressed:(id)sender {
+
+    NSDate* minimumDate = nil;
+    NSInteger minimumTimeOffset = [CabOfficeSettings minimumAllowedPickupTimeOffsetInMinutes];
+    
+    if (_selectedDate)
+    {
+        if ([self isDateToday:_selectedDate])
+        {
+            minimumDate = [[NSDate date] dateByAddingTimeInterval:minimumTimeOffset * 60];
+        }
+    }
+    else
+    {
+        minimumDate = [[NSDate date] dateByAddingTimeInterval:minimumTimeOffset * 60];
+    }
+    
     [DatePickerDialog showTimePicker:^(NSDate *date){
         
         [self enableDateButton];
         
         self.selectedTime = date;
-        self.selectedDate = [NSDate date];
-        [self setButtonsTitles:date day:[NSDate date]];
-    }];
+        if (!_selectedDate)
+        {
+            self.selectedDate = [NSDate date];
+        }
+        [self setButtonsTitles:date day:_selectedDate];
+    } withMinimumDate:minimumDate];
 }
 
 - (IBAction)dateButtonPressed:(id)sender {
     [DatePickerDialog showDatePicker:^(NSDate *date){
         self.selectedDate = date;
-        [self setButtonsTitles:[NSDate date] day:date];
+        if (!_selectedTime || [self isDateToday:_selectedDate])
+        {
+            self.selectedTime = [NSDate date];
+        }
+        [self setButtonsTitles:_selectedTime day:date];
     }];
 }
 
