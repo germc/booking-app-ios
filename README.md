@@ -1,4 +1,3 @@
-
 #### Copyrights
 
 Copyright (C) 2013 T Dispatch Ltd
@@ -20,8 +19,8 @@ T Dispatch logo, T Dispatch, the T Dispatch T shaped logo are all trademarks of 
 
 Build requirements
  - At least basic knowledge on iOS development
- - XCode
- - GoogleMaps iOS SDK (https://developers.google.com/maps/documentation/ios/start)
+ - XCode 5
+ - GoogleMaps iOS SDK 7 (https://developers.google.com/maps/documentation/ios/start)
 
 To make the app work you need to collect couple of keys and tokens for various APIs application is using.
 Mandatory are T Dispatch APIs (Fleet API and Passenger API) and Google Maps iOS API.
